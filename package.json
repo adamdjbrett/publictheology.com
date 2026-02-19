@@ -1,0 +1,30 @@
+{
+  "name": "publictheology.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "eleventy",
+    "dev": "eleventy --serve",
+    "clean": "rm -rf _site"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/adamdjbrett/publictheology.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/adamdjbrett/publictheology.com/issues"
+  },
+  "homepage": "https://github.com/adamdjbrett/publictheology.com#readme",
+  "devDependencies": {
+    "@11ty/eleventy": "3.1.2"
+  },
+  "overrides": {
+    "minimatch": "10.2.1"
+  }
+}

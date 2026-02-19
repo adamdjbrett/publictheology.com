@@ -1,0 +1,36 @@
+---
+layout: layouts/base.njk
+pageTitle: Coming Soon | Public Theology
+metaDescription: Public Theology is coming soon. Sign up to receive updates and launch notifications.
+priority: 1.0
+changefreq: weekly
+---
+
+<video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+  <source src="/assets/mp4/bg.mp4" type="video/mp4" />
+</video>
+
+<div class="masthead">
+  <div class="masthead-content text-white">
+    <div class="container-fluid px-4 px-lg-0">
+      <h1 class="fst-italic lh-1 mb-4">Public Theology is Coming Soon</h1>
+      <p class="mb-5">We are preparing a new home for public theology, public witness, and shared resources. Sign up below to receive launch updates.</p>
+
+      <form id="contactForm" action="https://formspree.io/f/xjgeeydk" method="POST">
+        <input type="hidden" name="_next" value="/thank-you/" />
+        <div class="row input-group-newsletter">
+          <div class="col"><input class="form-control" id="email" name="email" type="email" placeholder="Enter email address..." aria-label="Enter email address..." required /></div>
+          <div class="col-auto"><button class="btn btn-primary" id="submitButton" type="submit">Notify Me!</button></div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+
+<div class="social-icons">
+  <div class="d-flex flex-row flex-lg-column justify-content-center align-items-center h-100 mt-3 mt-lg-0">
+    <a class="btn btn-dark m-3" href="{{ site.social.twitter }}"><i class="fab fa-twitter"></i></a>
+    <a class="btn btn-dark m-3" href="{{ site.social.facebook }}"><i class="fab fa-facebook-f"></i></a>
+    <a class="btn btn-dark m-3" href="{{ site.social.instagram }}"><i class="fab fa-instagram"></i></a>
+  </div>
+</div>
