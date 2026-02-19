@@ -1,5 +1,6 @@
 # publictheology.com
 [![xmit.com](xmit.gif)](https://xmit.co)
+
 Deployed to [xmit.co](https://xmit.co)
 
 Coming soon landing page built with Eleventy `3.1.2` and Nunjucks.
