@@ -22,8 +22,9 @@ for (const name of readdirSync("src/pages").filter((name) => name.endsWith(".md"
 	const slug = basename(name, ".md");
 	if (!existsSync(join(output, slug, "index.html"))) throw new Error(`Missing page route: /${slug}/`);
 }
-for (const slug of readFileSync("src/_data/authors.yaml", "utf8").matchAll(/^\s*slug:\s*["']?([^\s"']+)/gm)) {
-	if (!existsSync(join(output, "author", slug[1], "index.html"))) throw new Error(`Missing author route: /author/${slug[1]}/`);
+for (const name of readdirSync("src/authors").filter((name) => name.endsWith(".md"))) {
+	const slug = basename(name, ".md");
+	if (!existsSync(join(output, "authors", slug, "index.html"))) throw new Error(`Missing author route: /authors/${slug}/`);
 }
 if (!existsSync(join(output, "pagefind/pagefind-entry.json"))) throw new Error("Pagefind index was not generated");
 

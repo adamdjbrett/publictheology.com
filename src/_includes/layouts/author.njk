@@ -1,0 +1,61 @@
+---
+layout: layouts/default.njk
+bodyClass: author-template
+---
+{%- set author = (page.fileSlug | resolveAuthors(siteAuthors))[0] %}
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<section class="gh-pagehead h-card" itemscope itemtype="https://schema.org/Person">
+			<figure class="gh-author-image">
+				{% if author.profile_image %}
+					<img class="u-photo" itemprop="image" src="{{ author.profile_image }}" alt="{{ author.name }}">
+				{% else %}
+					<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>
+				{% endif %}
+			</figure>
+
+			<div class="gh-pagehead-content">
+				<h1 class="gh-pagehead-title p-name" itemprop="name">{{ author.name }}</h1>
+				{% if author.role %}
+					<div class="gh-author-location p-job-title" itemprop="jobTitle">{{ author.role }}</div>
+				{% endif %}
+				{% if content | trim %}
+					<div class="gh-author-bio gh-pagehead-description p-note">{{ content | safe }}</div>
+				{% endif %}
+				<div class="gh-author-social">
+					{% if author.orcid %}
+						<a class="gh-author-social-link u-url" href="{{ author.orcid }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on ORCID">{% include "partials/icons/orcid.njk" %}</a>
+					{% endif %}
+					{% if author.hcommons %}
+						<a class="gh-author-social-link u-url" href="{{ author.hcommons }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Humanities Commons">{% include "partials/icons/website.njk" %}</a>
+					{% endif %}
+					{% if author.email %}
+						<a class="gh-author-social-link u-email" href="mailto:{{ author.email }}" aria-label="Email {{ author.name }}">{% include "partials/icons/email.njk" %}</a>
+					{% endif %}
+					{% if author.x %}
+						<a class="gh-author-social-link u-url" href="{{ author.x }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on X">{% include "partials/icons/x.njk" %}</a>
+					{% endif %}
+					{% if author.bluesky %}
+						<a class="gh-author-social-link u-url" href="{{ author.bluesky }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Bluesky">{% include "partials/icons/bluesky.njk" %}</a>
+					{% endif %}
+					{% if author.mastodon %}
+						<a class="gh-author-social-link u-url" href="{{ author.mastodon }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Mastodon">{% include "partials/icons/mastodon.njk" %}</a>
+					{% endif %}
+					{% if author.website %}
+						<a class="gh-author-social-link u-url" href="{{ author.website }}" target="_blank" rel="noopener" aria-label="{{ author.name }}’s website">{% include "partials/icons/website.njk" %}</a>
+					{% endif %}
+				</div>
+			</div>
+		</section>
+
+		<div class="gh-topic gh-topic-grid">
+			<div class="gh-topic-content gh-feed">
+				{% for post in collections.posts %}
+					{% if author.key in post.data.authors %}
+						{% include "partials/loop-grid.njk" %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</main>

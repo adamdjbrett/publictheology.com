@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { readFileSync } from "node:fs";
+import { readFileSync, readdirSync } from "node:fs";
 import { resolve } from "node:path";
 import { load as loadYaml } from "js-yaml";
 import markdownIt from "markdown-it";
@@ -12,7 +12,11 @@ import { normalizeTerms, publicPostTags } from "./_config/taxonomy.js";
 export default async function (buildAwesomeConfig) {
 	buildAwesomeConfig.addDataExtension("yaml", loadYaml);
 	buildAwesomeConfig.addGlobalData("siteAuthors", () =>
-		loadYaml(readFileSync("src/_data/authors.yaml", "utf8")) || [],
+		readdirSync("src/authors").filter((f) => f.endsWith(".md")).map((f) => {
+			const slug = f.slice(0, -3);
+			const data = loadYaml(readFileSync(`src/authors/${f}`, "utf8").split(/^---$/m)[1]) || {};
+			return { ...data, key: slug, slug };
+		}),
 	);
 
 	buildAwesomeConfig.addPreprocessor("drafts", "*", (data) => {

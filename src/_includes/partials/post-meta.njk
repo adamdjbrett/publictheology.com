@@ -3,7 +3,7 @@
 
     <div class="gh-author-image-list instapaper_ignore">
         {% for a in postAuthors %}
-            <a class="gh-author-image" href="/author/{{ a.slug }}/">
+            <a class="gh-author-image" href="/authors/{{ a.slug }}/">
                 {% if a.profile_image %}
                     <img class="u-photo" itemprop="image" src="{{ a.profile_image }}" alt="{{ a.name }}">
                 {% else %}
@@ -16,7 +16,7 @@
     <div class="gh-author-name-list">
         {% for a in postAuthors %}
             <p class="gh-author-name p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <a class="u-url" href="/author/{{ a.slug }}/" itemprop="url"><span class="p-name" itemprop="name">{{ a.name }}</span></a>
+                <a class="u-url" href="/authors/{{ a.slug }}/" itemprop="url"><span class="p-name" itemprop="name">{{ a.name }}</span></a>
             </p>
             {% if not loop.last %},&nbsp;{% endif %}
         {% endfor %}
@@ -24,7 +24,7 @@
 
     <div class="gh-article-meta">
         <div class="gh-article-meta-inner">
-            <time class="gh-article-date dt-published" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
+            <time class="gh-article-date dt-published" itemprop="datePublished" datetime="{{ post.date | rfc3339 }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
             {% set readingMinutes = post.content | readingTime %}
             {% if readingMinutes %}
                 <span class="gh-article-meta-sep"></span>

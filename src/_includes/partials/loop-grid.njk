@@ -29,7 +29,7 @@
 
             <footer class="gh-card-footer">
                 <span class="gh-card-author">{% for a in (post.data.authors | resolveAuthors(siteAuthors)) %}{% if loop.first %}{{ a.name }}{% else %}, {{ a.name }}{% endif %}{% endfor %}</span>
-                <time class="gh-card-date dt-published" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
+                <time class="gh-card-date dt-published" itemprop="datePublished" datetime="{{ post.date | rfc3339 }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
             </footer>
         </div>
     </a>

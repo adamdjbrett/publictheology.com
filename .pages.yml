@@ -13,7 +13,7 @@ content:
     label: Posts
     type: collection
     path: src/posts
-    filename: '{fields.date}-{fields.title}.md'
+    filename: '{year}-{month}-{day}-{primary}.md'
     exclude: [posts.11tydata.js]
     view:
       fields: [title, date, authors, categories, postTags]
@@ -24,7 +24,7 @@ content:
         order: desc
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: date, label: Publish date, type: date, options: { format: yyyy-MM-dd }, required: true }
+      - { name: date, label: Publish date, type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ssXXX" }, required: true }
       - { name: custom_excerpt, label: Excerpt, type: text }
       - { name: feature_image, label: Feature image, type: image }
       - { name: feature_image_alt, label: Feature image alt text, type: string }
@@ -33,10 +33,8 @@ content:
       - { name: feature_image_caption, label: Feature image caption, type: string }
       - name: authors
         label: Authors
-        type: string
-        list: true
-        options:
-          values: [adam-brett]
+        type: reference
+        options: { collection: authors, multiple: true, search: name, value: "{path}", label: "{fields.name}" }
       - { name: categories, label: Categories, type: string, list: true }
       - { name: postTags, label: Tags, type: string, list: true }
       - { name: toc, label: Table of contents, type: boolean, default: false }
@@ -70,20 +68,23 @@ content:
   # --- Authors ----------------------------------------------------------------
   - name: authors
     label: Authors
-    type: file
-    path: src/_data/authors.yaml
-    list: true
+    type: collection
+    path: src/authors
+    filename: '{fields.name}.md'
+    exclude: [authors.11tydata.js]
+    view: { fields: [name, role], primary: name }
     fields:
-      - { name: key, label: Key (slug id), type: string, required: true }
       - { name: name, label: Name, type: string, required: true }
-      - { name: slug, label: Slug, type: string, required: true }
-      - { name: bio, label: Bio, type: text }
-      - { name: location, label: Location, type: string }
+      - { name: role, label: Role, type: string }
       - { name: profile_image, label: Profile image, type: image }
+      - { name: orcid, label: ORCID URL, type: string }
+      - { name: hcommons, label: Humanities Commons URL, type: string }
       - { name: website, label: Website, type: string }
+      - { name: email, label: Email, type: string }
       - { name: bluesky, label: Bluesky URL, type: string }
       - { name: x, label: X/Twitter URL, type: string }
       - { name: mastodon, label: Mastodon URL, type: string }
+      - { name: body, label: Bio, type: rich-text }
 
   # --- Site settings ----------------------------------------------------------
   - name: metadata

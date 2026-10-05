@@ -14,12 +14,13 @@ try {
 	SITE_TZ = "UTC";
 }
 
-// Treat a stored date as wall-clock time in `zone` (keepLocalTime), so a
-// date-only front-matter value never drifts across the UTC boundary.
+// Date-only front matter parses as UTC midnight: keep it as a wall-clock date in
+// `zone` so it never drifts. Full timestamps with an offset are real instants.
+// ponytail: a real timestamp at exactly 00:00:00Z reads as date-only; harmless (same day shown).
 function inZone(dateObj, zone) {
-	return DateTime.fromJSDate(dateObj, { zone: "utc" }).setZone(zone || SITE_TZ, {
-		keepLocalTime: true,
-	});
+	const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
+	const dateOnly = dt.hour === 0 && dt.minute === 0 && dt.second === 0 && dt.millisecond === 0;
+	return dt.setZone(zone || SITE_TZ, { keepLocalTime: dateOnly });
 }
 
 /**
@@ -47,7 +48,7 @@ export default function (eleventyConfig) {
 
 	// RFC 3339 timestamp in the site timezone (for the Atom feed).
 	eleventyConfig.addFilter("rfc3339", (dateObj, zone) =>
-		inZone(dateObj, zone).toISO(),
+		inZone(dateObj, zone).toISO({ suppressMilliseconds: true }),
 	);
 
 	eleventyConfig.addFilter("year", () => `${new Date().getFullYear()}`);
@@ -78,12 +79,13 @@ export default function (eleventyConfig) {
 		(terms || []).find((term) => term.name.toLowerCase() === String(name).toLowerCase()),
 	);
 
-	// Resolve author keys on a post to full author objects from _data/authors.
+	// Resolve author keys on a post to full author objects from src/authors/.
 	eleventyConfig.addFilter("resolveAuthors", (keys, authors) => {
 		if (!keys || !authors) return [];
 		const list = Array.isArray(keys) ? keys : String(keys).split(",").map((k) => k.trim());
 		return list
-			.map((key) => authors.find((a) => a.key === key))
+			// Pages CMS reference fields store the file path (src/authors/x.md).
+			.map((key) => authors.find((a) => a.key === key.replace(/^.*\/|\.md$/g, "")))
 			.filter(Boolean);
 	});
 
@@ -140,7 +142,7 @@ export default function (eleventyConfig) {
 		ld.author = (o.authors || []).map((a) => ({
 			"@type": "Person",
 			name: a.name,
-			url: o.siteUrl + "/author/" + a.slug + "/",
+			url: o.siteUrl + "/authors/" + a.slug + "/",
 		}));
 		return ld;
 	});

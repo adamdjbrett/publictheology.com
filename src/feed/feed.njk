@@ -12,16 +12,16 @@ eleventyExcludeFromCollections: true
 	<id>{{ metadata.url }}/</id>
 	{%- set newest = collections.posts | head(1) %}
 	{%- if newest.length %}
-	<updated>{{ newest[0].date | htmlDateString }}T00:00:00Z</updated>
+	<updated>{{ newest[0].date | rfc3339 }}</updated>
 	{%- else %}
-	<updated>{{ page.date | htmlDateString }}T00:00:00Z</updated>
+	<updated>{{ page.date | rfc3339 }}</updated>
 	{%- endif %}
 	{%- for post in collections.posts | head(20) %}
 	<entry>
 		<title>{{ post.data.title }}</title>
 		<link href="{{ metadata.url }}{{ post.url }}"/>
 		<id>{{ metadata.url }}{{ post.url }}</id>
-		<updated>{{ post.date | htmlDateString }}T00:00:00Z</updated>
+		<updated>{{ post.date | rfc3339 }}</updated>
 		{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
 		<author><name>{{ a.name }}</name></author>
 		{%- endfor %}

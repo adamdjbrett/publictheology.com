@@ -45,7 +45,7 @@
 {%- set ldAuthors = authors | resolveAuthors(siteAuthors) %}
 {%- set imageAbs = "" %}
 {%- if feature_image %}{% set imageAbs = feature_image if feature_image.startsWith('http') else metadata.url + feature_image %}{% endif %}
-{%- set postLd = { title: title, description: pageDesc, url: metadata.url + page.url, date: (page.date | htmlDateString), lang: schema.language, image: imageAbs, authors: ldAuthors, siteUrl: metadata.url, siteName: metadata.title, blogId: schema.blogId, publisher: schema.publisher } | postingLd %}
+{%- set postLd = { title: title, description: pageDesc, url: metadata.url + page.url, date: (page.date | rfc3339), lang: schema.language, image: imageAbs, authors: ldAuthors, siteUrl: metadata.url, siteName: metadata.title, blogId: schema.blogId, publisher: schema.publisher } | postingLd %}
 <script type="application/ld+json">{{ postLd | dump | safe }}</script>
 {#- Zotero: Highwire (citation_*) + Dublin Core metadata for harvestability. -#}
 <link rel="type" href="https://schema.org/BlogPosting">

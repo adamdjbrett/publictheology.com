@@ -1,58 +1,22 @@
 ---
 layout: layouts/default.njk
 bodyClass: author-template
-pagination:
-  data: siteAuthors
-  size: 1
-  alias: author
-permalink: "/author/{{ author.slug }}/"
-eleventyComputed:
-  title: "{{ author.name }}"
+permalink: /authors/
+title: Authors
 ---
 <main class="gh-main gh-outer">
 	<div class="gh-inner">
-		<section class="gh-pagehead h-card" itemscope itemtype="https://schema.org/Person">
-			<figure class="gh-author-image">
-				{% if author.profile_image %}
-					<img class="u-photo" itemprop="image" src="{{ author.profile_image }}" alt="{{ author.name }}">
-				{% else %}
-					<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>
-				{% endif %}
-			</figure>
-
-			<div class="gh-pagehead-content">
-				<h1 class="gh-pagehead-title p-name" itemprop="name">{{ author.name }}</h1>
-				{% if author.location %}
-					<div class="gh-author-location">{{ author.location }}</div>
-				{% endif %}
-				{% if author.bio %}
-					<div class="gh-author-bio gh-pagehead-description p-note">{{ author.bio }}</div>
-				{% endif %}
-				<div class="gh-author-social">
-					{% if author.x %}
-						<a class="gh-author-social-link u-url" href="{{ author.x }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on X">{% include "partials/icons/x.njk" %}</a>
-					{% endif %}
-					{% if author.bluesky %}
-						<a class="gh-author-social-link u-url" href="{{ author.bluesky }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Bluesky">{% include "partials/icons/bluesky.njk" %}</a>
-					{% endif %}
-					{% if author.mastodon %}
-						<a class="gh-author-social-link u-url" href="{{ author.mastodon }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Mastodon">{% include "partials/icons/mastodon.njk" %}</a>
-					{% endif %}
-					{% if author.website %}
-						<a class="gh-author-social-link u-url" href="{{ author.website }}" target="_blank" rel="noopener" aria-label="{{ author.name }}’s website">{% include "partials/icons/website.njk" %}</a>
-					{% endif %}
+		<h1 class="gh-pagehead-title">Authors</h1>
+		{% for author in siteAuthors %}
+			<section class="gh-pagehead h-card">
+				<figure class="gh-author-image">
+					{% if author.profile_image %}<img class="u-photo" src="{{ author.profile_image }}" alt="{{ author.name }}">{% else %}<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>{% endif %}
+				</figure>
+				<div class="gh-pagehead-content">
+					<h2 class="gh-pagehead-title p-name"><a class="u-url" href="/authors/{{ author.slug }}/">{{ author.name }}</a></h2>
+					{% if author.role %}<div class="gh-author-location p-job-title">{{ author.role }}</div>{% endif %}
 				</div>
-			</div>
-		</section>
-
-		<div class="gh-topic gh-topic-grid">
-			<div class="gh-topic-content gh-feed">
-				{% for post in collections.posts %}
-					{% if author.key in post.data.authors %}
-						{% include "partials/loop-grid.njk" %}
-					{% endif %}
-				{% endfor %}
-			</div>
-		</div>
+			</section>
+		{% endfor %}
 	</div>
 </main>
