@@ -26,8 +26,8 @@ unqualified `latest` tag.
 - **Drafts**: `published: false` front matter marks a post or page as draft.
   A build-mode preprocessor drops them from production; they render in `--serve`.
 - **Timezone**: `src/_data/metadata.yaml → timezone` (IANA) feeds the date filters
-  in `_config/filters.js`, which treat front-matter dates as wall-clock in that
-  zone (`keepLocalTime`) so date-only values never drift across UTC.
+  in `_config/filters.js`, which keep date-only values as wall-clock dates in that
+  zone; full timestamps with an offset (`2026-10-06T09:00:00-05:00`) are kept as-is.
 - Layout chain: content → `_includes/layouts/{post,page,home}.njk` →
   `_includes/layouts/default.njk` (renders `<head>`, header, footer, search modal).
 - Shared partials are included with `{% include "partials/NAME.njk" %}` and
@@ -41,8 +41,8 @@ unqualified `latest` tag.
 - Prefer `postTags` for public tags. Legacy `tags` values remain supported after
   internal collection tags are removed. Taxonomy values may be strings or
   `{name, slug?, url?}` objects.
-- Global author records are exposed as `siteAuthors`; `authors` on a post is the
-  list of author keys.
+- Authors are one Markdown file each in `src/authors/` (`/authors/<slug>/`), exposed
+  as `siteAuthors`; `authors` on a post lists slugs or `src/authors/<slug>.md` paths.
 
 ## Gotchas (Eleventy v4 alpha)
 
@@ -58,7 +58,7 @@ unqualified `latest` tag.
   on post/page `<article>` scopes the index.
 - **Light/dark**: no-flash script in `head.njk`, `assets/css/darkmode.css`,
   `assets/js/theme-toggle.js`, default in `_data/theme.yaml`.
-- **Pages CMS**: `.pages.yml` field paths must track `src/_data/*`, `src/posts` and `src/pages`.
+- **Pages CMS**: `.pages.yml` field paths must track `src/_data/*`, `src/posts`, `src/pages` and `src/authors`.
 
 ## Boundaries
 

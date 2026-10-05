@@ -13,8 +13,9 @@ subscribe:
   footer_text: Subscribe
   url: /feed.xml
 footer:
-  copyright_holder: Public Theology
-  rights: All rights reserved.
+  license: CC BY 4.0
+  license_url: https://creativecommons.org/licenses/by/4.0/
+  license_badge: /assets/images/cc-by.svg
 organization:
   name: Public Theology
   url: https://publictheology.com/

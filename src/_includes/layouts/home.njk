@@ -20,6 +20,7 @@ bodyClass: home-template
 				{% set isHome = true %}
 				{% for post in collections.posts | head(7) %}
 					{% set isLCP = loop.first %}
+					{% set large = loop.first %}
 					{% include "partials/loop-grid.njk" %}
 				{% endfor %}
 			</div>

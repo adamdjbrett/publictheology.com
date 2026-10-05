@@ -106,8 +106,9 @@ content:
         label: Footer
         type: object
         fields:
-          - { name: copyright_holder, label: Copyright holder, type: string }
-          - { name: rights, label: Rights statement, type: string }
+          - { name: license, label: License name, type: string }
+          - { name: license_url, label: License URL, type: string }
+          - { name: license_badge, label: License badge, type: image }
       - name: organization
         label: Organization
         type: object

@@ -122,6 +122,8 @@ body,.gh-head,.gh-foot,.gh-card,.gh-article,.gh-content{transition:var(--gh-tran
 :root[data-theme="dark"] .gh-head{background-color:#16181c;border-color:#2a2e35}
 :root[data-theme="dark"] .gh-foot{background-color:#0f1113}
 :root[data-theme="dark"] .gh-foot,:root[data-theme="dark"] .gh-foot a,:root[data-theme="dark"] .gh-foot a:hover{color:#e6e8eb}
+:root[data-theme="dark"] .gh-subscribe-title{color:#fff}
+:root[data-theme="dark"] .gh-foot .gh-subscribe-btn{color:#15171a;background-color:#fff}
 :root[data-theme="dark"] .gh-topic,:root[data-theme="dark"] .gh-card-link{border-color:#2a2e35}
 :root[data-theme="dark"] .gh-card-image img,:root[data-theme="dark"] .gh-article-image img,:root[data-theme="dark"] .gh-cover-image{filter:brightness(0.88) contrast(1.02)}
 :root[data-theme="dark"] .gh-content pre{background-color:#0f1113;border:1px solid #2a2e35}
@@ -144,9 +146,9 @@ body,.gh-head,.gh-foot,.gh-card,.gh-article,.gh-content{transition:var(--gh-tran
 .gh-head-search-btn svg{width:20px;height:20px;display:block}
 /* Red Subscribe button (editorial.ghost.io style) */
 .gh-head-actions-right{align-items:center}
-.gh-subscribe-btn,.gh-subscribe-btn:hover{color:#fff}
+.gh-head .gh-subscribe-btn,.gh-head .gh-subscribe-btn:hover{color:#fff}
 /* align-self:center + margin:0 override the theme's actions-bar alignment so the
    button's vertical centre lines up with the site title. */
-.gh-subscribe-btn{background-color:#e12026;border-radius:100px;align-self:center;margin:0}
-.gh-subscribe-btn:hover{background-color:#c01319;opacity:1}
+.gh-head .gh-subscribe-btn{background-color:#e12026;border-radius:100px;align-self:center;margin:0}
+.gh-head .gh-subscribe-btn:hover{background-color:#c01319;opacity:1}
 </style>

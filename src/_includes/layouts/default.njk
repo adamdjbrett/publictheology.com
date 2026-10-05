@@ -66,6 +66,17 @@
 
 	<footer class="gh-foot gh-outer">
 		<div class="gh-foot-inner gh-inner">
+			{%- set subUrl = metadata.subscribe.url or metadata.subscribe_url %}
+			{%- if subUrl %}
+			<section class="gh-subscribe">
+				<h3 class="gh-subscribe-title">Subscribe to {{ metadata.title }}</h3>
+				{%- if theme.email_signup_text %}
+				<div class="gh-subscribe-description">{{ theme.email_signup_text }}</div>
+				{%- endif %}
+				<a class="gh-subscribe-btn gh-btn" href="{{ subUrl }}"{% if subUrl.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{% include "partials/icons/email.njk" %} {{ metadata.subscribe.footer_text or 'Subscribe now' }}</a>
+			</section>
+			{%- endif %}
+
 			<nav class="gh-foot-menu">
 				<ul class="nav">
 					{%- for item in navigation.secondary %}
@@ -83,8 +94,8 @@
 			</div>
 
 			<div class="gh-copyright">
-				{%- if metadata.footer.copyright_holder %}
-					{{ metadata.footer.copyright_holder }} &copy; {{ '' | year }}. {{ metadata.footer.rights }}
+				{%- if metadata.footer.license_url %}
+					<a rel="license" href="{{ metadata.footer.license_url }}">{% if metadata.footer.license_badge %}<img src="{{ metadata.footer.license_badge }}" alt="" width="88" height="31" style="display:inline-block;vertical-align:middle"> {% endif %}{{ metadata.footer.license }}</a>
 				{%- elif theme.footer_text %}
 					{{ theme.footer_text }}
 				{%- else %}

@@ -6,6 +6,11 @@ authors: [adam-dj-brett]
 postTags: [public-theology, public-sphere, interreligious]
 categories: [Editorial]
 template: post
+feature_image: /assets/images/nolan-issac-It0DCaCBr40-unsplash.webp
+feature_image_alt: Caffe latte in a white ceramic cup beside a laptop
+feature_image_width: 1920
+feature_image_height: 1280
+feature_image_caption: 'Photo by <a href="https://unsplash.com/@nolanissac?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Nolan Issac</a> on <a href="https://unsplash.com/photos/caffe-latte-on-white-ceramic-cup-beside-silver-and-black-laptop-computer-It0DCaCBr40?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 ---
 Whose public do we mean when we say public theology? Which theology? I will argue that public theology is theology done in public, for the public, and answerable to the public; that it matters now because the public itself is in trouble; and that it is at its best when it is inclusive, interreligious, and ecumenical. We can either lament what lacks or we can create what we wish to see in the world. Therefore, I will also make the case for [publictheology.com](https://publictheology.com) and [Ebenezer: A Journal of Public Theology](https://journal.publictheology.com) as a digital public spheres.
 
@@ -39,6 +44,6 @@ Against those who would police the field, I affirm that public theology is capac
 
 Jürgen Habermas, in *The Structural Transformation of the Public Sphere* (1962; English 1989), located the modern public sphere in the coffeehouses, salons, and periodicals of the eighteenth century, where private persons reasoned together and where, at least in principle, the better argument rather than the higher rank carried the day. Habermas was writing an elegy; he thought mass media had colonized that sphere. He was not wrong, and he could not have imagined what came next.
 
-[publictheology.com](https://publictheology.com) and [Ebenezer: A Journal of Public Theology](https://journal.publictheology.com) are an attempt to hold space for a digital coffeehouse, with Fraser's corrections built in. The blog is the periodical: short, timely, argued, open to reply. The journal is the slower conversation: peer reviewed, open access, and committed to the idea that argument about public life should itself be public rather than paywalled. Neither is a pulpit. Both are tables. The criterion for a seat is not confession but the willingness to give reasons and to hear them. That is a modest ambition and, at present, a rare one.
+[publictheology.com](https://publictheology.com) and [Ebenezer: A Journal of Public Theology](https://journal.publictheology.com) are an attempt to hold space for a digital coffeehouse, with Fraser's corrections built in. The blog is the periodical: short, timely, argued, open to reply. The journal is the slower conversation: peer reviewed, open access, and committed to the idea that argument about public life should itself be public rather than paywalled. Neither is a pulpit. Both are tables. The criterion for a seat is not confession but the willingness to give reasons and to hear them. Such an ambition is modest and, at present, rare.
 
 Whose public? Everyone's. Which theology? Those commited to love, justice, inclusion, and the work of the prophetic. Gather round.

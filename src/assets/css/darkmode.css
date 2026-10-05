@@ -70,6 +70,14 @@ body,
 :root[data-theme="dark"] .gh-foot a:hover {
 	color: #e6e8eb;
 }
+/* Footer subscribe block stays white-on-dark, as in light mode */
+:root[data-theme="dark"] .gh-subscribe-title {
+	color: #fff;
+}
+:root[data-theme="dark"] .gh-foot .gh-subscribe-btn {
+	color: #15171a;
+	background-color: #fff;
+}
 
 /* Card / topic dividers */
 :root[data-theme="dark"] .gh-topic,
