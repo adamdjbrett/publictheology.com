@@ -1,0 +1,14 @@
+primary:
+  - label: Home
+    url: /
+  - label: Latest
+    url: /latest/
+  - label: About
+    url: /about/
+secondary:
+  - label: About
+    url: /about/
+  - label: Contact
+    url: /contact/
+  - label: RSS
+    url: /feed.xml

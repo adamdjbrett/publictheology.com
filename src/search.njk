@@ -1,0 +1,42 @@
+---
+layout: layouts/default.njk
+bodyClass: search-template
+permalink: /search/
+title: Search
+eleventyExcludeFromCollections: true
+---
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<section class="gh-pagehead">
+			<h1 class="gh-pagehead-title">{{ "Search" | t }}</h1>
+		</section>
+
+		<div id="search" class="gh-search-page">
+			<pagefind-input autofocus></pagefind-input>
+			<pagefind-summary></pagefind-summary>
+			<pagefind-results show-images></pagefind-results>
+		</div>
+	</div>
+</main>
+
+<link rel="stylesheet" href="/pagefind/pagefind-component-ui.css">
+<script type="module" src="/pagefind/pagefind-component-ui.js"></script>
+
+<style>
+	.gh-search-page {
+		max-width: 680px;
+		margin: 3.2rem auto 6.4rem;
+	}
+
+</style>
+
+<script type="module">
+	const q = new URLSearchParams(location.search).get("q");
+	if (q) customElements.whenDefined("pagefind-input").then(() => {
+		const input = document.querySelector("pagefind-input input");
+		if (input) {
+			input.value = q;
+			input.dispatchEvent(new Event("input", { bubbles: true }));
+		}
+	});
+</script>

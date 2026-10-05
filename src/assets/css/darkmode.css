@@ -1,0 +1,126 @@
+/* ---------------------------------------------------------------------------
+   Light / dark mode for the Headline theme.
+
+   The theme's palette lives in :root as raw tokens (--color-white is used for
+   surfaces, --color-darker-gray for near-black text). We remap those tokens
+   under [data-theme="dark"] and add a few explicit fixes where a raw token is
+   used ambiguously (footer/header/images).
+
+   The <html> element gets data-theme="light" | "dark" from the inline no-flash
+   script in the <head> before first paint. When no explicit choice is stored,
+   the visitor's OS preference wins.
+
+   NOTE: this file is INLINED (minified) into the <style> block in
+   src/_includes/partials/head.njk to save a render-blocking request — it is
+   no longer linked from <head>. If you edit rules here, re-sync that copy.
+--------------------------------------------------------------------------- */
+
+:root {
+	color-scheme: light;
+	--gh-transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	/* Surfaces (was near-white) → dark */
+	--color-white: #16181c;
+	--color-lighter-gray: #1c1f24;
+	--color-light-gray: #2a2e35; /* borders / dividers */
+	--color-mid-gray: #3a3f47;
+
+	/* Text (was near-black) → light */
+	--color-dark-gray: #c3c8d0;
+	--color-darker-gray: #f3f4f6;
+	--color-primary-text: #e6e8eb;
+	--color-secondary-text: #a4abb4;
+	--color-black: #ffffff;
+
+	--background-color: #16181c;
+}
+
+/* Smooth the switch on the big surfaces */
+body,
+.gh-head,
+.gh-foot,
+.gh-card,
+.gh-article,
+.gh-content {
+	transition: var(--gh-transition);
+}
+
+/* --- Explicit fixes: elements whose colours are hard-coded or ambiguous --- */
+
+:root[data-theme="dark"] body {
+	background-color: #16181c;
+}
+
+/* Header sits on the page surface */
+:root[data-theme="dark"] .gh-head {
+	background-color: #16181c;
+	border-color: #2a2e35;
+}
+
+/* Footer keeps a darker slab with light text (it hard-codes white text) */
+:root[data-theme="dark"] .gh-foot {
+	background-color: #0f1113;
+}
+:root[data-theme="dark"] .gh-foot,
+:root[data-theme="dark"] .gh-foot a,
+:root[data-theme="dark"] .gh-foot a:hover {
+	color: #e6e8eb;
+}
+
+/* Card / topic dividers */
+:root[data-theme="dark"] .gh-topic,
+:root[data-theme="dark"] .gh-card-link {
+	border-color: #2a2e35;
+}
+
+/* Slightly calm images in dark mode */
+:root[data-theme="dark"] .gh-card-image img,
+:root[data-theme="dark"] .gh-article-image img,
+:root[data-theme="dark"] .gh-cover-image {
+	filter: brightness(0.88) contrast(1.02);
+}
+
+/* Code blocks */
+:root[data-theme="dark"] .gh-content pre {
+	background-color: #0f1113;
+	border: 1px solid #2a2e35;
+}
+
+/* --- The toggle button ---------------------------------------------------- */
+.gh-theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	border-radius: 50%;
+}
+.gh-theme-toggle:hover {
+	background: rgba(127, 127, 127, 0.14);
+}
+.gh-theme-toggle svg {
+	width: 20px;
+	height: 20px;
+}
+/* Show sun in dark mode, moon in light mode */
+.gh-theme-toggle .icon-sun {
+	display: none;
+}
+.gh-theme-toggle .icon-moon {
+	display: block;
+}
+:root[data-theme="dark"] .gh-theme-toggle .icon-sun {
+	display: block;
+}
+:root[data-theme="dark"] .gh-theme-toggle .icon-moon {
+	display: none;
+}

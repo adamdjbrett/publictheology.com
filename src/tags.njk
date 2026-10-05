@@ -1,0 +1,26 @@
+---
+layout: layouts/default.njk
+bodyClass: tag-template
+pagination:
+  data: collections.topics
+  size: 1
+  alias: topic
+permalink: "{{ topic.url }}"
+eleventyComputed:
+  title: "{{ topic.name }}"
+---
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<section class="gh-pagehead">
+			<h1 class="gh-pagehead-title">{{ topic.name }}</h1>
+		</section>
+
+		<div class="gh-topic gh-topic-grid">
+			<div class="gh-topic-content gh-feed">
+				{% for post in topic.posts %}
+					{% include "partials/loop-grid.njk" %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</main>

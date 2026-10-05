@@ -1,0 +1,28 @@
+---
+permalink: /feed/feed.json
+eleventyExcludeFromCollections: true
+---
+{
+	"version": "https://jsonfeed.org/version/1.1",
+	"title": {{ metadata.title | dump | safe }},
+	"home_page_url": {{ (metadata.url + "/") | dump | safe }},
+	"feed_url": {{ (metadata.url + "/feed/feed.json") | dump | safe }},
+	"description": {{ metadata.description | dump | safe }},
+	"language": {{ metadata.language | dump | safe }},
+	"items": [
+		{%- for post in collections.posts | head(20) %}
+		{
+			"id": {{ (metadata.url + post.url) | dump | safe }},
+			"url": {{ (metadata.url + post.url) | dump | safe }},
+			"title": {{ post.data.title | dump | safe }},
+			"content_html": {{ post.content | dump | safe }},
+			"date_published": {{ (post.date | rfc3339) | dump | safe }},
+			"authors": [
+				{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
+				{ "name": {{ a.name | dump | safe }} }{% if not loop.last %},{% endif %}
+				{%- endfor %}
+			]
+		}{% if not loop.last %},{% endif %}
+		{%- endfor %}
+	]
+}

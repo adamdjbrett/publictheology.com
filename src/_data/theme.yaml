@@ -1,0 +1,9 @@
+navigation_layout: Stacked
+header_style: Light
+title_font: Modern sans-serif
+body_font: Elegant serif
+email_signup_text: Follow new posts by RSS.
+footer_text: ""
+primary_section_tags: []
+secondary_section_tags: []
+default_color_scheme: light

@@ -1,0 +1,8 @@
+{% set categoryTerms = post.data.categories | taxonomyTerms('category') %}
+{% set tagTerms = post.data.postTags | taxonomyTerms('tag') %}
+{% if categoryTerms.length or tagTerms.length %}
+<div class="gh-post-taxonomy gh-canvas" aria-label="Post categories and tags">
+	{% if categoryTerms.length %}<p><strong>{{ "Category" if categoryTerms.length == 1 else "Categories" }}:</strong>{% for term in categoryTerms %} <a href="{{ term.url }}">{{ term.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+	{% if tagTerms.length %}<p><strong>{{ "Tag" if tagTerms.length == 1 else "Tags" }}:</strong>{% for term in tagTerms %} <a href="{{ term.url }}">#{{ term.name }}</a>{% if not loop.last %}, {% endif %}{% endfor %}</p>{% endif %}
+</div>
+{% endif %}

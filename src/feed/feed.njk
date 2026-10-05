@@ -1,0 +1,34 @@
+---
+permalink: /feed.xml
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/feed/pretty-atom-feed.xsl"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+	<title>{{ metadata.title }}</title>
+	<subtitle>{{ metadata.description }}</subtitle>
+	<link href="{{ metadata.url }}/feed.xml" rel="self"/>
+	<link href="{{ metadata.url }}/"/>
+	<id>{{ metadata.url }}/</id>
+	{%- set newest = collections.posts | head(1) %}
+	{%- if newest.length %}
+	<updated>{{ newest[0].date | htmlDateString }}T00:00:00Z</updated>
+	{%- else %}
+	<updated>{{ page.date | htmlDateString }}T00:00:00Z</updated>
+	{%- endif %}
+	{%- for post in collections.posts | head(20) %}
+	<entry>
+		<title>{{ post.data.title }}</title>
+		<link href="{{ metadata.url }}{{ post.url }}"/>
+		<id>{{ metadata.url }}{{ post.url }}</id>
+		<updated>{{ post.date | htmlDateString }}T00:00:00Z</updated>
+		{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
+		<author><name>{{ a.name }}</name></author>
+		{%- endfor %}
+		{%- if post.data.custom_excerpt %}
+		<summary>{{ post.data.custom_excerpt }}</summary>
+		{%- endif %}
+		<content type="html">{{ post.content | e }}</content>
+	</entry>
+	{%- endfor %}
+</feed>

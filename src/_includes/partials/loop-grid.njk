@@ -1,0 +1,36 @@
+<article class="gh-card{% if large %} large{% endif %} h-entry" itemscope itemtype="https://schema.org/BlogPosting">
+    <a class="gh-card-link u-url" itemprop="url" href="{{ post.url }}">
+        {% if post.data.feature_image %}
+            <figure class="gh-card-image">
+                <img
+                    src="{{ post.data.feature_image }}"
+                    alt="{{ post.data.feature_image_alt or post.data.title }}"
+					{% if post.data.feature_image_width %}width="{{ post.data.feature_image_width }}"{% endif %}
+					{% if post.data.feature_image_height %}height="{{ post.data.feature_image_height }}"{% endif %}
+                    sizes="(min-width: 768px) 160px, 120px"
+                    {% if isLCP %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+                    decoding="async"
+                >
+            </figure>
+        {% endif %}
+
+        <div class="gh-card-wrapper">
+            <header class="gh-card-header">
+                <h2 class="gh-card-title p-name" itemprop="headline">{{ post.data.title }}</h2>
+            </header>
+
+            {#- Home shows an excerpt only on the large card; everywhere else always -#}
+            {% if large or not isHome %}
+                {% set cardExcerpt = post.data.custom_excerpt or (post.content | excerpt(40)) %}
+                {% if cardExcerpt %}
+                    <div class="gh-card-excerpt">{{ cardExcerpt }}</div>
+                {% endif %}
+            {% endif %}
+
+            <footer class="gh-card-footer">
+                <span class="gh-card-author">{% for a in (post.data.authors | resolveAuthors(siteAuthors)) %}{% if loop.first %}{{ a.name }}{% else %}, {{ a.name }}{% endif %}{% endfor %}</span>
+                <time class="gh-card-date dt-published" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
+            </footer>
+        </div>
+    </a>
+</article>

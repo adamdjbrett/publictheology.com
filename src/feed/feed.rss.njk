@@ -1,0 +1,32 @@
+---
+permalink: /feed/feed.rss
+eleventyExcludeFromCollections: true
+---
+<?xml version="1.0" encoding="utf-8"?>
+<?xml-stylesheet type="text/xsl" href="/feed/pretty-atom-feed.xsl"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>{{ metadata.title }}</title>
+		<link>{{ metadata.url }}/</link>
+		<description>{{ metadata.description }}</description>
+		<language>{{ metadata.language }}</language>
+		<atom:link href="{{ metadata.url }}/feed/feed.rss" rel="self" type="application/rss+xml"/>
+		{%- set newest = collections.posts | head(1) %}
+		{%- if newest.length %}
+		<lastBuildDate>{{ newest[0].date.toUTCString() }}</lastBuildDate>
+		{%- endif %}
+		{%- for post in collections.posts | head(20) %}
+		<item>
+			<title>{{ post.data.title }}</title>
+			<link>{{ metadata.url }}{{ post.url }}</link>
+			<guid isPermaLink="true">{{ metadata.url }}{{ post.url }}</guid>
+			<pubDate>{{ post.date.toUTCString() }}</pubDate>
+			{%- if post.data.custom_excerpt %}
+			<description>{{ post.data.custom_excerpt }}</description>
+			{%- else %}
+			<description>{{ post.content | excerpt(40) }}</description>
+			{%- endif %}
+		</item>
+		{%- endfor %}
+	</channel>
+</rss>

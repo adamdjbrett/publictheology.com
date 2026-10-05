@@ -1,0 +1,20 @@
+{# Related posts: up to 3 other posts sharing a public tag with the current one.
+   Computed in the `relatedPosts` filter to avoid Nunjucks namespace mutation. #}
+{% set related = post | relatedPosts(collections.posts, 3) %}
+{% if related.length %}
+	<div class="gh-read-next gh-canvas">
+		<section class="gh-pagehead">
+			<h2 class="gh-pagehead-title">{{ "Read next" | t }}</h2>
+		</section>
+
+		<div class="gh-topic gh-topic-grid">
+			<div class="gh-topic-content">
+				{% set large = false %}
+				{% set isHome = false %}
+				{% for post in related %}
+					{% include "partials/loop-grid.njk" %}
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+{% endif %}

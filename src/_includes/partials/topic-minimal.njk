@@ -1,0 +1,14 @@
+<section class="gh-topic gh-topic-minimal">
+    <header class="gh-topic-header">
+        <h2 class="gh-topic-name">
+            <a href="{{ topic.url }}">{{ topic.name }}</a>
+        </h2>
+        <a class="gh-topic-link" href="{{ topic.url }}">{{ "More" | t }}<span class="gh-sr-only"> {{ topic.name }}</span> {% include "partials/icons/arrow.njk" %}</a>
+    </header>
+
+    <div class="gh-topic-content">
+        {% for post in topic.posts | head(5) %}
+            {% include "partials/loop-minimal.njk" %}
+        {% endfor %}
+    </div>
+</section>

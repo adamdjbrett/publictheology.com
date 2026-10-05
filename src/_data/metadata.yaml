@@ -1,0 +1,30 @@
+title: Public Theology
+description: Public theology, public witness and shared resources.
+url: https://publictheology.com
+language: en
+locale: en_US
+timezone: America/Chicago
+logo: ""
+icon: ""
+cover_image: ""
+subscribe_url: /feed.xml
+subscribe:
+  text: Subscribe
+  footer_text: Subscribe
+  url: /feed.xml
+footer:
+  copyright_holder: Public Theology
+  rights: All rights reserved.
+organization:
+  name: Public Theology
+  url: https://publictheology.com/
+social_accounts:
+  - type: x
+    name: X
+    href: https://x.com/_publictheology
+  - type: facebook
+    name: Facebook
+    href: https://facebook.com/publictheologycom
+  - type: instagram
+    name: Instagram
+    href: https://instagram.com/publictheologycom

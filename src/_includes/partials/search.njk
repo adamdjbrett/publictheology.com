@@ -1,0 +1,16 @@
+{#- Header search trigger (Phosphor magnifier icon).
+    Normal pages: a <pagefind-modal-trigger> button that lazy-loads + opens the
+    search modal (see pagefind-loader.js; also bound to Cmd/Ctrl-K).
+    /search/ page: no modal there (it embeds the full inline Pagefind UI), so
+    the icon just links to the on-page search. -#}
+{%- if page.url == '/search/' -%}
+<a class="gh-head-search-btn gh-icon-btn" href="#search" aria-label="{{ 'Search this site' | t }}">
+	{% include "partials/icons/search.njk" %}
+</a>
+{%- else -%}
+<pagefind-modal-trigger>
+	<button class="gh-head-search-btn gh-icon-btn" type="button" aria-label="{{ 'Search this site' | t }}">
+		{% include "partials/icons/search.njk" %}
+	</button>
+</pagefind-modal-trigger>
+{%- endif -%}

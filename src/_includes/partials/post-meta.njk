@@ -1,0 +1,38 @@
+<aside class="gh-article-sidebar">
+    {%- set postAuthors = post.data.authors | resolveAuthors(siteAuthors) %}
+
+    <div class="gh-author-image-list instapaper_ignore">
+        {% for a in postAuthors %}
+            <a class="gh-author-image" href="/author/{{ a.slug }}/">
+                {% if a.profile_image %}
+                    <img class="u-photo" itemprop="image" src="{{ a.profile_image }}" alt="{{ a.name }}">
+                {% else %}
+                    <div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>
+                {% endif %}
+            </a>
+        {% endfor %}
+    </div>
+
+    <div class="gh-author-name-list">
+        {% for a in postAuthors %}
+            <p class="gh-author-name p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                <a class="u-url" href="/author/{{ a.slug }}/" itemprop="url"><span class="p-name" itemprop="name">{{ a.name }}</span></a>
+            </p>
+            {% if not loop.last %},&nbsp;{% endif %}
+        {% endfor %}
+    </div>
+
+    <div class="gh-article-meta">
+        <div class="gh-article-meta-inner">
+            <time class="gh-article-date dt-published" itemprop="datePublished" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
+            {% set readingMinutes = post.content | readingTime %}
+            {% if readingMinutes %}
+                <span class="gh-article-meta-sep"></span>
+                <span class="gh-article-length">{% if readingMinutes == 1 %}{{ "1 min" | t }}{% else %}{{ ("% min" | t) | replace("%", readingMinutes) }}{% endif %}</span>
+            {% endif %}
+        </div>
+    </div>
+
+    <a href="#/share" class="gh-button-share">{{ "Share" | t }}</a>
+
+</aside>

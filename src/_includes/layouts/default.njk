@@ -1,0 +1,112 @@
+{#- Base layout (was default.hbs). Sets <head>, header, footer and the
+    Pagefind search modal. Body layouts set `bodyClass` and provide content. -#}
+{%- set navClass = "is-head-stacked" -%}
+{%- if theme.navigation_layout == "Logo on the left" -%}{% set navClass = "is-head-left-logo" %}
+{%- elif theme.navigation_layout == "Logo in the middle" -%}{% set navClass = "is-head-middle-logo" %}
+{%- endif -%}
+{%- set headStyle = "" -%}
+{%- if theme.header_style == "Accent color" -%}{% set headStyle = " is-head-brand" %}
+{%- elif theme.header_style == "Dark" -%}{% set headStyle = " is-head-dark" %}
+{%- endif -%}
+{%- set fontClass = "" -%}
+{%- if theme.title_font == "Elegant serif" -%}{% set fontClass = fontClass + " has-serif-title" %}{%- endif -%}
+{%- if theme.body_font == "Elegant serif" -%}{% set fontClass = fontClass + " has-serif-body" %}{%- endif -%}
+<!doctype html>
+<html lang="{{ metadata.language or 'en' }}">
+<head>
+{% include "partials/head.njk" %}
+</head>
+
+<body class="{{ bodyClass or 'home-template' }} {{ navClass }}{{ fontClass }}{{ headStyle }}">
+<div class="gh-site">
+	<div class="gh-skip-links">
+		<a class="gh-skip-link" href="#primary-navigation">{{ "Skip to navigation" | t }}</a>
+		<a class="gh-skip-link" href="#main-content">{{ "Skip to body" | t }}</a>
+	</div>
+
+	<header id="gh-head" class="gh-head gh-outer h-card">
+		<div class="gh-head-inner gh-inner">
+			<div class="gh-head-brand">
+				<div class="gh-head-brand-wrapper">
+					<a class="gh-head-logo p-name p-org u-url{% if bodyClass == 'home-template' %} is-title{% endif %}" href="/">
+						{%- if metadata.logo %}
+							<img src="{{ metadata.logo }}" alt="{{ metadata.title }}">
+						{%- else %}
+							{{ metadata.title }}
+						{%- endif %}
+					</a>
+				</div>
+				<button class="gh-burger" type="button" aria-label="{{ 'Toggle menu' | t }}"></button>
+			</div>
+
+			<nav id="primary-navigation" class="gh-head-menu" tabindex="-1" aria-label="Primary navigation">
+				<ul class="nav">
+					{%- for item in navigation.primary %}
+					<li class="nav-item{% if (page.url or '/') == item.url %} nav-current{% endif %}">
+						<a href="{{ item.url }}">{{ item.label }}</a>
+					</li>
+					{%- endfor %}
+				</ul>
+			</nav>
+
+			<div class="gh-head-actions">
+				<div class="gh-head-actions-left">
+					{% include "partials/theme-toggle.njk" %}
+					{% include "partials/search.njk" %}
+				</div>
+				<div class="gh-head-actions-right">
+					{%- set subUrl = metadata.subscribe.url or metadata.subscribe_url or '#subscribe' -%}
+					<a class="gh-subscribe-btn gh-btn" href="{{ subUrl }}"{% if subUrl.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{{ metadata.subscribe.text or ('Subscribe' | t) }}</a>
+				</div>
+			</div>
+		</div>
+	</header>
+
+	<div id="main-content" tabindex="-1">{{ content | safe }}</div>
+
+	<footer class="gh-foot gh-outer">
+		<div class="gh-foot-inner gh-inner">
+			<nav class="gh-foot-menu">
+				<ul class="nav">
+					{%- for item in navigation.secondary %}
+					<li class="nav-item"><a href="{{ item.url }}">{{ item.label }}</a></li>
+					{%- endfor %}
+				</ul>
+			</nav>
+
+			<div class="gh-social-links">
+				{%- for account in metadata.social_accounts %}
+				<a href="{{ account.href }}" target="_blank" rel="noopener" aria-label="{{ account.name }}">
+					{% include "partials/icons/" + account.type + ".njk" ignore missing %}
+				</a>
+				{%- endfor %}
+			</div>
+
+			<div class="gh-copyright">
+				{%- if metadata.footer.copyright_holder %}
+					{{ metadata.footer.copyright_holder }} &copy; {{ '' | year }}. {{ metadata.footer.rights }}
+				{%- elif theme.footer_text %}
+					{{ theme.footer_text }}
+				{%- else %}
+					{{ metadata.title }} &copy; {{ '' | year }}
+				{%- endif %}
+			</div>
+		</div>
+	</footer>
+
+</div>
+
+{#- Pagefind search MODAL — on every page EXCEPT /search/ (which embeds the
+    full inline Pagefind UI). The Component UI is lazy-loaded by
+    pagefind-loader.js on first search intent (trigger click or Cmd/Ctrl-K). -#}
+{%- if page.url != '/search/' %}
+<pagefind-modal reset-on-close></pagefind-modal>
+{%- endif %}
+
+<script src="/assets/built/main.min.js" defer></script>
+<script src="/assets/js/theme-toggle.js" defer></script>
+{%- if page.url != '/search/' %}
+<script src="/assets/js/pagefind-loader.js" defer></script>
+{%- endif %}
+</body>
+</html>

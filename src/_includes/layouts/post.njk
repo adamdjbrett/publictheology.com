@@ -1,0 +1,113 @@
+---
+layout: layouts/default.njk
+bodyClass: post-template
+---
+{#- Post layout (was post.hbs / custom-full-feature-image.hbs /
+    custom-wide-feature-image.hbs). Branches on the `template` front
+    matter field. Shared partials receive a uniform `post` object. -#}
+{% set resolvedTags = postTags | resolvedPostTags(tags) %}
+{% set post = {
+	url: page.url,
+	date: page.date,
+	content: content,
+	data: {
+		title: title,
+		custom_excerpt: custom_excerpt,
+		feature_image: feature_image,
+		feature_image_alt: feature_image_alt,
+		feature_image_caption: feature_image_caption,
+		feature_image_width: feature_image_width,
+		feature_image_height: feature_image_height,
+		authors: authors,
+		postTags: resolvedTags,
+		categories: categories,
+		template: template
+	}
+} %}
+{% set primaryTag = (resolvedTags | taxonomyTerms('tag'))[0] %}
+
+{% if template == "full-feature-image" %}
+{#- custom-full-feature-image.hbs: full-bleed cover, then article -#}
+{% if feature_image %}
+	<section class="gh-cover loading gh-outer">
+		<img
+			class="gh-cover-image"
+			src="{{ feature_image }}"
+			alt="{{ feature_image_alt or title }}"
+			{% if feature_image_width %}width="{{ feature_image_width }}"{% endif %}
+			{% if feature_image_height %}height="{{ feature_image_height }}"{% endif %}
+			sizes="100vw"
+			loading="eager"
+			fetchpriority="high"
+			decoding="async"
+		>
+
+		<div class="gh-cover-content">
+			{% if primaryTag %}
+				<a class="gh-article-tag" href="{{ primaryTag.url }}">{{ primaryTag.name }}</a>
+			{% endif %}
+
+			<h1 class="gh-cover-title p-name" itemprop="headline name">{{ title }}</h1>
+		</div>
+	</section>
+{% endif %}
+
+<main class="gh-main">
+	{% include "partials/breadcrumbs.njk" %}
+	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
+		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
+		<header class="gh-article-header gh-canvas">
+			{% include "partials/post-meta.njk" %}
+
+			{% if custom_excerpt %}
+				<p class="gh-article-excerpt">{{ custom_excerpt }}</p>
+			{% endif %}
+		</header>
+
+		<section class="gh-content gh-canvas e-content" itemprop="articleBody">
+			{% if toc %}{{ content | toc | safe }}{% endif %}
+			{{ ((content | tocBacklinks) if toc else content) | safe }}
+		</section>
+	</article>
+	{% include "partials/post-taxonomy.njk" %}
+
+	{% include "partials/related-posts.njk" %}
+
+	{% include "partials/comments.njk" %}
+</main>
+{% else %}
+{#- post.hbs (default, also used for "wide-feature-image") -#}
+<main class="gh-main">
+	{% include "partials/breadcrumbs.njk" %}
+	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
+		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
+
+		<header class="gh-article-header gh-canvas">
+			{% if primaryTag %}
+				<a class="gh-article-tag" href="{{ primaryTag.url }}">{{ primaryTag.name }}</a>
+			{% endif %}
+
+			<h1 class="gh-article-title p-name" itemprop="headline name">{{ title }}</h1>
+
+			{% if custom_excerpt %}
+				<p class="gh-article-excerpt">{{ custom_excerpt }}</p>
+			{% endif %}
+
+			{% include "partials/post-meta.njk" %}
+
+			{% include "partials/feature-image.njk" %}
+		</header>
+
+		<section class="gh-content gh-canvas e-content" itemprop="articleBody">
+			{% if toc %}{{ content | toc | safe }}{% endif %}
+			{{ ((content | tocBacklinks) if toc else content) | safe }}
+		</section>
+
+	</article>
+	{% include "partials/post-taxonomy.njk" %}
+
+	{% include "partials/related-posts.njk" %}
+
+	{% include "partials/comments.njk" %}
+</main>
+{% endif %}

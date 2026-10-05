@@ -1,46 +1,37 @@
-# publictheology.com
-[![xmit.com](xmit.gif)](https://xmit.co)
+# Public Theology
 
-Deployed to [xmit.co](https://xmit.co)
-
-Coming soon landing page built with Eleventy `3.1.2` and Nunjucks.
+**Public Theology** is a new publication of public theology, public witness and shared resources: writing on how faith meets public life, edited by Adam DJ Brett.
 
 ## Stack
 
-- Eleventy 3.1.2
-- Nunjucks templates
-- Formspree signup form
+- **Build Awesome** 4.0.0-alpha.10 (Eleventy v4)
+- **Nunjucks** templates
+- **Pagefind** search
+- **Pages CMS** for content management
+- Deployed to **xmit.co**
 
-## Theme Credit
-
-This site layout is based on Start Bootstrap Coming Soon:
-
-- https://github.com/StartBootstrap/startbootstrap-coming-soon
-
-## Local Development
+## Getting Started
 
 ```bash
 nvm use
-npm install
+npm ci
 npm run dev
 ```
 
 Site runs at `http://localhost:8080`.
 
-## Build
+## Build & Deploy
 
 ```bash
 npm run build
 ```
 
-## Important Routes
+The build runs Pagefind indexing and verifies the output. Commits to `main` deploy via GitHub Actions to xmit.co.
 
-- `/` (coming soon page)
-- `/thank-you/` (post-signup confirmation)
-- `/robots.txt`
-- `/humans.txt`
-- `/sitemap.xml`
+## Content & Editing
 
-## License
+Posts, pages, and authors live in `src/` as Markdown/YAML. Edit via [Pages CMS](https://app.pagescms.org) or directly in the repo. Drafts are marked `published: false` in front matter and excluded from production builds.
 
-MIT. See `LICENSE`.
+## Credits
+
+Built with the [Ghost Headline theme](https://github.com/TryGhost/Headline) (MIT) and [Phosphor icons](https://phosphoricons.com). See `LICENSE` for details.

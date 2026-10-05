@@ -1,0 +1,37 @@
+---
+layout: layouts/default.njk
+bodyClass: paged-template
+pagination:
+  data: collections.posts
+  size: 7
+  alias: pagedPosts
+permalink: "/latest/{% if pagination.pageNumber > 0 %}page/{{ pagination.pageNumber + 1 }}/{% endif %}"
+eleventyComputed:
+  title: "Latest"
+---
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<section class="gh-pagehead">
+			<h1 class="gh-pagehead-title">{{ "Latest" | t }}</h1>
+		</section>
+
+		<div class="gh-topic gh-topic-grid">
+			<div class="gh-topic-content gh-feed">
+				{% for post in pagedPosts %}
+					{% include "partials/loop-grid.njk" %}
+				{% endfor %}
+			</div>
+		</div>
+
+		{% if pagination.href.previous or pagination.href.next %}
+			<nav class="gh-pagination">
+				{% if pagination.href.previous %}
+					<a class="gh-pagination-newer" href="{{ pagination.href.previous }}">{{ "Newer Posts" | t }}</a>
+				{% endif %}
+				{% if pagination.href.next %}
+					<a class="gh-pagination-older" href="{{ pagination.href.next }}">{{ "Older Posts" | t }}</a>
+				{% endif %}
+			</nav>
+		{% endif %}
+	</div>
+</main>

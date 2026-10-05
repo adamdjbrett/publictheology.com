@@ -21,8 +21,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     env:
-      # Target site/domain for XMIT deploy
-      XMIT_SITE: publictheology.com@402 
+      XMIT_SITE: publictheology.com@402
     steps:
       - name: Checkout
         uses: actions/checkout@v6
@@ -30,21 +29,14 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v6
         with:
-          node-version: 24
+          node-version-file: .nvmrc
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
 
       - name: Build Eleventy site
         run: npm run build
-
-      - name: Verify build output
-        run: |
-          if [ ! -d _site ]; then
-            echo "_site directory missing after build" >&2
-            exit 1
-          fi
-          ls -1 _site | head -n 20
 
       - name: Deploy to XMIT (CLI)
         env:
@@ -70,13 +62,3 @@ jobs:
         run: |
           echo "Deployment attempt finished for $XMIT_SITE";
           echo "Visit: https://$XMIT_SITE";
-
-    # Uncomment below for an alternative raw API upload if you have endpoint details
-    # steps:
-    #   - name: Deploy via API (curl)
-    #     run: |
-    #       tar -czf site.tar.gz -C _site .
-    #       curl -f -X POST \
-    #         -H "Authorization: Bearer $XMIT_KEY" \
-    #         -F "bundle=@site.tar.gz" \
-    #         https://api.xmit.example/deploy?site=$XMIT_SITE

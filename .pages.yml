@@ -1,0 +1,183 @@
+# Pages CMS: https://pagescms.org/docs/configuration/
+
+media:
+  - name: assets
+    label: Images & Media
+    input: src/assets/images
+    output: /assets/images
+    categories: [image]
+
+content:
+  # --- Posts -----------------------------------------------------------------
+  - name: posts
+    label: Posts
+    type: collection
+    path: src/posts
+    filename: '{fields.date}-{fields.title}.md'
+    exclude: [posts.11tydata.js]
+    view:
+      fields: [title, date, authors, categories, postTags]
+      primary: title
+      sort: [date, title]
+      default:
+        sort: date
+        order: desc
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: date, label: Publish date, type: date, options: { format: yyyy-MM-dd }, required: true }
+      - { name: custom_excerpt, label: Excerpt, type: text }
+      - { name: feature_image, label: Feature image, type: image }
+      - { name: feature_image_alt, label: Feature image alt text, type: string }
+      - { name: feature_image_width, label: Feature image width, type: number }
+      - { name: feature_image_height, label: Feature image height, type: number }
+      - { name: feature_image_caption, label: Feature image caption, type: string }
+      - name: authors
+        label: Authors
+        type: string
+        list: true
+        options:
+          values: [adam-brett]
+      - { name: categories, label: Categories, type: string, list: true }
+      - { name: postTags, label: Tags, type: string, list: true }
+      - { name: toc, label: Table of contents, type: boolean, default: false }
+      - name: template
+        label: Post layout
+        type: select
+        options:
+          values: [post, wide-feature-image, full-feature-image]
+        default: post
+      - { name: published, label: Published (uncheck = draft), type: boolean, default: true }
+      - { name: body, label: Body, type: rich-text }
+
+  # --- Pages ------------------------------------------------------------------
+  - name: pages
+    label: Pages
+    type: collection
+    path: src/pages
+    filename: '{fields.title}.md'
+    fields:
+      - { name: title, label: Title, type: string, required: true }
+      - { name: custom_excerpt, label: Excerpt, type: text }
+      - { name: feature_image, label: Feature image, type: image }
+      - { name: feature_image_alt, label: Feature image alt text, type: string }
+      - { name: feature_image_width, label: Feature image width, type: number }
+      - { name: feature_image_height, label: Feature image height, type: number }
+      - { name: feature_image_caption, label: Feature image caption, type: string }
+      - { name: show_title_and_feature_image, label: Show title & feature image, type: boolean, default: true }
+      - { name: eleventyNavigation, label: Nav (advanced), type: object, fields: [ { name: key, type: string }, { name: order, type: number } ] }
+      - { name: body, label: Body, type: rich-text }
+
+  # --- Authors ----------------------------------------------------------------
+  - name: authors
+    label: Authors
+    type: file
+    path: src/_data/authors.yaml
+    list: true
+    fields:
+      - { name: key, label: Key (slug id), type: string, required: true }
+      - { name: name, label: Name, type: string, required: true }
+      - { name: slug, label: Slug, type: string, required: true }
+      - { name: bio, label: Bio, type: text }
+      - { name: location, label: Location, type: string }
+      - { name: profile_image, label: Profile image, type: image }
+      - { name: website, label: Website, type: string }
+      - { name: bluesky, label: Bluesky URL, type: string }
+      - { name: x, label: X/Twitter URL, type: string }
+      - { name: mastodon, label: Mastodon URL, type: string }
+
+  # --- Site settings ----------------------------------------------------------
+  - name: metadata
+    label: Site Settings
+    type: file
+    path: src/_data/metadata.yaml
+    fields:
+      - { name: title, label: Site title, type: string, required: true }
+      - { name: description, label: Description, type: text }
+      - { name: url, label: Site URL, type: string }
+      - name: subscribe
+        label: Subscribe button
+        type: object
+        fields:
+          - { name: text, label: Button text, type: string }
+          - { name: footer_text, label: Footer text, type: string }
+          - { name: url, label: URL, type: string }
+      - name: footer
+        label: Footer
+        type: object
+        fields:
+          - { name: copyright_holder, label: Copyright holder, type: string }
+          - { name: rights, label: Rights statement, type: string }
+      - name: organization
+        label: Organization
+        type: object
+        fields:
+          - { name: name, label: Name, type: string }
+          - { name: url, label: URL, type: string }
+          - { name: email, label: Email, type: string }
+          - { name: telephone, label: Telephone, type: string }
+          - name: address
+            label: Address
+            type: object
+            fields:
+              - { name: street, label: Street, type: string }
+              - { name: locality, label: Locality, type: string }
+              - { name: region, label: Region, type: string }
+              - { name: postal_code, label: Postal code, type: string }
+              - { name: country, label: Country code, type: string }
+      - { name: language, label: Language code, type: string }
+      - { name: locale, label: Locale, type: string }
+      - { name: timezone, label: Timezone (IANA, e.g. America/New_York), type: string }
+      - { name: logo, label: Logo, type: image }
+      - { name: icon, label: Icon / favicon, type: image }
+      - { name: cover_image, label: Default cover image, type: image }
+      - name: social_accounts
+        label: Social accounts
+        type: object
+        list: true
+        fields:
+          - name: type
+            label: Platform
+            type: select
+            options:
+              values: [x, facebook, instagram, linkedin, bluesky, mastodon, threads, tiktok, youtube, website, email]
+          - { name: name, label: Label, type: string }
+          - { name: href, label: URL, type: string }
+
+  - name: navigation
+    label: Navigation
+    type: file
+    path: src/_data/navigation.yaml
+    fields:
+      - name: primary
+        label: Primary menu
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string, required: true }
+          - { name: url, label: URL, type: string, required: true }
+      - name: secondary
+        label: Secondary (footer) menu
+        type: object
+        list: true
+        fields:
+          - { name: label, label: Label, type: string, required: true }
+          - { name: url, label: URL, type: string, required: true }
+
+  - name: theme
+    label: Theme Options
+    type: file
+    path: src/_data/theme.yaml
+    fields:
+      - { name: navigation_layout, label: Navigation layout, type: select, options: { values: [Stacked, "Logo on the left", "Logo in the middle"] } }
+      - { name: header_style, label: Header style, type: select, options: { values: [Light, Accent color, Dark] } }
+      - { name: title_font, label: Title font, type: select, options: { values: [Modern sans-serif, Elegant serif] } }
+      - { name: body_font, label: Body font, type: select, options: { values: [Modern sans-serif, Elegant serif] } }
+      - { name: default_color_scheme, label: Default colour scheme, type: select, options: { values: [light, dark] } }
+      - { name: email_signup_text, label: Email signup text, type: text }
+      - { name: footer_text, label: Footer text, type: string }
+      - { name: primary_section_tags, label: Primary homepage topic tags, type: string, list: true }
+      - { name: secondary_section_tags, label: Secondary homepage topic tags, type: string, list: true }
+
+settings:
+  content:
+    merge: true

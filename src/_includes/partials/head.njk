@@ -1,0 +1,152 @@
+{#- Everything inside <head>: SEO, no-flash theme script, styles, Pagefind. -#}
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="generator" content="{{ eleventy.generator }}">
+
+{%- set pageTitle = title or metadata.title %}
+{%- set pageDesc = description or custom_excerpt or excerpt or metadata.description %}
+{%- set pageImage = feature_image or cover_image or metadata.cover_image %}
+<title>{% if title %}{{ title }} — {{ metadata.title }}{% else %}{{ metadata.title }}{% endif %}</title>
+<meta name="description" content="{{ pageDesc }}">
+<link rel="canonical" href="{{ metadata.url }}{{ page.url or '/' }}">
+
+{#- Open Graph / Twitter -#}
+<meta property="og:site_name" content="{{ metadata.title }}">
+<meta property="og:type" content="{% if layout == 'layouts/post.njk' %}article{% else %}website{% endif %}">
+<meta property="og:url" content="{{ metadata.url }}{{ page.url or '/' }}">
+<meta property="og:title" content="{{ pageTitle }}">
+<meta property="og:description" content="{{ pageDesc }}">
+{%- if pageImage %}
+<meta property="og:image" content="{% if pageImage.startsWith('http') %}{{ pageImage }}{% else %}{{ metadata.url }}{{ pageImage }}{% endif %}">
+<meta property="og:image:alt" content="{{ feature_image_alt or pageTitle }}">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ pageTitle }}">
+<meta name="twitter:description" content="{{ pageDesc }}">
+<meta name="twitter:image" content="{% if pageImage.startsWith('http') %}{{ pageImage }}{% else %}{{ metadata.url }}{{ pageImage }}{% endif %}">
+{%- else %}
+<meta name="twitter:card" content="summary">
+{%- endif %}
+
+<link rel="icon" href="{{ metadata.icon or '/favicon.svg' }}"{% if not metadata.icon %} type="image/svg+xml"{% endif %}>
+<link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} (Atom)" href="/feed.xml">
+<link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} (RSS)" href="/feed/feed.rss">
+<link rel="alternate" type="application/feed+json" title="{{ metadata.title }} (JSON)" href="/feed/feed.json">
+
+{#- Preoptimized source images are copied as-is; preload only the page hero. -#}
+{%- if feature_image and not feature_image.startsWith('http') %}
+<link rel="preload" as="image" href="{{ feature_image }}" fetchpriority="high">
+{%- endif %}
+
+{#- Structured data (JSON-LD), autofilled from metadata via _data/schema.js:
+    WebSite on every page, Blog on the homepage, BlogPosting + Zotero-harvestable
+    citation metadata on posts. -#}
+<script type="application/ld+json">{{ schema.siteGraph | dump | safe }}</script>
+{%- if layout == 'layouts/post.njk' %}
+{%- set ldAuthors = authors | resolveAuthors(siteAuthors) %}
+{%- set imageAbs = "" %}
+{%- if feature_image %}{% set imageAbs = feature_image if feature_image.startsWith('http') else metadata.url + feature_image %}{% endif %}
+{%- set postLd = { title: title, description: pageDesc, url: metadata.url + page.url, date: (page.date | htmlDateString), lang: schema.language, image: imageAbs, authors: ldAuthors, siteUrl: metadata.url, siteName: metadata.title, blogId: schema.blogId, publisher: schema.publisher } | postingLd %}
+<script type="application/ld+json">{{ postLd | dump | safe }}</script>
+{#- Zotero: Highwire (citation_*) + Dublin Core metadata for harvestability. -#}
+<link rel="type" href="https://schema.org/BlogPosting">
+<meta name="citation_title" content="{{ title }}">
+{%- for a in ldAuthors %}
+<meta name="citation_author" content="{{ a.name }}">
+{%- endfor %}
+<meta name="citation_publication_date" content="{{ page.date | htmlDateString }}">
+<meta name="citation_fulltext_html_url" content="{{ metadata.url }}{{ page.url }}">
+<meta name="citation_public_url" content="{{ metadata.url }}{{ page.url }}">
+<meta name="citation_journal_title" content="{{ metadata.title }}">
+<meta name="citation_language" content="{{ schema.language }}">
+<meta name="DC.title" content="{{ title }}">
+{%- for a in ldAuthors %}
+<meta name="DC.creator" content="{{ a.name }}">
+{%- endfor %}
+<meta name="DC.date" content="{{ page.date | htmlDateString }}">
+<meta name="DC.language" content="{{ schema.language }}">
+<meta name="DC.publisher" content="{{ metadata.title }}">
+{%- endif %}
+
+{#- No-flash: set the colour scheme before first paint. -#}
+<script>
+	(function () {
+		try {
+			var stored = localStorage.getItem("headline-color-scheme");
+			var scheme = stored || (window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+			document.documentElement.setAttribute("data-theme", scheme);
+		} catch (e) {
+			document.documentElement.setAttribute("data-theme", "{{ theme.default_color_scheme or 'light' }}");
+		}
+	})();
+</script>
+
+{#- Styles: one external stylesheet (large, cacheable) + one inline <style>.
+    fonts.css and darkmode.css are inlined below to save two render-blocking
+    requests; @font-face urls are rewritten from ../fonts/ to /assets/fonts/
+    because they are now relative to the HTML document.
+    If you edit src/assets/css/darkmode.css, re-sync the copy here.
+    Pagefind Component UI is no longer loaded in <head> — it is lazy-loaded
+    on first search intent by /assets/js/pagefind-loader.js (see default.njk). -#}
+<link rel="stylesheet" href="/assets/built/screen.css">
+<link rel="stylesheet" href="/assets/css/site.css">
+<style>
+/* --- utilities --- */
+.gh-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+/* --- a11y contrast overrides (loads after screen.css) ---
+   On full-feature-image posts the theme colours the sidebar Share button
+   white (for the dark cover), but the sidebar sits on the light page body,
+   so force a readable colour in both themes. */
+/* Byline author links: ensure a >=24px touch target (WCAG 2.5.8) even when
+   two authors sit side by side in the sidebar. */
+.gh-author-name-list .gh-author-name a{display:inline-block;min-height:24px;padding-block:3px}
+.gh-article-sidebar .gh-button-share{color:rgba(0,0,0,.85);border-color:rgba(0,0,0,.18)}
+.gh-article-sidebar .gh-button-share:hover{border-color:rgba(0,0,0,.5)}
+:root[data-theme="dark"] .gh-article-sidebar .gh-button-share{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.22)}
+:root[data-theme="dark"] .gh-article-sidebar .gh-button-share:hover{border-color:rgba(255,255,255,.5)}
+/* --- fonts.css (inlined) --- */
+@font-face{font-family:Inter;font-style:normal;font-weight:400;font-display:optional;src:local(""),url("/assets/fonts/inter-v12-latin-regular.woff2") format("woff2"),url("/assets/fonts/inter-v12-latin-regular.woff") format("woff")}
+@font-face{font-family:Inter;font-style:normal;font-weight:500;font-display:optional;src:local(""),url("/assets/fonts/inter-v12-latin-500.woff2") format("woff2"),url("/assets/fonts/inter-v12-latin-500.woff") format("woff")}
+@font-face{font-family:Inter;font-style:normal;font-weight:600;font-display:optional;src:local(""),url("/assets/fonts/inter-v12-latin-600.woff2") format("woff2"),url("/assets/fonts/inter-v12-latin-600.woff") format("woff")}
+@font-face{font-family:Inter;font-style:normal;font-weight:700;font-display:optional;src:local(""),url("/assets/fonts/inter-v12-latin-700.woff2") format("woff2"),url("/assets/fonts/inter-v12-latin-700.woff") format("woff")}
+@font-face{font-family:Lora;font-style:normal;font-weight:400;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-regular.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-regular.woff") format("woff")}
+@font-face{font-family:Lora;font-style:normal;font-weight:500;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-500.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-500.woff") format("woff")}
+@font-face{font-family:Lora;font-style:normal;font-weight:600;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-600.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-600.woff") format("woff")}
+@font-face{font-family:Lora;font-style:normal;font-weight:700;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-700.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-700.woff") format("woff")}
+@font-face{font-family:Lora;font-style:italic;font-weight:400;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-italic.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-italic.woff") format("woff")}
+@font-face{font-family:Lora;font-style:italic;font-weight:700;font-display:optional;src:local(""),url("/assets/fonts/lora-v25-latin-700italic.woff2") format("woff2"),url("/assets/fonts/lora-v25-latin-700italic.woff") format("woff")}
+/* --- darkmode.css (inlined) --- */
+:root{color-scheme:light;--gh-transition:color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease}
+:root[data-theme="dark"]{color-scheme:dark;--color-white:#16181c;--color-lighter-gray:#1c1f24;--color-light-gray:#2a2e35;--color-mid-gray:#3a3f47;--color-dark-gray:#c3c8d0;--color-darker-gray:#f3f4f6;--color-primary-text:#e6e8eb;--color-secondary-text:#a4abb4;--color-black:#ffffff;--background-color:#16181c}
+body,.gh-head,.gh-foot,.gh-card,.gh-article,.gh-content{transition:var(--gh-transition)}
+:root[data-theme="dark"] body{background-color:#16181c}
+:root[data-theme="dark"] .gh-head{background-color:#16181c;border-color:#2a2e35}
+:root[data-theme="dark"] .gh-foot{background-color:#0f1113}
+:root[data-theme="dark"] .gh-foot,:root[data-theme="dark"] .gh-foot a,:root[data-theme="dark"] .gh-foot a:hover{color:#e6e8eb}
+:root[data-theme="dark"] .gh-topic,:root[data-theme="dark"] .gh-card-link{border-color:#2a2e35}
+:root[data-theme="dark"] .gh-card-image img,:root[data-theme="dark"] .gh-article-image img,:root[data-theme="dark"] .gh-cover-image{filter:brightness(0.88) contrast(1.02)}
+:root[data-theme="dark"] .gh-content pre{background-color:#0f1113;border:1px solid #2a2e35}
+.gh-theme-toggle{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:transparent;border:0;color:inherit;cursor:pointer;border-radius:50%}
+.gh-theme-toggle:hover{background:rgba(127,127,127,0.14)}
+.gh-theme-toggle svg{width:20px;height:20px}
+/* Light mode shows the sun; dark mode shows the moon-stars. */
+.gh-theme-toggle .icon-sun{display:block}
+.gh-theme-toggle .icon-moon{display:none}
+:root[data-theme="dark"] .gh-theme-toggle .icon-sun{display:none}
+:root[data-theme="dark"] .gh-theme-toggle .icon-moon{display:block}
+/* --- Header action clusters: toggle+search on the left, Subscribe on the right --- */
+.gh-head-actions-left{display:flex;align-items:center;gap:2px}
+.gh-head-actions-right{display:flex;align-items:center}
+/* Search icon button (Phosphor magnifier), mirrors the theme toggle. Uses a
+   distinct class so the theme's `.gh-head-actions .gh-search{display:none}`
+   rule doesn't hide it. */
+.gh-head-search-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:transparent;border:0;color:inherit;cursor:pointer;border-radius:50%;text-decoration:none}
+.gh-head-search-btn:hover{background:rgba(127,127,127,0.14)}
+.gh-head-search-btn svg{width:20px;height:20px;display:block}
+/* Red Subscribe button (editorial.ghost.io style) */
+.gh-head-actions-right{align-items:center}
+.gh-subscribe-btn,.gh-subscribe-btn:hover{color:#fff}
+/* align-self:center + margin:0 override the theme's actions-bar alignment so the
+   button's vertical centre lines up with the site title. */
+.gh-subscribe-btn{background-color:#e12026;border-radius:100px;align-self:center;margin:0}
+.gh-subscribe-btn:hover{background-color:#c01319;opacity:1}
+</style>

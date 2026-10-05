@@ -1,0 +1,71 @@
+---
+layout: layouts/default.njk
+bodyClass: home-template
+---
+{#- Home layout (was home.hbs). "Latest" grid of the newest 7 posts,
+    then primary topic sections and a secondary topic list. -#}
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<h1 class="gh-sr-only">{{ metadata.title }} — {{ metadata.description }}</h1>
+		<section class="gh-topic gh-topic-grid">
+			<h2 class="gh-topic-name">
+				{% if collections.posts.length > 7 %}
+					<a href="/latest/">{{ "Latest" | t }}</a>
+				{% else %}
+					{{ "Latest" | t }}
+				{% endif %}
+			</h2>
+
+			<div class="gh-topic-content">
+				{% set isHome = true %}
+				{% for post in collections.posts | head(7) %}
+					{% set isLCP = loop.first %}
+					{% include "partials/loop-grid.njk" %}
+				{% endfor %}
+			</div>
+
+			<footer class="gh-topic-footer">
+				{% if collections.posts.length > 7 %}
+					<a class="gh-topic-link" href="/latest/">{{ "Show more" | t }}<span class="gh-sr-only"> {{ "Latest" | t }}</span> {% include "partials/icons/arrow.njk" %}</a>
+				{% endif %}
+			</footer>
+		</section>
+
+		{#- Primary topic sections: configured tags, else top 3 topics -#}
+		{% if theme.primary_section_tags and theme.primary_section_tags.length %}
+			{% for tagName in theme.primary_section_tags %}
+				{% set topic = collections.topics | findTerm(tagName) %}
+				{% if topic %}
+				{% include "partials/topic-grid.njk" %}
+				{% endif %}
+			{% endfor %}
+		{% elif collections.posts.length > 1 %}
+			{% for t in collections.topics | head(3) %}
+				{% set topic = t %}
+				{% include "partials/topic-grid.njk" %}
+			{% endfor %}
+		{% endif %}
+
+		{#- Secondary topic list: configured tags, else topics 4-6 -#}
+		{% if theme.secondary_section_tags and theme.secondary_section_tags.length %}
+			<div class="gh-topic-list">
+				{% for tagName in theme.secondary_section_tags %}
+					{% set topic = collections.topics | findTerm(tagName) %}
+					{% if topic %}
+					{% include "partials/topic-minimal.njk" %}
+					{% endif %}
+				{% endfor %}
+			</div>
+		{% elif collections.posts.length > 1 %}
+			{% set secondaryTopics = collections.topics | skip(3) | head(3) %}
+			{% if secondaryTopics.length %}
+				<div class="gh-topic-list">
+					{% for t in secondaryTopics %}
+					{% set topic = t %}
+						{% include "partials/topic-minimal.njk" %}
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endif %}
+	</div>
+</main>

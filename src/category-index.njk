@@ -1,0 +1,14 @@
+---
+layout: layouts/default.njk
+bodyClass: tag-template
+title: Categories
+permalink: /categories/
+---
+<main class="gh-main gh-outer">
+	<div class="gh-inner">
+		<section class="gh-pagehead"><h1 class="gh-pagehead-title">Categories</h1></section>
+		<ul class="gh-taxonomy-list">
+		{% for term in collections.categories %}<li><a href="{{ term.url }}">{{ term.name }}</a> <span>({{ term.count }})</span></li>{% endfor %}
+		</ul>
+	</div>
+</main>
