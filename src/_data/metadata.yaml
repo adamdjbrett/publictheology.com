@@ -4,9 +4,6 @@ url: https://publictheology.com
 language: en
 locale: en_US
 timezone: America/Chicago
-logo: ""
-icon: ""
-cover_image: ""
 subscribe_url: /feed.xml
 subscribe:
   text: Subscribe
@@ -19,6 +16,7 @@ footer:
 organization:
   name: Public Theology
   url: https://publictheology.com/
+  email: editor@publictheology.com
 social_accounts:
   - type: x
     name: X
