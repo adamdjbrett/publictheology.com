@@ -33,6 +33,6 @@
         </div>
     </div>
 
-    <a href="#/share" class="gh-button-share">{{ "Share" | t }}</a>
+    <a href="https://shareopenly.org/share/?url={{ (metadata.url + post.url) | urlencode }}&amp;text={{ post.data.title | urlencode }}" class="gh-button-share" target="_blank" rel="noopener">{{ "Share" | t }}</a>
 
 </aside>
