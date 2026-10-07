@@ -80,11 +80,11 @@ content:
       - { name: orcid, label: ORCID URL, type: string }
       - { name: hcommons, label: Humanities Commons URL, type: string }
       - { name: website, label: Website, type: string }
-      - { name: email, label: Email, type: string }
+      - { name: email, label: Email, type: string, required: true }
       - { name: bluesky, label: Bluesky URL, type: string }
       - { name: x, label: X/Twitter URL, type: string }
       - { name: mastodon, label: Mastodon URL, type: string }
-      - { name: body, label: Bio, type: rich-text }
+      - { name: body, label: Bio, type: rich-text, required: true }
 
   # --- Site settings ----------------------------------------------------------
   - name: metadata
