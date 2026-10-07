@@ -6,6 +6,7 @@ media:
     input: src/assets/images
     output: /assets/images
     categories: [image]
+    rename: safe # slugify uploads: "HMC 261006 pic.png" → hmc-261006-pic.png
 
 content:
   # --- Posts -----------------------------------------------------------------
@@ -46,7 +47,11 @@ content:
           values: [post, wide-feature-image, full-feature-image]
         default: post
       - { name: published, label: Published (uncheck = draft), type: boolean, default: true }
-      - { name: body, label: Body, type: rich-text, required: true }
+      - name: body
+        label: Body
+        type: rich-text
+        required: true
+        description: "Footnotes: type [^1] where the note mark goes, then a paragraph [^1]: note text at the end of the post. Number them 1, 2, 3…"
 
   # --- Pages ------------------------------------------------------------------
   - name: pages

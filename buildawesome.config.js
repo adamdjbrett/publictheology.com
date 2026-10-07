@@ -42,6 +42,11 @@ export default async function (buildAwesomeConfig) {
 			level: [2, 3, 4],
 			slugify: (value) => buildAwesomeConfig.getFilter("slugify")(value),
 		});
+	// Pages CMS's rich-text editor saves `[^1]` as `\[^1\]`; unescape so footnotes still parse.
+	// ponytail: also unescapes inside code spans/blocks; tokenise first if a post ever needs a literal `\[^x\]`.
+	markdown.core.ruler.before("normalize", "pagescms_footnotes", (state) => {
+		state.src = state.src.replace(/\\\[\^([^\]\s\\]+)\\\]/g, "[^$1]");
+	});
 	buildAwesomeConfig.setLibrary("md", markdown);
 
 	let contentCache;
