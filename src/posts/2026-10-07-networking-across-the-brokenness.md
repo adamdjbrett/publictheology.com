@@ -19,13 +19,13 @@ postTags:
   - Body of Christ
 toc: false
 template: post
-published: true
+published: false
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.
 
 
 
-It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”<sup>1</sup> Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”
+It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”<sup>1</Sup> Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”
 
 
 
