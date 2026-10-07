@@ -6,8 +6,9 @@ on:
   workflow_dispatch:
     inputs:
       site:
-        description: "XMIT site/domain (e.g. example.com)"
-        required: true
+        description: "XMIT site/domain override (leave blank for publictheology.com@402)"
+        required: false
+        default: ""
         type: string
 
 concurrency:

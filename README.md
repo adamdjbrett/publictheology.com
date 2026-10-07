@@ -1,4 +1,5 @@
 # Public Theology
+[![Deploy Eleventy to XMIT](https://github.com/adamdjbrett/publictheology.com/actions/workflows/xmit-deploy.yml/badge.svg)](https://github.com/adamdjbrett/publictheology.com/actions/workflows/xmit-deploy.yml)
 
 **Public Theology** is a new publication of public theology, public witness and shared resources: writing on how faith meets public life, edited by Adam DJ Brett.
 
