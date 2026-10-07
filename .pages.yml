@@ -25,7 +25,7 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: date, label: Publish date, type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ssXXX" }, required: true }
-      - { name: custom_excerpt, label: Excerpt, type: text }
+      - { name: custom_excerpt, label: Excerpt, type: text, required: true }
       - { name: feature_image, label: Feature image, type: image }
       - { name: feature_image_alt, label: Feature image alt text, type: string }
       - { name: feature_image_width, label: Feature image width, type: number }
@@ -34,8 +34,9 @@ content:
       - name: authors
         label: Authors
         type: reference
+        required: true
         options: { collection: authors, multiple: true, search: name, value: "{path}", label: "{fields.name}" }
-      - { name: categories, label: Categories, type: string, list: true }
+      - { name: categories, label: Categories, type: select, required: true, options: { values: [Editorial, Essays], multiple: true } }
       - { name: postTags, label: Tags, type: string, list: true }
       - { name: toc, label: Table of contents, type: boolean, default: false }
       - name: template
@@ -45,7 +46,7 @@ content:
           values: [post, wide-feature-image, full-feature-image]
         default: post
       - { name: published, label: Published (uncheck = draft), type: boolean, default: true }
-      - { name: body, label: Body, type: rich-text }
+      - { name: body, label: Body, type: rich-text, required: true }
 
   # --- Pages ------------------------------------------------------------------
   - name: pages
