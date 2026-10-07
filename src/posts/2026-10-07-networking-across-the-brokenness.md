@@ -19,13 +19,13 @@ postTags:
   - Body of Christ
 toc: false
 template: post
-published: true
+published: false
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.
 
 
 
-It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.” Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”
+It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”1 Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”2
 
 
 
@@ -45,7 +45,7 @@ New to the world of digital network diagramming, **I come curious to explore way
 <iframe src="https://prezi.com/p/2lx3n2qxoxic/embed/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
 ```
 
-While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”
+While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”3
 
 
 
@@ -53,7 +53,7 @@ While exposing our broken Body, these examples demonstrate how easily we can fla
 
 
 
-> *“If you could see humanity spread out in time, as God sees it, it would look like one single growing thing--rather like a very complicated tree. Every individual would appear connected with every other.”*
+> *“If you could see humanity spread out in time, as God sees it, it would look like one single growing thing--rather like a very complicated tree. Every individual would appear connected with every other.”4*
 >
 >
 
@@ -66,7 +66,7 @@ The rapidly increasing division and separations within the Body of Christ would 
 - Systems of engagement are designed in partnership with specific communities
 - There is a circle of relationality and reciprocity when communities are engaged
 - A primary concern for responsibility to one’s community is honored
-- There is an ongoing respect and support for traditional understandings of trust and care
+- There is an ongoing respect and support for traditional understandings of trust and care5
 
 
 
