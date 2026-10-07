@@ -1,11 +1,11 @@
 ---
 title: Networking Across the Brokenness
 date: 2026-10-07T15:18:00Z
-custom_excerpt: "What might a quick sketch of my personal network of
-  relationships and connections in the broken global Body of Christ look like?"
+custom_excerpt: What might a quick sketch of my personal network of
+  relationships and connections in the broken global Body of Christ look like?
 feature_image: /assets/images/personal-network-261007b.webp
-feature_image_alt: "network diagram of author's personal connections with people
-  of different faith traditions"
+feature_image_alt: network diagram of author's personal connections with people
+  of different faith traditions
 feature_image_width: 1440
 feature_image_height: 380
 feature_image_caption: diagram sketched with SmartDraw
@@ -25,7 +25,7 @@ published: true
 
 
 
-It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”[^1] Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”[^2]
+It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”[^1] Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountable regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”[^2]
 
 
 
@@ -36,15 +36,9 @@ Across the Atlantic from that first ecumenical network of “methodists,” **Me
 New to the world of digital network diagramming, **I come curious to explore ways the broken global Body of Christ could look representing us digitally across our history and divisions.** There are a variety of graphic digital projects online that venture into this diagramming. I see straightforward charts like the “[Christian Denominations Tree](https://scrollchart.com/diagram/christian-denominations)” from Scrollchart to narrated and interpretive mapping such as Christian Johnson’s Prezi “[Mapping Denominational Splits in Christianity](https://prezi.com/p/2lx3n2qxoxic/mapping-denominational-splits-in-christianity/).”
 
 
-<div data-scrollchart="christian-denominations"
-  data-scrollchart-v="1"
-  data-instance="iv-j0cuzbqvfc"
-  data-color="orange"></div>
-<script src="https://scrollchart.com/embed.js" async></script>
 
-<hr />
+---
 
-<iframe src="https://prezi.com/p/2lx3n2qxoxic/embed/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
 
 
 While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”[^3]
@@ -71,6 +65,7 @@ The rapidly increasing division and separations within the Body of Christ would 
 While these guidelines are meant to shape AI systems’ engaging with indigenous communities, they articulate powerful ethical approaches to which we can aspire to embody as we network across the edges and between the nodes of our fractured Body of Christ.
 
 ## Endnotes
+
 [^1]: Ashley Boggan and Christ Heckert, *Calling on Fire : Reclaiming the Method of Methodism* (Abingdon, 2025). 38.
 [^2]: Ibid., xvii.
 [^3]: “(Pew / Center for Study of Global Christianity estimate). Eastern Orthodox: ~260M. Catholic: ~1.3B. Protestant: ~900M.” [https://scrollchart.com/diagram/christian-denominations](https://scrollchart.com/diagram/christian-denominations)
