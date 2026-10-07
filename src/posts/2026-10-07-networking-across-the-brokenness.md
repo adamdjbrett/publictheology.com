@@ -35,8 +35,6 @@ Across the Atlantic from that first ecumenical network of “methodists,” **Me
 
 New to the world of digital network diagramming, **I come curious to explore ways the broken global Body of Christ could look representing us digitally across our history and divisions.** There are a variety of graphic digital projects online that venture into this diagramming. I see straightforward charts like the “++[Christian Denominations Tree](https://scrollchart.com/diagram/christian-denominations)++” from Scrollchart to narrated and interpretive mapping such as Christian Johnson’s Prezi “++[Mapping Denominational Splits in Christianity](https://prezi.com/p/2lx3n2qxoxic/mapping-denominational-splits-in-christianity/)++.”
 
-
-
 ```
 [scrollchart id="christian-denominations" color="orange"]
 ```
