@@ -1,6 +1,6 @@
 ---
 title: "Theologians Without Passports: Towards a Cosmopolitan Public Theology"
-date: 2026-10-07T09:05:00-05:00
+date: 2026-10-06T09:05:00-05:00
 custom_excerpt: Namsoon Kang's cosmopolitan theology, read with Appiah and Derrida, as a public theology that crosses borders without erasing them.
 authors: [adam-dj-brett]
 postTags: [public-theology, cosmopolitanism, interreligious]
