@@ -25,7 +25,7 @@ published: false
 
 
 
-It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”<sup>1</Sup> Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”
+It’s always encouraged me that **my tradition started as a network of people from multiple denominations.** In the 1720s a couple of Anglican brothers at Oxford were cultivating a small ecumenical gathering to grow in grace and for “watching over one another in love.”`<sup>1</sup>` Calvinists, Moravians, and more joined those Anglicans tenaciously holding one another accountability regarding their discipleship and active involvement in Christ’s Body and work in the world. So tenacious, in fact, they were soon mocked for their “methods” and their “Holy Club.”
 
 
 
