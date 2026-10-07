@@ -38,12 +38,7 @@ New to the world of digital network diagramming, **I come curious to explore way
 
 
 ```
-<div data-scrollchart="christian-denominations"
-  data-scrollchart-v="1"
-  data-instance="iv-j0cuzbqvfc"
-  data-color="orange"></div>
-<script src="https://scrollchart.com/embed.js" async></script>
-
+[scrollchart id="christian-denominations" color="orange"]
 ```
 
 
