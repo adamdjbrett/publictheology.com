@@ -19,7 +19,7 @@ postTags:
   - Body-of-Christ
 toc: false
 template: post
-published: true
+published: false
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.
 
@@ -59,7 +59,7 @@ The rapidly increasing division and separations within the Body of Christ would 
 
 
 
-**Technology and AI cannot replace the relational work we must learn to attend across this broken Body.** But even these tools are birthing conversations that can help us with better incarnational work on the ground across our differences. For example, notice some of the magnanimous language and practices born from recent “Indigenous Protocol and AI (IP-AI) Workshops. Guidelines include
+**Technology and AI cannot replace the relational work we must learn to attend across this broken Body.** But even these tools are birthing conversations that can help us with better incarnational work on the ground across our differences. For example, notice some of the magnanimous language and practices born from recent “Indigenous Protocol and AI (IP-AI) Workshops." Guidelines include
 
 - Systems of engagement are designed in partnership with specific communities
 - There is a circle of relationality and reciprocity when communities are engaged
