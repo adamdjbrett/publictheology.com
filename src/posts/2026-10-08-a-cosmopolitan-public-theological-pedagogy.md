@@ -1,6 +1,6 @@
 ---
 title: "Professors Without Passports: A Cosmopolitan Public Theological Pedagogy"
-date: 2026-10-08
+date: 2026-10-08T09:09:00-05:00
 custom_excerpt: If public theology is cosmopolitan, so must be the classroom where it is taught. Kang, Appiah, and Derrida on a pedagogy of dis-location.
 authors: [adam-dj-brett]
 postTags: [public-theology, cosmopolitanism, pedagogy]
