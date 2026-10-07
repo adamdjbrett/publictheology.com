@@ -3,7 +3,7 @@ title: Networking Across the Brokenness
 date: 2026-10-07T15:18:00Z
 custom_excerpt: What might a quick sketch of my personal network of
   relationships and connections in the broken global Body of Christ look like?
-feature_image: /assets/images/personal network - 261007.jpg
+feature_image: /assets/images/personal network 261007b.jpg
 feature_image_alt: network diagram of author's personal connections with people
   of different faith traditions
 feature_image_width: 1440
