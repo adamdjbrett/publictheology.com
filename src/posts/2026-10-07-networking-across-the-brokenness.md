@@ -19,7 +19,7 @@ postTags:
   - Body of Christ
 toc: false
 template: post
-published: false
+published: true
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.
 
@@ -47,9 +47,7 @@ New to the world of digital network diagramming, **I come curious to explore way
 
 
 
-<iframe src="[https://prezi.com/p/2lx3n2qxoxic/embed/](https://prezi.com/p/2lx3n2qxoxic/embed/)" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="810" width="1440"></iframe>
-
-
+&nbsp;
 
 While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”
 
