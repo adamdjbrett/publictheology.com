@@ -19,7 +19,7 @@ postTags:
   - Body-of-Christ
 toc: false
 template: post
-published: true
+published: false
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.
 
@@ -35,20 +35,16 @@ Across the Atlantic from that first ecumenical network of “methodists,” **Me
 
 New to the world of digital network diagramming, **I come curious to explore ways the broken global Body of Christ could look representing us digitally across our history and divisions.** There are a variety of graphic digital projects online that venture into this diagramming. I see straightforward charts like the “[Christian Denominations Tree](https://scrollchart.com/diagram/christian-denominations)” from Scrollchart to narrated and interpretive mapping such as Christian Johnson’s Prezi “[Mapping Denominational Splits in Christianity](https://prezi.com/p/2lx3n2qxoxic/mapping-denominational-splits-in-christianity/).”
 
+
 <div data-scrollchart="christian-denominations"
-
   data-scrollchart-v="1"
-
   data-instance="iv-j0cuzbqvfc"
-
   data-bg="#ffffff"></div>
-
-<script src="[https://scrollchart.com/embed.js](https://scrollchart.com/embed.js)" async></script>
-
-<iframe src="[https://prezi.com/p/2lx3n2qxoxic/embed/](https://prezi.com/p/2lx3n2qxoxic/embed/)" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
+<script src="https://scrollchart.com/embed.js" async></script>
 
 
 
+<iframe src="https://prezi.com/p/2lx3n2qxoxic/embed/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
 
 
 While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”[^3]
