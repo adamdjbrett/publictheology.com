@@ -47,7 +47,7 @@ New to the world of digital network diagramming, **I come curious to explore way
 
 
 
-Embed?
+<iframe src="[https://prezi.com/p/2lx3n2qxoxic/embed/](https://prezi.com/p/2lx3n2qxoxic/embed/)" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="810" width="1440"></iframe>
 
 
 
@@ -65,7 +65,6 @@ While exposing our broken Body, these examples demonstrate how easily we can fla
 
 The rapidly increasing division and separations within the Body of Christ would likely map as a terrible converse, perhaps an *upside down* tree. But capturing the roiling historical conflicts and politicization, network diagramming has a potential for actualizing a sense of the dynamic motion of fragmentation while at the same time maintaining the reality of our connection to Christ. More digital network analysis may lend language and concepts that can prompt us to take on better work between the nodes, on the edges, even substantial relationship work where we are.
 
-  
 **Technology and AI cannot replace the relational work we must learn to attend across this broken Body.** But even these tools are birthing conversations that can help us with better incarnational work on the ground across our differences. For example, notice some of the magnanimous language and practices born from recent “Indigenous Protocol and AI (IP-AI) Workshops. Guidelines include
 
 
