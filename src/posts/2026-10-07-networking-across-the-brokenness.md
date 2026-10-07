@@ -53,17 +53,13 @@ While exposing our broken Body, these examples demonstrate how easily we can fla
 
 **Mapping that messiness could help us begin wrestling with what this brokenness must look like to heaven’s eyes.** CS Lewis said,
 
-
-
 > *“If you could see humanity spread out in time, as God sees it, it would look like one single growing thing--rather like a very complicated tree. Every individual would appear connected with every other.”4*
->
->
 
 The rapidly increasing division and separations within the Body of Christ would likely map as a terrible converse, perhaps an *upside down* tree. But capturing the roiling historical conflicts and politicization, network diagramming has a potential for actualizing a sense of the dynamic motion of fragmentation while at the same time maintaining the reality of our connection to Christ. More digital network analysis may lend language and concepts that can prompt us to take on better work between the nodes, on the edges, even substantial relationship work where we are.
 
+
+
 **Technology and AI cannot replace the relational work we must learn to attend across this broken Body.** But even these tools are birthing conversations that can help us with better incarnational work on the ground across our differences. For example, notice some of the magnanimous language and practices born from recent “Indigenous Protocol and AI (IP-AI) Workshops. Guidelines include
-
-
 
 - Systems of engagement are designed in partnership with specific communities
 - There is a circle of relationality and reciprocity when communities are engaged
