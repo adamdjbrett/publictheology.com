@@ -52,3 +52,30 @@
 	padding: 0 0 4rem;
 	list-style: none;
 }
+
+.author-row {
+	display: grid;
+	grid-template-columns: 8rem 1fr;
+	gap: 2rem;
+	align-items: center;
+	padding-block: 2rem;
+	border-bottom: 1px solid var(--color-light-gray);
+}
+
+.author-row .gh-author-image {
+	width: 8rem;
+	height: 8rem;
+	margin: 0;
+	overflow: hidden;
+	border-radius: 50%;
+}
+
+.author-row .gh-author-image img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.author-row-name {
+	font-size: 2.4rem;
+}

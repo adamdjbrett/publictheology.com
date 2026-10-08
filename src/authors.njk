@@ -8,12 +8,12 @@ title: Authors
 	<div class="gh-inner">
 		<h1 class="gh-pagehead-title">Authors</h1>
 		{% for author in siteAuthors %}
-			<section class="gh-pagehead h-card">
+			<section class="author-row h-card">
 				<figure class="gh-author-image">
 					{% if author.profile_image %}<img class="u-photo" src="{{ author.profile_image }}" alt="{{ author.name }}">{% else %}<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>{% endif %}
 				</figure>
-				<div class="gh-pagehead-content">
-					<h2 class="gh-pagehead-title p-name"><a class="u-url" href="/authors/{{ author.slug }}/">{{ author.name }}</a></h2>
+				<div class="author-row-text">
+					<h2 class="author-row-name p-name"><a class="u-url" href="/authors/{{ author.slug }}/">{{ author.name }}</a></h2>
 					{% if author.role %}<div class="gh-author-location p-job-title">{{ author.role }}</div>{% endif %}
 				</div>
 			</section>

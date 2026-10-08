@@ -17,10 +17,19 @@ We hold the field to be capacious and creative. The systematic theologian, the o
 
 We hold that argument about public life should itself be public. This site is the quick conversation, open to reply. [journal.publictheology.com](https://journal.publictheology.com) is the slower one: peer reviewed, open access, never paywalled. Neither is a pulpit. Both are tables, and the only criterion for a seat is the willingness to give reasons and to hear them.
 
+## Publication Details
+
+-   **Title of publications:** 
+    - [publictheology.com](https://publictheology.com/)
+    - [Ebenzer - journal.publictheology.com](https://journal.publictheology.com/)
+-   **Place of publication:** Philadelphia, PA
+-   **Email:** <hello@publictheology.com>
+-   **License:** [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/)
+
 ## Masthead
 
-* **Publisher:** Matsimela Mapfumo (Mark Thompson), United Lutheran Seminary
+* **Publisher:** [Matsimela Mapfumo (Mark Thompson)](/authors/matsimela-mapfumo/), United Lutheran Seminary
 * **Executive Editor:** Dean Teresa Smallwood, United Lutheran Seminary
-* **Editor:** [Adam DJ Brett](https://adamdjbrett.com), United Lutheran Seminary
+* **Editor:** [Adam DJ Brett](/authors/adam-dj-brett/), United Lutheran Seminary
 
 Questions or ideas? See the [contact page](/contact/).
