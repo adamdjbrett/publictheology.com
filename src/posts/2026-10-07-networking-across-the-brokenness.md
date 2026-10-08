@@ -37,8 +37,20 @@ New to the world of digital network diagramming, **I come curious to explore way
 
 
 
----
 
+<!-- no touchy -->
+<div data-scrollchart="christian-denominations"
+  data-scrollchart-v="1"
+  data-instance="iv-j0cuzbqvfc"
+  data-bg="#ffffff"></div>
+<script src="https://scrollchart.com/embed.js" async></script>
+
+<hr />
+
+
+<iframe src="https://prezi.com/p/2lx3n2qxoxic/embed/" id="iframe_container" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen="" allow="autoplay; fullscreen" height="315" width="560"></iframe>
+
+<!-- no touchy -->
 
 
 While exposing our broken Body, these examples demonstrate how easily we can flatten the nuances of the conflicts that have lead to the exponential divisions. In fact, neither makes the radical splintering graphically explicit. However, the Scrollchart piece has a subtle but significant note near the bottom: “~45,000 denominations exist today.”[^3]
