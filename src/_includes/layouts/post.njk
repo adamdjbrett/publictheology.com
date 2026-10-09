@@ -69,6 +69,7 @@ bodyClass: post-template
 			{{ ((content | tocBacklinks) if toc else content) | safe }}
 		</section>
 	</article>
+	{% include "partials/post-citation.njk" %}
 	{% include "partials/post-taxonomy.njk" %}
 
 	{% include "partials/related-posts.njk" %}
@@ -104,6 +105,7 @@ bodyClass: post-template
 		</section>
 
 	</article>
+	{% include "partials/post-citation.njk" %}
 	{% include "partials/post-taxonomy.njk" %}
 
 	{% include "partials/related-posts.njk" %}

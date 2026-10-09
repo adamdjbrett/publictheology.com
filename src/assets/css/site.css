@@ -79,3 +79,17 @@
 .author-row-name {
 	font-size: 2.4rem;
 }
+
+.gh-post-citation {
+	margin-block: 2rem;
+	font-size: 0.9em;
+}
+
+.gh-post-citation h2 {
+	font-size: 1em;
+	margin-bottom: 0.5rem;
+}
+
+.gh-post-citation a {
+	overflow-wrap: anywhere;
+}

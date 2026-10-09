@@ -1,0 +1,13 @@
+{#- Chicago (notes-bibliography) footnote-style citation for the post.
+    1–3 authors are listed in full; 4+ become "First Author et al." -#}
+{%- set citeAuthors = post.data.authors | resolveAuthors(siteAuthors) %}
+{%- set names = [] %}
+{%- for a in citeAuthors %}{% set names = (names.push(a.name), names) %}{% endfor %}
+{%- if names.length > 3 %}{% set byline = names[0] + " et al." %}
+{%- elif names.length == 3 %}{% set byline = names[0] + ", " + names[1] + ", and " + names[2] %}
+{%- else %}{% set byline = names | join(" and ") %}{% endif %}
+{%- set titlePunct = "" if (post.data.title | last) in ["?", "!"] else "," %}
+<section class="gh-post-citation gh-canvas" aria-labelledby="cite-title">
+	<h2 id="cite-title">Cite this post</h2>
+	<p>{% if byline %}{{ byline }}, {% endif %}“{{ post.data.title }}{{ titlePunct }}” <em>{{ metadata.title }}</em>, {{ post.date | readableDate('LLLL d, yyyy') }}, <a href="{{ metadata.url + post.url }}">{{ metadata.url + post.url }}</a>.</p>
+</section>
