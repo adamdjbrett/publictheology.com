@@ -27,3 +27,9 @@ social_accounts:
   - type: instagram
     name: Instagram
     href: https://instagram.com/publictheologycom
+  - type: bluesky
+    name: Bluesky
+    href: https://bsky.app/profile/publictheology.com.web.brid.gy
+  - {}
+logo: /assets/images/publictheology-03a.png
+icon: /assets/images/publictheology-03a.png
