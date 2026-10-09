@@ -138,6 +138,7 @@ content:
       - { name: logo, label: Logo, type: image }
       - { name: header_logo, label: "Header logo (small, about 96px)", type: image }
       - { name: icon, label: Icon / favicon, type: image }
+      - { name: rel_me, label: "rel=me links (e.g. mailto:editor@publictheology.com)", type: string, list: true }
       - { name: cover_image, label: Default cover image, type: image }
       - name: social_accounts
         label: Social accounts

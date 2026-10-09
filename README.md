@@ -35,7 +35,7 @@ Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.
 
 - **Setup (once)**: sign in at webmention.io as `publictheology.com`, copy the API key from Settings, and add it as the repo secret `WEBMENTION_IO_TOKEN`.
 - **Display**: each deploy, and a check every 6 hours, fetches the mentions into `.cache/webmentions.json` and rebuilds. Without the token the site builds with none.
-- **Sending**: each push sends webmentions for new and edited posts to Bridgy Fed (required for bridging) and to linked sites that accept them.
+- **Sending**: each push sends webmentions for new, edited and deleted posts to Bridgy Fed (required for bridging; for a deleted post it removes the bridged copy) and to linked sites that accept them. Failures show as warnings in the Actions run summary.
 - **Backfill**: all past mentions webmention.io holds are fetched every time. To notify sites linked from older posts without re-bridging them: list their URLs in a file, `npm run build`, then `node scripts/send-webmentions.mjs urls.txt --skip-bridgy --dry-run` (drop `--dry-run` to send).
 - **Test**: `npm run test:webmentions`.
 

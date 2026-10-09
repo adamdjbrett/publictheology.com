@@ -1,6 +1,6 @@
 {#- Responses from the web, Mastodon and Bluesky (webmentions; see src/_data/webmentions.js).
     All fields are pre-sanitised plain text / http(s) URLs and are autoescaped here — never `| safe`. -#}
-{%- set wm = webmentions[page.url] -%}
+{%- set wm = webmentions[page.url | lower] -%}
 {%- set postUrl = metadata.url + page.url -%}
 <section class="gh-webmentions gh-canvas" aria-labelledby="wm-title">
 	<h2 id="wm-title">Responses</h2>
@@ -12,9 +12,9 @@
 	<ul class="wm-facepile">
 		{%- for m in items %}
 		<li>
-			{%- if m.author.url or m.url %}<a href="{{ m.author.url or m.url }}" rel="nofollow ugc noopener" title="{{ m.author.name }}">{% endif %}
+			{%- if m.author.url or m.url %}<a href="{{ m.author.url or m.url }}" rel="nofollow ugc noopener">{% endif %}
 			{%- if m.author.photo %}<img src="{{ m.author.photo }}" alt="{{ m.author.name }}" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer">
-			{%- else %}<span class="wm-initial" role="img" aria-label="{{ m.author.name }}">{{ m.author.name | first | upper }}</span>{% endif %}
+			{%- else %}<span class="wm-initial" role="img" aria-label="{{ m.author.name }}">{{ m.author.initial }}</span>{% endif %}
 			{%- if m.author.url or m.url %}</a>{% endif %}
 		</li>
 		{%- endfor %}
@@ -44,7 +44,7 @@
 	<p class="wm-how">Reply from Mastodon by searching for this post’s URL (or follow <code>@publictheology.com@publictheology.com</code>), reply to <a href="https://bsky.app/profile/publictheology.com">@publictheology.com</a> on Bluesky, or link to it from your own site and send a <a href="https://indieweb.org/Webmention">webmention</a>. Responses appear here after the next rebuild.</p>
 	<details class="wm-send">
 		<summary>Send a webmention</summary>
-		<form action="https://webmention.io/publictheology.com/webmention" method="post">
+		<form action="https://webmention.io/publictheology.com/webmention" method="post" target="_blank" rel="noopener">
 			<input type="hidden" name="target" value="{{ postUrl }}">
 			<label for="wm-source">URL of your post that links here</label>
 			<input id="wm-source" type="url" name="source" required placeholder="https://">

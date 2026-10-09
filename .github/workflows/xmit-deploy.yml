@@ -70,24 +70,40 @@ jobs:
         if: github.event_name != 'schedule' || steps.wm.outputs.changed == 'true'
         run: npm run build
 
-      # Posts to announce: anything in the new feed that the live site doesn't have yet (so posts
-      # held back by a failed deploy still go out), plus posts edited anywhere in this push.
-      # Runs before the deploy, while the live feed is still the old one.
-      - name: List new and edited post URLs
+      # Posts to announce (one URL per line in changed-urls.txt), worked out before the deploy while
+      # the live site is still the old one:
+      #   - new: in the built feed but not the live feed (also catches posts held back by a failed
+      #     deploy). The feed is only the newest 20, so it is used for nothing else;
+      #   - added/edited in this push: any post file whose page exists in _site/ (any age);
+      #   - unpublished in this push (edited to published:false): page gone from _site/ but still
+      #     live, so Bridgy Fed and linked sites get told it is gone;
+      #   - deleted in this push: always (appended after the _site/ check, which they would fail).
+      # --no-renames turns a renamed file into delete-old + add-new.
+      - name: List new, edited and deleted post URLs
         if: github.event_name == 'push'
         env:
           BEFORE: ${{ github.event.before }}
         run: |
-          feed_urls() { grep -o '<link href="https://publictheology.com/[^"]*/"/>' | sed -E 's#<link href="([^"]*)"/>#\1#' | grep -vx 'https://publictheology.com/' | sort -u; }
-          curl -fsS https://publictheology.com/feed.xml | feed_urls > live-urls.txt || : > live-urls.txt
+          site=https://publictheology.com
+          feed_urls() { grep -o "<link href=\"$site/[^\"]*/\"/>" | sed -E 's#<link href="([^"]*)"/>#\1#' | grep -vx "$site/" | sort -u; }
+          slugs() { sed -E 's#.*/([0-9]{4}-[0-9]{2}-[0-9]{2}-)?([^/]+)\.md$#\2#'; }
+          curl -fsS "$site/feed.xml" | feed_urls > live-urls.txt || : > live-urls.txt
           feed_urls < _site/feed.xml > built-urls.txt
+          : > deleted-urls.txt
           {
             comm -13 live-urls.txt built-urls.txt
             if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
-              git diff --name-only --diff-filter=M "$BEFORE" HEAD -- 'src/posts/*.md' \
-                | sed -E 's#.*/([0-9]{4}-[0-9]{2}-[0-9]{2}-)?([^/]+)\.md$#https://publictheology.com/\2/#'
+              git diff --no-renames --name-only --diff-filter=AM "$BEFORE" HEAD -- 'src/posts/*.md' | slugs | while read -r slug; do
+                if [ -f "_site/$slug/index.html" ]; then
+                  echo "$site/$slug/"
+                elif curl -fs -o /dev/null --max-time 20 "$site/$slug/"; then
+                  echo "$site/$slug/" >> deleted-urls.txt
+                fi
+              done
+              git diff --no-renames --name-only --diff-filter=D "$BEFORE" HEAD -- 'src/posts/*.md' | slugs | sed "s#.*#$site/&/#" >> deleted-urls.txt
             fi
-          } | sort -u | comm -12 - built-urls.txt > changed-urls.txt
+          } | sort -u > changed-urls.txt
+          sort -u deleted-urls.txt >> changed-urls.txt
           cat changed-urls.txt
 
       - name: Deploy to XMIT (CLI)

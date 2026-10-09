@@ -10,6 +10,10 @@ import { readFileSync } from "node:fs";
 const FILE = process.env.WEBMENTIONS_FILE || ".cache/webmentions.json";
 const HOSTS = new Set(["publictheology.com", "www.publictheology.com"]);
 const MAX_TEXT = 600;
+// Avatars are hotlinked, so only https images from these proxies/CDNs are shown (webmention.io
+// re-hosts most author photos on avatars.webmention.io; Bluesky backfeed uses cdn.bsky.app).
+// Anything else falls back to the author's initial.
+const AVATAR_HOSTS = new Set(["avatars.webmention.io", "cdn.bsky.app"]);
 
 const httpUrl = (value) => {
 	try {
@@ -20,13 +24,35 @@ const httpUrl = (value) => {
 	}
 };
 
-const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " ", "#39": "'" };
+const avatarUrl = (value) => {
+	const url = httpUrl(value);
+	return url && url.startsWith("https://") && AVATAR_HOSTS.has(new URL(url).hostname) ? url : "";
+};
+
+const ENTITIES = { amp: "&", lt: "<", gt: ">", quot: '"', apos: "'", nbsp: " " };
+const decodeEntity = (m, name) => {
+	const lower = name.toLowerCase();
+	if (lower[0] !== "#") return ENTITIES[lower] ?? m;
+	const code = lower[1] === "x" ? Number.parseInt(lower.slice(2), 16) : Number.parseInt(lower.slice(1), 10);
+	// Invalid, surrogate or NUL code points stay as the literal text (then autoescaped).
+	return code > 0 && code <= 0x10ffff && (code < 0xd800 || code > 0xdfff) ? String.fromCodePoint(code) : m;
+};
+
+// "/Slug/index.html", "/slug" and "/%73lug/" all key as "/slug/" (the template looks up page.url | lower).
+const pathKey = (pathname) => {
+	let path = pathname;
+	try {
+		path = decodeURIComponent(pathname);
+	} catch {}
+	path = path.toLowerCase().replace(/index\.html$/, "");
+	return path.endsWith("/") ? path : `${path}/`;
+};
 function plainText(value) {
 	const text = String(value || "")
 		.replace(/<(script|style)\b[\s\S]*?<\/\1\s*>/gi, " ")
 		.replace(/<br\s*\/?>|<\/p>/gi, "\n")
 		.replace(/<[^>]*>/g, " ")
-		.replace(/&(#?\w+);/g, (m, name) => ENTITIES[name.toLowerCase()] ?? m)
+		.replace(/&(#x[\da-f]+|#\d+|\w+);/gi, decodeEntity)
 		.replace(/[ \t\r\f\v]+/g, " ")
 		.replace(/\s*\n\s*/g, "\n")
 		.trim();
@@ -35,6 +61,7 @@ function plainText(value) {
 
 function clean(entry) {
 	const author = entry.author || {};
+	const name = plainText(author.name).slice(0, 80) || "Someone";
 	const date = new Date(entry.published || entry["wm-received"] || 0);
 	return {
 		id: entry["wm-id"],
@@ -44,9 +71,10 @@ function clean(entry) {
 		date: Number.isNaN(date.getTime()) ? null : date,
 		text: plainText(entry.content?.text || entry.content?.html || entry.summary || ""),
 		author: {
-			name: plainText(author.name).slice(0, 80) || "Someone",
+			name,
+			initial: (Array.from(name)[0] || "?").toUpperCase(), // Array.from: no lone surrogates
 			url: httpUrl(author.url),
-			photo: httpUrl(author.photo),
+			photo: avatarUrl(author.photo),
 		},
 	};
 }
@@ -70,7 +98,8 @@ export default function () {
 	const seen = new Set();
 	for (const entry of children) {
 		const bucket = BUCKET[entry?.["wm-property"]];
-		if (!bucket || entry["wm-private"] || seen.has(entry["wm-id"])) continue;
+		const id = entry?.["wm-id"] ?? `${entry?.["wm-source"]}|${entry?.["wm-target"]}`;
+		if (!bucket || entry["wm-private"] || seen.has(id)) continue;
 		let target;
 		try {
 			target = new URL(entry["wm-target"]);
@@ -78,8 +107,8 @@ export default function () {
 			continue;
 		}
 		if (!HOSTS.has(target.hostname)) continue;
-		seen.add(entry["wm-id"]);
-		const path = target.pathname.endsWith("/") ? target.pathname : `${target.pathname}/`;
+		seen.add(id);
+		const path = pathKey(target.pathname);
 		byPath[path] ??= { likes: [], reposts: [], replies: [] };
 		byPath[path][bucket].push(clean(entry));
 	}

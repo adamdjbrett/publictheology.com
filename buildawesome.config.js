@@ -37,6 +37,11 @@ export default async function (buildAwesomeConfig) {
 		readdirSync("src/authors").filter((f) => f.endsWith(".md")).map((f) => {
 			const slug = f.slice(0, -3);
 			const data = loadYaml(readFileSync(`src/authors/${f}`, "utf8").split(/^---$/m)[1]) || {};
+			// Pages CMS sometimes stores a bare upload name ("darryl-washington"); point it at the webp.
+			if (data.profile_image && !/[/:]/.test(data.profile_image)) {
+				const base = String(data.profile_image).replace(/\.(png|jpe?g|webp)$/i, "");
+				data.profile_image = `/assets/images/${base}.webp`;
+			}
 			return { ...data, ...profileUrls(data), key: slug, slug };
 		}),
 	);

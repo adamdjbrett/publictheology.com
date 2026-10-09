@@ -3,67 +3,190 @@
 	"domain": "publictheology.com",
 	"children": [
 		{
-			"type": "entry", "wm-id": 9000001, "wm-property": "like-of", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000001,
+			"wm-property": "like-of",
+			"wm-private": false,
 			"wm-source": "https://bsky.brid.gy/convert/web/at://did:plc:fixture1/app.bsky.feed.like/3lfx1",
 			"wm-target": "https://publictheology.com/borderless-public-theology/",
-			"wm-received": "2026-10-09T14:01:00Z", "published": null,
+			"wm-received": "2026-10-09T14:01:00Z",
+			"published": null,
 			"url": "https://bsky.app/profile/wm-fixture-alice.bsky.social",
-			"author": { "type": "card", "name": "WM Fixture Alice", "photo": "https://avatars.webmention.io/cdn.bsky.app/alice.jpg", "url": "https://bsky.app/profile/wm-fixture-alice.bsky.social" }
+			"author": {
+				"type": "card",
+				"name": "WM Fixture Alice",
+				"photo": "https://avatars.webmention.io/cdn.bsky.app/alice.jpg",
+				"url": "https://bsky.app/profile/wm-fixture-alice.bsky.social"
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000002, "wm-property": "like-of", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000002,
+			"wm-property": "like-of",
+			"wm-private": false,
 			"wm-source": "https://bsky.brid.gy/convert/web/at://did:plc:fixture2/app.bsky.feed.like/3lfx2",
 			"wm-target": "https://publictheology.com/borderless-public-theology/",
 			"wm-received": "2026-10-09T14:02:00Z",
 			"url": "javascript:alert('like-url')",
-			"author": { "type": "card", "name": "<b>Bob</b> \"No Photo\"", "photo": "javascript:alert('photo')", "url": "javascript:alert('author')" }
+			"author": {
+				"type": "card",
+				"name": "<b>Bob</b> \"No Photo\"",
+				"photo": "javascript:alert('photo')",
+				"url": "javascript:alert('author')"
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000003, "wm-property": "repost-of", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000003,
+			"wm-property": "repost-of",
+			"wm-private": false,
 			"wm-source": "https://ap.brid.gy/convert/web/https://hcommons.social/users/carol/statuses/1/activity",
 			"wm-target": "https://publictheology.com/borderless-public-theology/",
 			"wm-received": "2026-10-09T15:00:00Z",
 			"url": "https://hcommons.social/@carol/1",
-			"author": { "type": "card", "name": "Carol Reposter", "photo": "https://avatars.webmention.io/files.mastodon.social/carol.png", "url": "https://hcommons.social/@carol" }
+			"author": {
+				"type": "card",
+				"name": "Carol Reposter",
+				"photo": "https://avatars.webmention.io/files.mastodon.social/carol.png",
+				"url": "https://hcommons.social/@carol"
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000004, "wm-property": "in-reply-to", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000004,
+			"wm-property": "in-reply-to",
+			"wm-private": false,
 			"wm-source": "https://ap.brid.gy/convert/web/https://hcommons.social/users/dana/statuses/2",
 			"wm-target": "https://publictheology.com/borderless-public-theology/",
-			"wm-received": "2026-10-09T16:00:00Z", "published": "2026-10-09T10:58:00-05:00",
+			"wm-received": "2026-10-09T16:00:00Z",
+			"published": "2026-10-09T10:58:00-05:00",
 			"url": "https://hcommons.social/@dana/2",
-			"author": { "type": "card", "name": "Dana Replier", "photo": "https://avatars.webmention.io/files.mastodon.social/dana.png", "url": "https://hcommons.social/@dana" },
-			"content": { "html": "<p>Great piece &amp; thanks!</p><p>Second paragraph.</p>", "text": "Great piece & thanks!\n\nSecond paragraph." }
+			"author": {
+				"type": "card",
+				"name": "Dana Replier",
+				"photo": "https://avatars.webmention.io/files.mastodon.social/dana.png",
+				"url": "https://hcommons.social/@dana"
+			},
+			"content": {
+				"html": "<p>Great piece &amp; thanks!</p><p>Second paragraph.</p>",
+				"text": "Great piece & thanks!\n\nSecond paragraph."
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000005, "wm-property": "in-reply-to", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000005,
+			"wm-property": "in-reply-to",
+			"wm-private": false,
 			"wm-source": "https://evil.example/reply",
 			"wm-target": "https://publictheology.com/borderless-public-theology/",
 			"wm-received": "2026-10-09T17:00:00Z",
 			"url": "https://evil.example/reply\" onmouseover=\"alert(1)",
-			"author": { "type": "card", "name": "<script>alert('name')</script>Mallory", "photo": "https://evil.example/x.png\" onerror=\"alert(2)", "url": "https://evil.example/" },
-			"content": { "html": "<script>alert('xss')</script><img src=x onerror=\"alert('img')\">Hello <a href=\"javascript:alert(3)\">click</a> &lt;script&gt;alert(4)&lt;/script&gt;" }
+			"author": {
+				"type": "card",
+				"name": "<script>alert('name')</script>Mallory",
+				"photo": "https://evil.example/x.png\" onerror=\"alert(2)",
+				"url": "https://evil.example/"
+			},
+			"content": {
+				"html": "<script>alert('xss')</script><img src=x onerror=\"alert('img')\">Hello <a href=\"javascript:alert(3)\">click</a> &lt;script&gt;alert(4)&lt;/script&gt;"
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000006, "wm-property": "mention-of", "wm-private": false,
+			"type": "entry",
+			"wm-id": 9000006,
+			"wm-property": "mention-of",
+			"wm-private": false,
 			"wm-source": "https://someblog.example/2026/10/on-public-theology/",
 			"wm-target": "https://publictheology.com/borderless-public-theology/#comments",
-			"wm-received": "2026-10-09T18:00:00Z", "published": "2026-10-09",
+			"wm-received": "2026-10-09T18:00:00Z",
+			"published": "2026-10-09",
 			"url": "https://someblog.example/2026/10/on-public-theology/",
-			"author": { "type": "card", "name": "Erin Blogger", "url": "https://someblog.example/" },
-			"content": { "text": "Brett's colleagues argue for a borderless public theology." }
+			"author": {
+				"type": "card",
+				"name": "Erin Blogger",
+				"url": "https://someblog.example/"
+			},
+			"content": {
+				"text": "Brett's colleagues argue for a borderless public theology."
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000007, "wm-property": "in-reply-to", "wm-private": true,
-			"wm-source": "https://private.example/", "wm-target": "https://publictheology.com/borderless-public-theology/",
-			"wm-received": "2026-10-09T18:30:00Z", "url": "https://private.example/",
-			"author": { "name": "WM Private Should Not Render" }, "content": { "text": "private" }
+			"type": "entry",
+			"wm-id": 9000007,
+			"wm-property": "in-reply-to",
+			"wm-private": true,
+			"wm-source": "https://private.example/",
+			"wm-target": "https://publictheology.com/borderless-public-theology/",
+			"wm-received": "2026-10-09T18:30:00Z",
+			"url": "https://private.example/",
+			"author": {
+				"name": "WM Private Should Not Render"
+			},
+			"content": {
+				"text": "private"
+			}
 		},
 		{
-			"type": "entry", "wm-id": 9000008, "wm-property": "like-of", "wm-private": false,
-			"wm-source": "https://x.example/", "wm-target": "https://not-our-site.example/borderless-public-theology/",
-			"wm-received": "2026-10-09T18:40:00Z", "url": "https://x.example/",
-			"author": { "name": "WM Wrong Host Should Not Render" }
+			"type": "entry",
+			"wm-id": 9000008,
+			"wm-property": "like-of",
+			"wm-private": false,
+			"wm-source": "https://x.example/",
+			"wm-target": "https://not-our-site.example/borderless-public-theology/",
+			"wm-received": "2026-10-09T18:40:00Z",
+			"url": "https://x.example/",
+			"author": {
+				"name": "WM Wrong Host Should Not Render"
+			}
+		},
+		{
+			"type": "entry",
+			"wm-id": 9000009,
+			"wm-property": "like-of",
+			"wm-private": false,
+			"wm-source": "https://bsky.brid.gy/convert/web/at://did:plc:fixture9/app.bsky.feed.like/3lfx9",
+			"wm-target": "https://publictheology.com/Borderless-Public-Theology/index.html",
+			"wm-received": "2026-10-09T19:00:00Z",
+			"url": "https://bsky.app/profile/party.example",
+			"author": {
+				"type": "card",
+				"name": "🎉 WM Party",
+				"photo": "http://avatars.webmention.io/plain-http.png",
+				"url": "https://bsky.app/profile/party.example"
+			}
+		},
+		{
+			"type": "entry",
+			"wm-property": "in-reply-to",
+			"wm-private": false,
+			"wm-source": "https://ap.brid.gy/convert/web/https://hcommons.social/users/fay/statuses/3",
+			"wm-target": "https://publictheology.com/borderless-public-theology/index.html",
+			"wm-received": "2026-10-09T20:00:00Z",
+			"url": "https://hcommons.social/@fay/3",
+			"author": {
+				"type": "card",
+				"name": "Fay Entities",
+				"photo": "https://cdn.bsky.app/img/avatar/fay.jpg",
+				"url": "https://hcommons.social/@fay"
+			},
+			"content": {
+				"html": "<p>Numeric &#8220;quotes&#8221; &#x1F600; bad:&#xD800; huge:&#99999999; nul:&#0;</p>"
+			}
+		},
+		{
+			"type": "entry",
+			"wm-property": "in-reply-to",
+			"wm-private": false,
+			"wm-source": "https://ap.brid.gy/convert/web/https://hcommons.social/users/fay/statuses/3",
+			"wm-target": "https://publictheology.com/borderless-public-theology/index.html",
+			"wm-received": "2026-10-09T20:00:01Z",
+			"url": "https://hcommons.social/@fay/3",
+			"author": {
+				"name": "WM Duplicate Should Not Render"
+			},
+			"content": {
+				"text": "dup"
+			}
 		}
 	]
 }

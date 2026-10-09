@@ -76,9 +76,20 @@ unqualified `latest` tag.
   No token / no network = no mentions, build still passes. A cron run every 6 h rebuilds and
   redeploys only if the mentions changed. `.cache/` persists between runs via `actions/cache`.
 - **Send**: push runs only. `scripts/send-webmentions.mjs changed-urls.txt` mentions
-  `https://fed.brid.gy/` for every new/edited post (Bridgy Fed is webmention-only: no webmention,
-  no bridging) and any linked site that advertises an endpoint; sent-log `.cache/webmention-sent.json`.
+  `https://fed.brid.gy/` for every new/edited/deleted post (Bridgy Fed is webmention-only: no
+  webmention, no bridging; a webmention for a 404 URL deletes the bridged copy) and any linked site
+  that advertises an endpoint; sent-log `.cache/webmention-sent.json`. A post missing from `_site/`
+  is treated as deleted. Fetches/POSTs refuse private, loopback, link-local and CGNAT addresses and
+  re-check every redirect hop. Failures print `::warning::` and go to the job summary.
   Use `--dry-run` locally. Scheduled/manual runs never send webmentions or IndexNow pings.
+- **Fetch guard**: if webmention.io returns 0 mentions (or loses >50%) while the cache has some,
+  the fetch keeps the old cache and exits 1 (a wrong token/domain returns 200 + `[]`).
+  `WEBMENTION_ALLOW_SHRINK=1` accepts a deliberate big drop.
+- **Avatars** are shown only from `AVATAR_HOSTS` in `src/_data/webmentions.js` (https only).
 - **Checks**: `npm run build` ends with `scripts/check-webmention-setup.mjs`;
   `npm run test:webmentions` renders a hostile fixture (`scripts/fixtures/`) into `.cache/wm-test`.
 - Mention content is untrusted: never render it with `| safe`.
+- **Known limits**: two quick pushes can queue, and the newer pending run replaces the older one,
+  so edits made only in the replaced push are not re-sent (new posts are still caught by the feed
+  diff). The Bridgy Fed POST does not first check the deployed page is live (xmit propagation).
+  The SSRF check and the request resolve DNS separately (rebinding window; CI-only, accepted).

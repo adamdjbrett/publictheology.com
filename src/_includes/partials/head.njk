@@ -33,6 +33,9 @@
 <link rel="alternate" type="application/feed+json" title="{{ metadata.title }} (JSON)" href="/feed/feed.json">
 {#- Bridgy Fed: verifies the site link (green check) on the bridged Mastodon profile. -#}
 <link rel="me" href="https://web.brid.gy/r/{{ metadata.url }}/">
+{%- for href in metadata.rel_me %}
+<link rel="me" href="{{ href }}">
+{%- endfor %}
 {#- Webmentions (incl. Bridgy Fed backfeed of Mastodon/Bluesky replies, likes, reposts) are received
     by webmention.io and baked in at build time: see src/_data/webmentions.js. -#}
 <link rel="webmention" href="https://webmention.io/publictheology.com/webmention">

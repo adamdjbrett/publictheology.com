@@ -17,6 +17,9 @@ organization:
   name: Public Theology
   url: https://publictheology.com/
   email: editor@publictheology.com
+# Extra rel="me" identity links in <head> (IndieAuth / webmention.io sign-in).
+rel_me:
+  - mailto:editor@publictheology.com
 social_accounts:
   - type: x
     name: X
