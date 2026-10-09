@@ -9,13 +9,35 @@ import pluginTOC from "@uncenter/eleventy-plugin-toc";
 import pluginFilters from "./_config/filters.js";
 import { normalizeTerms, publicPostTags } from "./_config/taxonomy.js";
 
+// Pages CMS authors often enter bare values ("0009-…", "x.hcommons.org", "@me.bsky.social")
+// in the profile-link fields; turn them into absolute URLs so they don't render as relative links.
+function profileUrls(data) {
+	const out = {};
+	const handle = (v) => v.replace(/^@/, "");
+	const rules = {
+		orcid: (v) => (/^\d{4}-\d{4}-\d{4}-\d{3}[\dX]$/i.test(v) ? `https://orcid.org/${v}` : v),
+		bluesky: (v) => (/^@?[\w.-]+\.[a-z]{2,}$/i.test(v) ? `https://bsky.app/profile/${handle(v)}` : v),
+		x: (v) => (/^@?\w{1,15}$/.test(v) ? `https://x.com/${handle(v)}` : v),
+		mastodon: (v) => v.replace(/^@?([\w.]+)@([\w.-]+\.[a-z]{2,})$/i, "https://$2/@$1"),
+		hcommons: (v) => v,
+		website: (v) => v,
+	};
+	for (const [field, fix] of Object.entries(rules)) {
+		const v = String(data[field] ?? "").trim();
+		if (!v) continue;
+		const fixed = fix(v);
+		out[field] = /^[a-z][a-z\d+.-]*:/i.test(fixed) ? fixed : `https://${fixed.replace(/^\/+/, "")}`;
+	}
+	return out;
+}
+
 export default async function (buildAwesomeConfig) {
 	buildAwesomeConfig.addDataExtension("yaml", loadYaml);
 	buildAwesomeConfig.addGlobalData("siteAuthors", () =>
 		readdirSync("src/authors").filter((f) => f.endsWith(".md")).map((f) => {
 			const slug = f.slice(0, -3);
 			const data = loadYaml(readFileSync(`src/authors/${f}`, "utf8").split(/^---$/m)[1]) || {};
-			return { ...data, key: slug, slug };
+			return { ...data, ...profileUrls(data), key: slug, slug };
 		}),
 	);
 
