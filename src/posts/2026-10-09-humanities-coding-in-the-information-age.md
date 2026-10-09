@@ -36,6 +36,7 @@ To accomplish this end, the students created informational text about murals and
 
 Among all of the art history, coding underlined the work that took the information to the people of Cleveland giving a broader view of the people who lived in the city. This work of coding moved this project beyond a class assignment and connected folks outside of academia.
 
+## Endnotes
 [^1]: Erin Benay, “Art History and Action in the Rust Belt,” in *The Routledge Companion to Public Humanities Scholarship* (Routledge, 2024).
 [^2]: Benay, 96.
 [^3]: Benay, 99.
