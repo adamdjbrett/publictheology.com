@@ -15,6 +15,8 @@ categories:
 toc: false
 template: post
 published: true
+postTags:
+  - connection, care, and common future
 ---
 Networking and Responsibility in Digital Humanities 
 
