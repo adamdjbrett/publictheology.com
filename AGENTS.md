@@ -93,3 +93,12 @@ unqualified `latest` tag.
   so edits made only in the replaced push are not re-sent (new posts are still caught by the feed
   diff). The Bridgy Fed POST does not first check the deployed page is live (xmit propagation).
   The SSRF check and the request resolve DNS separately (rebinding window; CI-only, accepted).
+
+## Caching
+
+- Maximal Cloudflare caching, set in `src/public/xmit.toml` (`s-maxage` = 1 year on HTML, CSS/JS,
+  images, feeds). No cache-busting query strings or fingerprinted asset names — by choice.
+- The deploy workflow purges the whole Cloudflare cache after each deploy (secrets
+  `CLOUDFLARE_API_TOKEN` with Zone → Cache Purge, and `CLOUDFLARE_ZONE_ID`), before webmentions go out.
+- After a CSS/JS change, remind Adam to purge Cloudflare (Caching → Configuration → Purge Cache);
+  browsers may keep the old CSS/JS up to 4 h (`max-age=14400`).

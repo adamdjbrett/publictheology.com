@@ -127,6 +127,27 @@ jobs:
           echo "Deploying _site to $XMIT_SITE via XMIT CLI";
           npx -y @xmit.co/xmit "$XMIT_SITE" _site || { echo 'XMIT deploy failed' >&2; exit 1; }
 
+      # Cloudflare edge-caches everything (src/public/xmit.toml sets s-maxage=1y), so purge it
+      # right after every deploy — before the Bridgy Fed/webmention sends below, which make
+      # remote servers fetch the live pages and must see the new HTML (or the 404 of a delete).
+      - name: Purge Cloudflare cache
+        if: github.event_name != 'schedule' || steps.wm.outputs.changed == 'true'
+        continue-on-error: true
+        env:
+          CF_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CF_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: |
+          if [ -z "$CF_API_TOKEN" ] || [ -z "$CF_ZONE_ID" ]; then
+            echo "::warning::CLOUDFLARE_API_TOKEN / CLOUDFLARE_ZONE_ID not set; the edge keeps serving the previous build until purged by hand."
+            exit 0
+          fi
+          curl -fsS -X POST "https://api.cloudflare.com/client/v4/zones/$CF_ZONE_ID/purge_cache" \
+            -H "Authorization: Bearer $CF_API_TOKEN" -H "Content-Type: application/json" \
+            --data '{"purge_everything":true}' | jq -e '.success' >/dev/null \
+            && echo "Cloudflare cache purged" \
+            || echo "::warning::Cloudflare purge failed; purge by hand."
+          sleep 5
+
       # Bridgy Fed is in webmention-only mode (it no longer polls the feed), so every new or edited
       # post must be mentioned to https://fed.brid.gy/ to bridge. The script also sends webmentions to
       # sites the post links to, logging sends in .cache/webmention-sent.json. Never fails the job.

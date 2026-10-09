@@ -3,3 +3,36 @@
 name = "Content-Type"
 value = "text/plain; charset=utf-8"
 on = "^/\\.well-known/atproto-did$"
+
+# ---------------------------------------------------------------------------
+# Maximal caching. Cloudflare's edge keeps everything for a year (s-maxage);
+# the deploy workflow purges the whole Cloudflare cache after every deploy, so
+# the edge never serves an old build for long. Browser lifetimes (max-age) stay
+# short where files change in place (no fingerprinted names). The `on` patterns
+# are mutually exclusive so no path gets two Cache-Control values.
+# After a CSS/JS change outside a deploy: purge Cloudflare by hand.
+# ---------------------------------------------------------------------------
+
+# HTML pages: browsers always revalidate (with the edge, not the origin).
+[[headers]]
+name = "Cache-Control"
+value = "public, max-age=0, must-revalidate, s-maxage=31536000"
+on = "(?:/|\\.html)$"
+
+# Stylesheets and scripts: changed in place, so a short browser lifetime.
+[[headers]]
+name = "Cache-Control"
+value = "public, max-age=14400, s-maxage=31536000"
+on = "\\.(?:css|js)$"
+
+# Images, icons, fonts: rarely replaced in place.
+[[headers]]
+name = "Cache-Control"
+value = "public, max-age=2592000, s-maxage=31536000, stale-while-revalidate=86400"
+on = "\\.(?:webp|avif|png|jpe?g|gif|svg|ico|woff2?)$"
+
+# Feeds, sitemap, OAI, JSON, text (IndexNow key).
+[[headers]]
+name = "Cache-Control"
+value = "public, max-age=3600, s-maxage=31536000"
+on = "\\.(?:xml|rss|json|xsl|txt)$"
