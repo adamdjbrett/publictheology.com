@@ -86,11 +86,11 @@
 			</nav>
 
 			<div class="gh-social-links">
-				{%- for account in metadata.social_accounts %}
-				<a href="{{ account.href }}" target="_blank" rel="noopener" aria-label="{{ account.name }}">
+				{%- for account in metadata.social_accounts %}{% if account.href %}
+				<a href="{{ account.href }}" target="_blank" rel="me noopener" aria-label="{{ account.name }}">
 					{% include "partials/icons/" + account.type + ".njk" ignore missing %}
 				</a>
-				{%- endfor %}
+				{%- endif %}{% endfor %}
 			</div>
 
 			<div class="gh-copyright">

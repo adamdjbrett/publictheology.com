@@ -31,6 +31,8 @@
 <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} (Atom)" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} (RSS)" href="/feed/feed.rss">
 <link rel="alternate" type="application/feed+json" title="{{ metadata.title }} (JSON)" href="/feed/feed.json">
+{#- Bridgy Fed: verifies the site link (green check) on the bridged Mastodon profile. -#}
+<link rel="me" href="https://web.brid.gy/r/{{ metadata.url }}/">
 <link rel="alternate" type="application/xml" title="{{ metadata.title }} OAI-PMH static repository" href="/oai.xml">
 
 {#- Preoptimized source images are copied as-is; preload only the page hero. -#}
