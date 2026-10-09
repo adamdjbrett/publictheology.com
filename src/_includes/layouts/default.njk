@@ -12,7 +12,7 @@
 {%- if theme.title_font == "Elegant serif" -%}{% set fontClass = fontClass + " has-serif-title" %}{%- endif -%}
 {%- if theme.body_font == "Elegant serif" -%}{% set fontClass = fontClass + " has-serif-body" %}{%- endif -%}
 <!doctype html>
-<html lang="{{ metadata.language or 'en' }}">
+<html lang="{{ metadata.language or 'en' }}" prefix="zotero: http://www.zotero.org/namespaces/export#">
 <head>
 {% include "partials/head.njk" %}
 </head>

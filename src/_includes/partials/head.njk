@@ -31,6 +31,7 @@
 <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} (Atom)" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} (RSS)" href="/feed/feed.rss">
 <link rel="alternate" type="application/feed+json" title="{{ metadata.title }} (JSON)" href="/feed/feed.json">
+<link rel="alternate" type="application/xml" title="{{ metadata.title }} OAI-PMH static repository" href="/oai.xml">
 
 {#- Preoptimized source images are copied as-is; preload only the page hero. -#}
 {%- if feature_image and not feature_image.startsWith('http') %}
@@ -47,24 +48,52 @@
 {%- if feature_image %}{% set imageAbs = feature_image if feature_image.startsWith('http') else metadata.url + feature_image %}{% endif %}
 {%- set postLd = { title: title, description: pageDesc, url: metadata.url + page.url, date: (page.date | rfc3339), lang: schema.language, image: imageAbs, authors: ldAuthors, siteUrl: metadata.url, siteName: metadata.title, blogId: schema.blogId, publisher: schema.publisher } | postingLd %}
 <script type="application/ld+json">{{ postLd | dump | safe }}</script>
-{#- Zotero: Highwire (citation_*) + Dublin Core metadata for harvestability. -#}
+{#- Zotero: zotero:itemType forces "Blog Post" (needs the zotero: prefix on <html>).
+    citation_title / citation_journal_title are deliberately absent: the first makes
+    Zotero guess journalArticle, the second forces it. The title rides on og:title/DC.title. -#}
+{%- set citeUrl = metadata.url + page.url %}
+{%- set citeDate = page.date | htmlDateString %}
+{%- set citeSubjects = (categories | taxonomyTerms('category')).concat((postTags | resolvedPostTags(tags)) | taxonomyTerms('tag')) %}
 <link rel="type" href="https://schema.org/BlogPosting">
-<meta name="citation_title" content="{{ title }}">
+<meta property="zotero:itemType" content="blogPost">
+<meta name="prism.genre" content="blogentry">
+<meta name="prism.publicationName" content="{{ metadata.title }}">
+<meta name="prism.url" content="{{ citeUrl }}">
 {%- for a in ldAuthors %}
 <meta name="citation_author" content="{{ a.name }}">
 {%- endfor %}
-<meta name="citation_publication_date" content="{{ page.date | htmlDateString }}">
-<meta name="citation_fulltext_html_url" content="{{ metadata.url }}{{ page.url }}">
-<meta name="citation_public_url" content="{{ metadata.url }}{{ page.url }}">
-<meta name="citation_journal_title" content="{{ metadata.title }}">
+<meta name="citation_publication_date" content="{{ page.date | readableDate('yyyy/LL/dd') }}">
+<meta name="citation_online_date" content="{{ page.date | readableDate('yyyy/LL/dd') }}">
+<meta name="citation_fulltext_html_url" content="{{ citeUrl }}">
+<meta name="citation_public_url" content="{{ citeUrl }}">
+<meta name="citation_publisher" content="{{ metadata.organization.name or metadata.title }}">
 <meta name="citation_language" content="{{ schema.language }}">
+{%- for s in citeSubjects %}
+<meta name="citation_keywords" content="{{ s.name }}">
+{%- endfor %}
+{#- Dublin Core (DC-HTML), mirroring the oai_dc record in /oai.xml. -#}
+<link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+<link rel="schema.DCTERMS" href="http://purl.org/dc/terms/">
 <meta name="DC.title" content="{{ title }}">
 {%- for a in ldAuthors %}
 <meta name="DC.creator" content="{{ a.name }}">
 {%- endfor %}
-<meta name="DC.date" content="{{ page.date | htmlDateString }}">
-<meta name="DC.language" content="{{ schema.language }}">
+{%- for s in citeSubjects %}
+<meta name="DC.subject" content="{{ s.name }}">
+{%- endfor %}
+{%- if custom_excerpt %}
+<meta name="DC.description" content="{{ custom_excerpt }}">
+{%- endif %}
 <meta name="DC.publisher" content="{{ metadata.title }}">
+<meta name="DC.date" scheme="DCTERMS.W3CDTF" content="{{ citeDate }}">
+<meta name="DCTERMS.issued" scheme="DCTERMS.W3CDTF" content="{{ citeDate }}">
+<meta name="DC.type" scheme="DCTERMS.DCMIType" content="Text">
+<meta name="DC.format" scheme="DCTERMS.IMT" content="text/html">
+<meta name="DC.identifier" scheme="DCTERMS.URI" content="{{ citeUrl }}">
+<meta name="DC.language" scheme="DCTERMS.RFC4646" content="{{ schema.language }}">
+<meta name="DCTERMS.isPartOf" scheme="DCTERMS.URI" content="{{ metadata.url }}/">
+<meta name="DC.rights" content="{{ metadata.footer.license }}">
+<meta name="DCTERMS.license" scheme="DCTERMS.URI" content="{{ metadata.footer.license_url }}">
 {%- endif %}
 
 {#- No-flash: set the colour scheme before first paint. -#}

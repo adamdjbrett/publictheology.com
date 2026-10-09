@@ -56,6 +56,7 @@ bodyClass: post-template
 	{% include "partials/breadcrumbs.njk" %}
 	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
 		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 		<header class="gh-article-header gh-canvas">
 			{% include "partials/post-meta.njk" %}
 
@@ -82,6 +83,7 @@ bodyClass: post-template
 	{% include "partials/breadcrumbs.njk" %}
 	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
 		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
+		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 
 		<header class="gh-article-header gh-canvas">
 			{% if primaryTag %}

@@ -1,0 +1,66 @@
+---
+permalink: /oai.xml
+eleventyExcludeFromCollections: true
+---
+{#- OAI-PMH 2.0 Static Repository (oai_dc). xmit serves static files only, so this is the
+    static form of the protocol: a harvester reads it directly or through a Static
+    Repository Gateway, which supplies the OAI verbs. -#}
+{%- set newest = collections.posts | head(1) -%}
+{%- set oldest = collections.posts | last -%}
+<?xml version="1.0" encoding="UTF-8"?>
+<Repository xmlns="http://www.openarchives.org/OAI/2.0/static-repository"
+	xmlns:oai="http://www.openarchives.org/OAI/2.0/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/static-repository http://www.openarchives.org/OAI/2.0/static-repository.xsd">
+	<Identify>
+		<oai:repositoryName>{{ metadata.title }}</oai:repositoryName>
+		<oai:baseURL>{{ metadata.url }}/oai.xml</oai:baseURL>
+		<oai:protocolVersion>2.0</oai:protocolVersion>
+		<oai:adminEmail>{{ metadata.organization.email }}</oai:adminEmail>
+		<oai:earliestDatestamp>{{ (oldest.date if oldest else page.date) | htmlDateString }}</oai:earliestDatestamp>
+		<oai:deletedRecord>no</oai:deletedRecord>
+		<oai:granularity>YYYY-MM-DD</oai:granularity>
+	</Identify>
+	<ListMetadataFormats>
+		<oai:metadataFormat>
+			<oai:metadataPrefix>oai_dc</oai:metadataPrefix>
+			<oai:schema>http://www.openarchives.org/OAI/2.0/oai_dc.xsd</oai:schema>
+			<oai:metadataNamespace>http://www.openarchives.org/OAI/2.0/oai_dc/</oai:metadataNamespace>
+		</oai:metadataFormat>
+	</ListMetadataFormats>
+	<ListRecords metadataPrefix="oai_dc">
+	{%- for post in collections.posts %}
+		<oai:record>
+			<oai:header>
+				<oai:identifier>oai:{{ metadata.url | replace('https://', '') }}:{{ post.page.fileSlug }}</oai:identifier>
+				<oai:datestamp>{{ post.date | htmlDateString }}</oai:datestamp>
+			</oai:header>
+			<oai:metadata>
+				<oai_dc:dc xmlns:oai_dc="http://www.openarchives.org/OAI/2.0/oai_dc/"
+					xmlns:dc="http://purl.org/dc/elements/1.1/"
+					xsi:schemaLocation="http://www.openarchives.org/OAI/2.0/oai_dc/ http://www.openarchives.org/OAI/2.0/oai_dc.xsd">
+					<dc:title>{{ post.data.title }}</dc:title>
+					{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
+					<dc:creator>{{ a.name }}</dc:creator>
+					{%- endfor %}
+					{%- for s in (post.data.categories | taxonomyTerms('category')).concat((post.data.postTags | resolvedPostTags(post.data.tags)) | taxonomyTerms('tag')) %}
+					<dc:subject>{{ s.name }}</dc:subject>
+					{%- endfor %}
+					{%- if post.data.custom_excerpt %}
+					<dc:description>{{ post.data.custom_excerpt }}</dc:description>
+					{%- endif %}
+					<dc:publisher>{{ metadata.title }}</dc:publisher>
+					<dc:date>{{ post.date | htmlDateString }}</dc:date>
+					<dc:type>Text</dc:type>
+					<dc:type>blogPost</dc:type>
+					<dc:format>text/html</dc:format>
+					<dc:identifier>{{ metadata.url }}{{ post.url }}</dc:identifier>
+					<dc:language>{{ metadata.language or 'en' }}</dc:language>
+					<dc:relation>{{ metadata.url }}/</dc:relation>
+					<dc:rights>{{ metadata.footer.license }} {{ metadata.footer.license_url }}</dc:rights>
+				</oai_dc:dc>
+			</oai:metadata>
+		</oai:record>
+	{%- endfor %}
+	</ListRecords>
+</Repository>

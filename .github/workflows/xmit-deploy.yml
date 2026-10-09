@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6
+        with:
+          fetch-depth: 2
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -58,6 +60,33 @@ jobs:
           fi
           echo "Deploying _site to $XMIT_SITE via XMIT CLI";
           npx -y @xmit.co/xmit "$XMIT_SITE" _site || { echo 'XMIT deploy failed' >&2; exit 1; }
+
+      # New/edited posts in this push, as live URLs (permalink is /{fileSlug}/, date prefix stripped).
+      - name: List changed post URLs
+        run: |
+          git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'src/posts/*.md' \
+            | sed -E 's#.*/([0-9]{4}-[0-9]{2}-[0-9]{2}-)?([^/]+)\.md$#https://publictheology.com/\2/#' > changed-urls.txt
+          cat changed-urls.txt
+
+      # Ping Bridgy Fed so posts bridge to Mastodon and Bluesky now instead of on its next feed poll.
+      - name: Send webmentions to Bridgy Fed
+        continue-on-error: true
+        run: |
+          while read -r url; do
+            curl -sS -d source="$url" -d target=https://fed.brid.gy/ https://fed.brid.gy/webmention || true
+          done < changed-urls.txt
+
+      # IndexNow (Bing, Yandex, Seznam, Naver…). The key is public by protocol: src/public/<key>.txt.
+      - name: Submit changed URLs to IndexNow
+        continue-on-error: true
+        env:
+          INDEXNOW_KEY: 1c81fbe4141395b40ccc0e32ff7b5edc
+        run: |
+          [ -s changed-urls.txt ] || { echo "No changed posts"; exit 0; }
+          urls=$( (cat changed-urls.txt; echo https://publictheology.com/) | jq -R . | jq -s .)
+          jq -n --arg key "$INDEXNOW_KEY" --argjson urls "$urls" \
+            '{host: "publictheology.com", key: $key, keyLocation: "https://publictheology.com/\($key).txt", urlList: $urls}' \
+            | curl -sS -w "\nIndexNow HTTP %{http_code}\n" -H "Content-Type: application/json; charset=utf-8" -d @- https://api.indexnow.org/indexnow
 
       - name: Post-deploy summary
         run: |
