@@ -27,7 +27,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v6
         with:
-          fetch-depth: 2
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v6
@@ -40,6 +40,25 @@ jobs:
 
       - name: Build Eleventy site
         run: npm run build
+
+      # Posts to announce: anything in the new feed that the live site doesn't have yet (so posts
+      # held back by a failed deploy still go out), plus posts edited anywhere in this push.
+      # Runs before the deploy, while the live feed is still the old one.
+      - name: List new and edited post URLs
+        env:
+          BEFORE: ${{ github.event.before }}
+        run: |
+          feed_urls() { grep -o '<link href="https://publictheology.com/[^"]*/"/>' | sed -E 's#<link href="([^"]*)"/>#\1#' | grep -vx 'https://publictheology.com/' | sort -u; }
+          curl -fsS https://publictheology.com/feed.xml | feed_urls > live-urls.txt || : > live-urls.txt
+          feed_urls < _site/feed.xml > built-urls.txt
+          {
+            comm -13 live-urls.txt built-urls.txt
+            if git cat-file -e "$BEFORE^{commit}" 2>/dev/null; then
+              git diff --name-only --diff-filter=M "$BEFORE" HEAD -- 'src/posts/*.md' \
+                | sed -E 's#.*/([0-9]{4}-[0-9]{2}-[0-9]{2}-)?([^/]+)\.md$#https://publictheology.com/\2/#'
+            fi
+          } | sort -u | comm -12 - built-urls.txt > changed-urls.txt
+          cat changed-urls.txt
 
       - name: Deploy to XMIT (CLI)
         env:
@@ -60,13 +79,6 @@ jobs:
           fi
           echo "Deploying _site to $XMIT_SITE via XMIT CLI";
           npx -y @xmit.co/xmit "$XMIT_SITE" _site || { echo 'XMIT deploy failed' >&2; exit 1; }
-
-      # New/edited posts in this push, as live URLs (permalink is /{fileSlug}/, date prefix stripped).
-      - name: List changed post URLs
-        run: |
-          git diff --name-only --diff-filter=AM HEAD~1 HEAD -- 'src/posts/*.md' \
-            | sed -E 's#.*/([0-9]{4}-[0-9]{2}-[0-9]{2}-)?([^/]+)\.md$#https://publictheology.com/\2/#' > changed-urls.txt
-          cat changed-urls.txt
 
       # Ping Bridgy Fed so posts bridge to Mastodon and Bluesky now instead of on its next feed poll.
       - name: Send webmentions to Bridgy Fed

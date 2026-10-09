@@ -29,11 +29,12 @@
 			<div class="gh-head-brand">
 				<div class="gh-head-brand-wrapper">
 					<a class="gh-head-logo p-name p-org u-url{% if bodyClass == 'home-template' %} is-title{% endif %}" href="/">
+						{#- Logo + name as a bare text node: a sibling element would trip the theme's
+						    img:not(:only-child) rules and hide the logo. -#}
 						{%- if metadata.logo %}
-							<img src="{{ metadata.logo }}" alt="{{ metadata.title }}">
-						{%- else %}
-							{{ metadata.title }}
+							<img src="{{ metadata.header_logo or metadata.logo }}" alt="" width="40" height="40">
 						{%- endif %}
+						{{ metadata.title }}
 					</a>
 				</div>
 				<button class="gh-burger" type="button" aria-label="{{ 'Toggle menu' | t }}"></button>

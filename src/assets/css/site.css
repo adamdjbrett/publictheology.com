@@ -93,3 +93,10 @@
 .gh-post-citation a {
 	overflow-wrap: anywhere;
 }
+
+/* Header: round logo + site name side by side. */
+.gh-head-logo {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.6rem;
+}

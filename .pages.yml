@@ -136,6 +136,7 @@ content:
       - { name: locale, label: Locale, type: string }
       - { name: timezone, label: Timezone (IANA, e.g. America/New_York), type: string }
       - { name: logo, label: Logo, type: image }
+      - { name: header_logo, label: "Header logo (small, about 96px)", type: image }
       - { name: icon, label: Icon / favicon, type: image }
       - { name: cover_image, label: Default cover image, type: image }
       - name: social_accounts
