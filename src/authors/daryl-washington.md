@@ -1,6 +1,6 @@
 ---
 name: Daryl Washington
-role: DMin Student/Senior Pastor
+role: DMin Student Author
 orcid: 0009-0009-2804-8077
 hcommons: https://dwashington62.hcommons.org/
 email: dwashington@uls.edu
