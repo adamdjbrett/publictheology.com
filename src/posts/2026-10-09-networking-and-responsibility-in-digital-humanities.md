@@ -1,13 +1,10 @@
 ---
-title: "Networking and Responsibility in Digital Humanities "
+title: "Networking and Responsibility in Digital Humanities"
 date: 2026-10-09T14:44:00Z
-custom_excerpt: Networks connect people and knowledge, but they also involve
-  power and responsibility. From a public theology perspective, this post
-  explores how digital scholarship can respect community knowledge, recognize
-  missing voices, and practice care, consent, and shared authority.
-feature_image: /assets/images/1791163742671.jpeg
-feature_image_width: 750
-feature_image_height: 560
+custom_excerpt: Networks connect people and knowledge, but they also involve power and responsibility. How can digital scholarship practice care, consent, and shared authority?
+feature_image: /assets/images/1791163742671.webp
+feature_image_width: 586
+feature_image_height: 376
 authors:
   - src/authors/hau-sian-suan.md
 categories:
@@ -16,7 +13,7 @@ toc: false
 template: post
 published: true
 postTags:
-  - connection, care, and common future
+  - connection-care-and-common-future
 ---
 Networking and Responsibility in Digital Humanities 
 

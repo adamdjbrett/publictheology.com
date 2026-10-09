@@ -31,7 +31,7 @@ bodyClass: post-template
 {% if feature_image %}
 	<section class="gh-cover loading gh-outer">
 		<img
-			class="gh-cover-image"
+			class="gh-cover-image u-featured"
 			src="{{ feature_image }}"
 			alt="{{ feature_image_alt or title }}"
 			{% if feature_image_width %}width="{{ feature_image_width }}"{% endif %}
@@ -57,11 +57,12 @@ bodyClass: post-template
 	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
 		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
 		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+		{%- for t in (categories | taxonomyTerms('category')).concat(resolvedTags | taxonomyTerms('tag')) %}<data class="p-category" value="{{ t.name }}"></data>{% endfor %}
 		<header class="gh-article-header gh-canvas">
 			{% include "partials/post-meta.njk" %}
 
 			{% if custom_excerpt %}
-				<p class="gh-article-excerpt">{{ custom_excerpt }}</p>
+				<p class="gh-article-excerpt p-summary">{{ custom_excerpt }}</p>
 			{% endif %}
 		</header>
 
@@ -72,6 +73,7 @@ bodyClass: post-template
 	</article>
 	{% include "partials/post-citation.njk" %}
 	{% include "partials/post-taxonomy.njk" %}
+	{% include "partials/webmentions.njk" %}
 
 	{% include "partials/related-posts.njk" %}
 
@@ -84,6 +86,7 @@ bodyClass: post-template
 	<article class="gh-article post h-entry" data-pagefind-body itemscope itemtype="https://schema.org/BlogPosting">
 		<a class="u-url" href="{{ page.url }}" hidden aria-hidden="true"></a>
 		<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
+		{%- for t in (categories | taxonomyTerms('category')).concat(resolvedTags | taxonomyTerms('tag')) %}<data class="p-category" value="{{ t.name }}"></data>{% endfor %}
 
 		<header class="gh-article-header gh-canvas">
 			{% if primaryTag %}
@@ -93,7 +96,7 @@ bodyClass: post-template
 			<h1 class="gh-article-title p-name" itemprop="headline name">{{ title }}</h1>
 
 			{% if custom_excerpt %}
-				<p class="gh-article-excerpt">{{ custom_excerpt }}</p>
+				<p class="gh-article-excerpt p-summary">{{ custom_excerpt }}</p>
 			{% endif %}
 
 			{% include "partials/post-meta.njk" %}
@@ -109,6 +112,7 @@ bodyClass: post-template
 	</article>
 	{% include "partials/post-citation.njk" %}
 	{% include "partials/post-taxonomy.njk" %}
+	{% include "partials/webmentions.njk" %}
 
 	{% include "partials/related-posts.njk" %}
 

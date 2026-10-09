@@ -5,8 +5,12 @@
   "type": "module",
   "scripts": {
     "dev": "buildawesome --serve --quiet",
-    "build": "npm run clean && buildawesome && node scripts/verify-build.mjs",
-    "clean": "rm -rf _site"
+    "build": "npm run clean && buildawesome && node scripts/verify-build.mjs && node scripts/check-webmention-setup.mjs",
+    "clean": "rm -rf _site",
+    "webmentions:fetch": "node scripts/fetch-webmentions.mjs",
+    "webmentions:send": "node scripts/send-webmentions.mjs",
+    "check:webmention": "node scripts/check-webmention-setup.mjs",
+    "test:webmentions": "node scripts/test-webmentions.mjs"
   },
   "repository": {
     "type": "git",

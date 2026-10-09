@@ -29,6 +29,16 @@ npm run build
 
 The build runs Pagefind indexing and verifies the output. Commits to `main` deploy via GitHub Actions to xmit.co.
 
+## Webmentions
+
+Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.brid.gy/docs)) and other sites arrive at [webmention.io](https://webmention.io) and are shown under each post.
+
+- **Setup (once)**: sign in at webmention.io as `publictheology.com`, copy the API key from Settings, and add it as the repo secret `WEBMENTION_IO_TOKEN`.
+- **Display**: each deploy, and a check every 6 hours, fetches the mentions into `.cache/webmentions.json` and rebuilds. Without the token the site builds with none.
+- **Sending**: each push sends webmentions for new and edited posts to Bridgy Fed (required for bridging) and to linked sites that accept them.
+- **Backfill**: all past mentions webmention.io holds are fetched every time. To notify sites linked from older posts without re-bridging them: list their URLs in a file, `npm run build`, then `node scripts/send-webmentions.mjs urls.txt --skip-bridgy --dry-run` (drop `--dry-run` to send).
+- **Test**: `npm run test:webmentions`.
+
 ## Content & Editing
 
 Posts, pages, and authors live in `src/` as Markdown/YAML. Edit via [Pages CMS](https://app.pagescms.org) or directly in the repo. Drafts are marked `published: false` in front matter and excluded from production builds.

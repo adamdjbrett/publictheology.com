@@ -4,7 +4,9 @@ bodyClass: home-template
 ---
 {#- Home layout (was home.hbs). "Latest" grid of the newest 7 posts,
     then primary topic sections and a secondary topic list. -#}
-<main class="gh-main gh-outer">
+<main class="gh-main gh-outer h-feed">
+	<data class="p-name" value="{{ metadata.title }}"></data>
+	<data class="u-url" value="{{ metadata.url }}/"></data>
 	<div class="gh-inner">
 		<h1 class="gh-sr-only">{{ metadata.title }} — {{ metadata.description }}</h1>
 		<section class="gh-topic gh-topic-grid">

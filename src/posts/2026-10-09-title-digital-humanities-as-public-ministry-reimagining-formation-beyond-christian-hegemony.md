@@ -1,37 +1,21 @@
 ---
-title: "Title: Digital Humanities as Public Ministry: Reimagining Formation
+title: "Digital Humanities as Public Ministry: Reimagining Formation
   Beyond Christian Hegemony"
 date: 2026-10-09T14:32:00Z
-custom_excerpt: >-
-  Digital Humanities is not simply a set of digital tools; it is a theological
-  method that reveals how power circulates through our digital ecosystems. For
-  ministry leaders committed to resisting Christian hegemony, DH becomes a way
-  of seeing — a lens that exposes how platforms, archives, and algorithms shape
-  imagination, authority, and belonging.
-
-
-  In the DMin classroom, DH opens space for leaders to interrogate the digital
-  world as part of their pastoral landscape. Formation doesn’t only happen in
-  sanctuaries; it happens in search results, metadata fields, and the invisible
-  logic of algorithms. When leaders learn to read these structures critically,
-  they begin to understand that public ministry requires digital literacy rooted
-  in justice, liberation, and decolonial imagination.
-
-
-  Network analysis, metadata critique, and public‑facing DH projects become
-  pastoral practices — tools that help leaders map theological power, amplify
-  marginalized voices, and build alternative spaces of meaning. DH equips
-  ministers to intervene in the digital world with the same intentionality they
-  bring to preaching, teaching, and community care. It is, at its core, a
-  liberative practice.
+custom_excerpt: Digital Humanities is not simply a set of digital tools; it is a theological method that reveals how power circulates through our digital ecosystems.
+feature_image: /assets/images/steve-a-johnson-_0iV9LmPDn0-unsplash.webp
+feature_image_alt: A computer circuit board with a brain on it
+feature_image_width: 1920
+feature_image_height: 1080
+feature_image_caption: 'Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Steve A Johnson</a> on <a href="https://unsplash.com/photos/a-computer-circuit-board-with-a-brain-on-it-_0iV9LmPDn0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 authors:
   - src/authors/daryl-washington.md
 categories:
   - Essays
 postTags:
-  - "Decolonial DH project "
-  - Theological struggle with Nationalist Hegemony
-  - Public Theology
+  - decolonial-dh-project
+  - theological-struggle-with-nationalist-hegemony
+  - public-theology
 toc: false
 template: post
 published: true

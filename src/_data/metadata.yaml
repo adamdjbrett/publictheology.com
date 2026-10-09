@@ -33,6 +33,6 @@ social_accounts:
   - type: mastodon
     name: Mastodon
     href: https://fed.brid.gy/web/publictheology.com
-logo: /assets/images/publictheology-03a.png
+logo: /assets/images/publictheology-logo-512.webp
 header_logo: /assets/images/publictheology-logo-96.webp
-icon: /assets/images/publictheology-03a.png
+icon: /favicon.svg

@@ -65,3 +65,20 @@ unqualified `latest` tag.
 - Do not commit `node_modules/`, `_site/`, or secrets.
 - Assets under `assets/built/` are the original theme's compiled CSS/JS — treat as
   vendored; add new styles in `assets/css/darkmode.css` or a new file.
+
+## Webmentions
+
+- **Receive**: `head.njk` advertises `https://webmention.io/publictheology.com/webmention`
+  (+ pingback). Bridgy Fed delivers Mastodon/Bluesky replies, likes, reposts and quotes there.
+- **Display**: the deploy workflow runs `npm run webmentions:fetch` (needs repo secret
+  `WEBMENTION_IO_TOKEN`) → gitignored `.cache/webmentions.json` → `src/_data/webmentions.js`
+  (sanitises to plain text + http(s) URLs) → `partials/webmentions.njk` under each post.
+  No token / no network = no mentions, build still passes. A cron run every 6 h rebuilds and
+  redeploys only if the mentions changed. `.cache/` persists between runs via `actions/cache`.
+- **Send**: push runs only. `scripts/send-webmentions.mjs changed-urls.txt` mentions
+  `https://fed.brid.gy/` for every new/edited post (Bridgy Fed is webmention-only: no webmention,
+  no bridging) and any linked site that advertises an endpoint; sent-log `.cache/webmention-sent.json`.
+  Use `--dry-run` locally. Scheduled/manual runs never send webmentions or IndexNow pings.
+- **Checks**: `npm run build` ends with `scripts/check-webmention-setup.mjs`;
+  `npm run test:webmentions` renders a hostile fixture (`scripts/fixtures/`) into `.cache/wm-test`.
+- Mention content is untrusted: never render it with `| safe`.

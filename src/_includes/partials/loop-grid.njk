@@ -28,7 +28,7 @@
             {% endif %}
 
             <footer class="gh-card-footer">
-                <span class="gh-card-author">{% for a in (post.data.authors | resolveAuthors(siteAuthors)) %}{% if loop.first %}{{ a.name }}{% else %}, {{ a.name }}{% endif %}{% endfor %}</span>
+                <span class="gh-card-author">{% for a in (post.data.authors | resolveAuthors(siteAuthors)) %}{% if not loop.first %}, {% endif %}<span class="p-author h-card"><span class="p-name">{{ a.name }}</span><data class="u-url" value="/authors/{{ a.slug }}/"></data></span>{% endfor %}</span>
                 <time class="gh-card-date dt-published" itemprop="datePublished" datetime="{{ post.date | rfc3339 }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
             </footer>
         </div>

@@ -5,7 +5,7 @@
         {% for a in postAuthors %}
             <a class="gh-author-image" href="/authors/{{ a.slug }}/">
                 {% if a.profile_image %}
-                    <img class="u-photo" itemprop="image" src="{{ a.profile_image }}" alt="{{ a.name }}">
+                    <img itemprop="image" src="{{ a.profile_image }}" alt="{{ a.name }}">
                 {% else %}
                     <div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>
                 {% endif %}
@@ -16,7 +16,7 @@
     <div class="gh-author-name-list">
         {% for a in postAuthors %}
             <p class="gh-author-name p-author h-card" itemprop="author" itemscope itemtype="https://schema.org/Person">
-                <a class="u-url" href="/authors/{{ a.slug }}/" itemprop="url"><span class="p-name" itemprop="name">{{ a.name }}</span></a>
+                <a class="u-url u-uid" href="/authors/{{ a.slug }}/" itemprop="url"><span class="p-name" itemprop="name">{{ a.name }}</span></a>{% if a.profile_image %}<data class="u-photo" value="{{ a.profile_image }}"></data>{% endif %}
             </p>
             {% if not loop.last %},&nbsp;{% endif %}
         {% endfor %}

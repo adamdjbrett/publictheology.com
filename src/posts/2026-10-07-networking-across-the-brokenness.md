@@ -14,9 +14,9 @@ authors:
 categories:
   - Essays
 postTags:
-  - Public-Theology
-  - Network-Diagramming
-  - Body-of-Christ
+  - public-theology
+  - network-diagramming
+  - body-of-christ
 toc: false
 template: post
 published: true

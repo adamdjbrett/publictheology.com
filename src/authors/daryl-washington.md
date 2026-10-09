@@ -5,7 +5,7 @@ orcid: 0009-0009-2804-8077
 hcommons: https://dwashington62.hcommons.org/
 email: dwashington@uls.edu
 ---
-![image.png](/assets/images/image-2.png)
+![image.png](/assets/images/image-2.webp)
 
 Pastor Daryl M. Washington was born and raised in Brooklyn, New York where he attended local area public schools. He went on to further his education at Allegheny College in Meadville PA and graduated with a Bachelor of Science degree in Clinical Psychology.
 

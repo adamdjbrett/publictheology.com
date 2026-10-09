@@ -1,0 +1,54 @@
+{#- Responses from the web, Mastodon and Bluesky (webmentions; see src/_data/webmentions.js).
+    All fields are pre-sanitised plain text / http(s) URLs and are autoescaped here — never `| safe`. -#}
+{%- set wm = webmentions[page.url] -%}
+{%- set postUrl = metadata.url + page.url -%}
+<section class="gh-webmentions gh-canvas" aria-labelledby="wm-title">
+	<h2 id="wm-title">Responses</h2>
+	{%- if wm %}
+	{%- for group in [{ key: "likes", label: "Like", plural: "Likes" }, { key: "reposts", label: "Repost", plural: "Reposts" }] %}
+	{%- set items = wm[group.key] %}
+	{%- if items.length %}
+	<h3>{{ items.length }} {{ group.label if items.length == 1 else group.plural }}</h3>
+	<ul class="wm-facepile">
+		{%- for m in items %}
+		<li>
+			{%- if m.author.url or m.url %}<a href="{{ m.author.url or m.url }}" rel="nofollow ugc noopener" title="{{ m.author.name }}">{% endif %}
+			{%- if m.author.photo %}<img src="{{ m.author.photo }}" alt="{{ m.author.name }}" width="40" height="40" loading="lazy" decoding="async" referrerpolicy="no-referrer">
+			{%- else %}<span class="wm-initial" role="img" aria-label="{{ m.author.name }}">{{ m.author.name | first | upper }}</span>{% endif %}
+			{%- if m.author.url or m.url %}</a>{% endif %}
+		</li>
+		{%- endfor %}
+	</ul>
+	{%- endif %}
+	{%- endfor %}
+	{%- if wm.replies.length %}
+	<h3>{{ wm.replies.length }} {{ "Reply or mention" if wm.replies.length == 1 else "Replies and mentions" }}</h3>
+	<ol class="wm-replies">
+		{%- for m in wm.replies %}
+		<li class="wm-reply">
+			<p class="wm-reply-meta">
+				{%- if m.author.photo %}<img src="{{ m.author.photo }}" alt="" width="32" height="32" loading="lazy" decoding="async" referrerpolicy="no-referrer">{% endif %}
+				{% if m.author.url %}<a href="{{ m.author.url }}" rel="nofollow ugc noopener">{{ m.author.name }}</a>{% else %}<span>{{ m.author.name }}</span>{% endif %}
+				{{ "replied" if m.type == "in-reply-to" else "mentioned this post" }}
+				{%- if m.date %}{% if m.url %} <a href="{{ m.url }}" rel="nofollow ugc noopener">{% else %} {% endif %}<time datetime="{{ m.date | htmlDateString }}">{{ m.date | readableDate('LLLL d, yyyy') }}</time>{% if m.url %}</a>{% endif %}
+				{%- elif m.url %} <a href="{{ m.url }}" rel="nofollow ugc noopener">(source)</a>{% endif %}
+			</p>
+			{%- if m.text %}
+			<p class="wm-reply-text">{{ m.text }}</p>
+			{%- endif %}
+		</li>
+		{%- endfor %}
+	</ol>
+	{%- endif %}
+	{%- endif %}
+	<p class="wm-how">Reply from Mastodon by searching for this post’s URL (or follow <code>@publictheology.com@publictheology.com</code>), reply to <a href="https://bsky.app/profile/publictheology.com">@publictheology.com</a> on Bluesky, or link to it from your own site and send a <a href="https://indieweb.org/Webmention">webmention</a>. Responses appear here after the next rebuild.</p>
+	<details class="wm-send">
+		<summary>Send a webmention</summary>
+		<form action="https://webmention.io/publictheology.com/webmention" method="post">
+			<input type="hidden" name="target" value="{{ postUrl }}">
+			<label for="wm-source">URL of your post that links here</label>
+			<input id="wm-source" type="url" name="source" required placeholder="https://">
+			<button class="gh-btn" type="submit">Send</button>
+		</form>
+	</details>
+</section>

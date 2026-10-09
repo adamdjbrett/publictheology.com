@@ -6,6 +6,7 @@ bodyClass: author-template
 <main class="gh-main gh-outer">
 	<div class="gh-inner">
 		<section class="gh-pagehead h-card" itemscope itemtype="https://schema.org/Person">
+			<a class="u-url u-uid" href="{{ metadata.url }}{{ page.url }}" hidden aria-hidden="true" tabindex="-1"></a>
 			<figure class="gh-author-image">
 				{% if author.profile_image %}
 					<img class="u-photo" itemprop="image" src="{{ author.profile_image }}" alt="{{ author.name }}">

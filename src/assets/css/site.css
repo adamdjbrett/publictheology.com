@@ -100,3 +100,118 @@
 	align-items: center;
 	gap: 0.6rem;
 }
+
+/* Webmentions (partials/webmentions.njk). Muted text uses --color-dark-gray, not
+   --color-secondary-text (#999 fails 4.5:1 on white); both are remapped in dark mode. */
+.gh-webmentions {
+	margin-block: 2rem;
+	font-size: 0.9em;
+}
+
+.gh-webmentions h2 {
+	font-size: 1em;
+	margin-bottom: 0.5rem;
+}
+
+.gh-webmentions h3 {
+	font-size: 0.9em;
+	margin: 1.5rem 0 0.5rem;
+}
+
+.wm-facepile {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 0.4rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wm-facepile img,
+.wm-initial,
+.wm-reply-meta img {
+	display: block;
+	width: 40px;
+	height: 40px;
+	border-radius: 50%;
+	object-fit: cover;
+	overflow: hidden; /* a dead avatar URL shows clipped alt text, not overflow */
+	font-size: 0.6rem;
+	background: var(--color-light-gray);
+}
+
+.wm-initial {
+	display: grid;
+	font-size: 1rem;
+	place-items: center;
+	color: var(--color-darker-gray);
+	font-weight: 600;
+}
+
+.wm-replies {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.wm-reply {
+	padding-block: 1rem;
+	border-bottom: 1px solid var(--color-light-gray);
+}
+
+.wm-reply-meta {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.4rem;
+	margin: 0;
+	color: var(--color-dark-gray);
+}
+
+.wm-reply-meta img {
+	width: 32px;
+	height: 32px;
+}
+
+.wm-reply-text {
+	margin: 0.5rem 0 0;
+	white-space: pre-line;
+	overflow-wrap: anywhere;
+}
+
+.wm-how,
+.wm-send {
+	margin-top: 1.5rem;
+	color: var(--color-dark-gray);
+}
+
+.wm-how code {
+	font-size: 0.85em;
+	overflow-wrap: anywhere;
+}
+
+.wm-send summary {
+	cursor: pointer;
+}
+
+.wm-send form {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.5rem;
+	margin-top: 0.75rem;
+}
+
+.wm-send label {
+	flex-basis: 100%;
+}
+
+.wm-send input[type="url"] {
+	flex: 1 1 16rem;
+	min-height: 40px;
+	padding: 0 0.75rem;
+	color: var(--color-darker-gray);
+	background: var(--color-white);
+	border: 1px solid var(--color-mid-gray);
+	border-radius: 4px;
+}

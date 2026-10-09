@@ -1,6 +1,6 @@
 {% if post.data.feature_image %}
     <figure class="gh-article-image">
-        <img
+        <img class="u-featured"
             src="{{ post.data.feature_image }}"
             alt="{{ post.data.feature_image_alt or post.data.title }}"
 			{% if post.data.feature_image_width %}width="{{ post.data.feature_image_width }}"{% endif %}

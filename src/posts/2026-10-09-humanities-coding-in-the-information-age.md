@@ -2,14 +2,15 @@
 title: Humanities Coding in the Information Age
 date: 2026-10-09T14:26:00Z
 custom_excerpt: A reflection on the nature of coding in science and in the digital humanities
-feature_image: /assets/images/codehelloworldenc11.png
+feature_image: /assets/images/codehelloworldenc11.webp
 feature_image_alt: A screenshot of code from the computer language C++
 authors:
   - src/authors/brian-bennett.md
 categories:
   - Essays
 postTags:
-  - "#coding, #digitalhumanities"
+  - coding
+  - digital-humanities
 toc: false
 template: post
 published: true
@@ -23,7 +24,7 @@ This misguided notion of mine was formed in the age of people pimping out their 
 
 While companies and corporations want people to be able to access information in order to maximize their profit, projects that seek to inform and edify others for their own sake, are vital partners in the work toward such goals as the common good, solidarity and justice. These projects need solid coding to offer information as well as be able to create space for people to share what they know.
 
-![Mural on wall of incredibly long-necked storks flyingin opposing directions](/assets/images/interurban8.jpg)
+![Mural on wall of incredibly long-necked storks flyingin opposing directions](/assets/images/interurban8.webp)
 
 This understanding is especially important in the humanities, as evidenced by the *Painting On Walls* project. Erin Benay describes the project in her case study “Art History and Action In The Rust Belt.”[[^1]](#_edn1) Benay worked in the Cleveland area, as what she called an “engaged art historian.”[[^2]](#_edn2) Cleveland, like many other Rust Belt cities that suffered decline with the crumbling of the steel industry, had a robust mural tradition. Abandoned buildings make excellent canvasses for murals, after all.
 

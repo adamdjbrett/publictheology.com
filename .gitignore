@@ -3,3 +3,7 @@ _site/
 .DS_Store
 .env
 .claude
+.cache/
+changed-urls.txt
+live-urls.txt
+built-urls.txt

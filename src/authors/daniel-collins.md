@@ -1,6 +1,6 @@
 ---
 name: Daniel Collins
-profile_image: /assets/images/img20260418203405.jpg
+profile_image: /assets/images/img20260418203405.webp
 orcid: 0009-0000-6826-9020
 hcommons: dcollins.hcommons.org
 email: dcollins@uls.edu

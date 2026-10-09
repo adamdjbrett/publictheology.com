@@ -1,0 +1,13 @@
+# Display names for tags and categories, keyed by slug. Every tag/category is
+# normalised to its slug; the name shown on the site comes from here, or else is
+# the slug in Title Case ("public-sphere" → "Public Sphere"). Add an entry only
+# when Title Case gets it wrong (acronyms, small words).
+categories:
+  editorial: Editorial
+  essays: Essays
+  students: Students
+tags:
+  body-of-christ: Body of Christ
+  decolonial-dh-project: Decolonial DH Project
+  theological-struggle-with-nationalist-hegemony: Theological Struggle with Nationalist Hegemony
+  connection-care-and-common-future: Connection, Care, and Common Future

@@ -3,6 +3,10 @@ name: Deploy Eleventy to XMIT
 on:
   push:
     branches: ["main", "master"]
+  # Rebuild with fresh webmentions (likes/replies/reposts) without a content push.
+  # Scheduled and manual runs never send webmentions or IndexNow pings; only pushes do.
+  schedule:
+    - cron: "17 */6 * * *"
   workflow_dispatch:
     inputs:
       site:
@@ -13,7 +17,9 @@ on:
 
 concurrency:
   group: deploy-xmit-${{ github.ref }}
-  cancel-in-progress: true
+  # Queue instead of cancel: a cancelled push run could die after deploy but before sending its
+  # webmentions, and the next run would see those posts as already live and never announce them.
+  cancel-in-progress: false
 
 permissions:
   contents: read
@@ -38,13 +44,37 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      # .cache/ holds the last good webmentions.json and the outbound sent-log. A fresh key per run
+      # always saves; restore-keys picks the newest. If webmention.io is down, the restored copy is
+      # used, so an outage never blanks the responses on the live site.
+      - name: Restore webmention cache
+        uses: actions/cache@v6
+        with:
+          path: .cache
+          key: webmentions-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: webmentions-
+
+      - name: Fetch webmentions
+        id: wm
+        continue-on-error: true
+        env:
+          WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
+        run: |
+          # The file carries a fetch timestamp, so compare only the mentions themselves.
+          digest() { jq -cS .children .cache/webmentions.json 2>/dev/null | sha256sum || true; }
+          before=$(digest)
+          npm run webmentions:fetch
+          echo "changed=$([ "$before" = "$(digest)" ] && echo false || echo true)" >> "$GITHUB_OUTPUT"
+
       - name: Build Eleventy site
+        if: github.event_name != 'schedule' || steps.wm.outputs.changed == 'true'
         run: npm run build
 
       # Posts to announce: anything in the new feed that the live site doesn't have yet (so posts
       # held back by a failed deploy still go out), plus posts edited anywhere in this push.
       # Runs before the deploy, while the live feed is still the old one.
       - name: List new and edited post URLs
+        if: github.event_name == 'push'
         env:
           BEFORE: ${{ github.event.before }}
         run: |
@@ -61,6 +91,7 @@ jobs:
           cat changed-urls.txt
 
       - name: Deploy to XMIT (CLI)
+        if: github.event_name != 'schedule' || steps.wm.outputs.changed == 'true'
         env:
           XMIT_KEY: ${{ secrets.XMIT_KEY }}
         run: |
@@ -80,16 +111,18 @@ jobs:
           echo "Deploying _site to $XMIT_SITE via XMIT CLI";
           npx -y @xmit.co/xmit "$XMIT_SITE" _site || { echo 'XMIT deploy failed' >&2; exit 1; }
 
-      # Ping Bridgy Fed so posts bridge to Mastodon and Bluesky now instead of on its next feed poll.
-      - name: Send webmentions to Bridgy Fed
+      # Bridgy Fed is in webmention-only mode (it no longer polls the feed), so every new or edited
+      # post must be mentioned to https://fed.brid.gy/ to bridge. The script also sends webmentions to
+      # sites the post links to, logging sends in .cache/webmention-sent.json. Never fails the job.
+      - name: Send webmentions (Bridgy Fed + linked sites)
+        if: github.event_name == 'push'
         continue-on-error: true
-        run: |
-          while read -r url; do
-            curl -sS -d source="$url" -d target=https://fed.brid.gy/ https://fed.brid.gy/webmention || true
-          done < changed-urls.txt
+        timeout-minutes: 10
+        run: node scripts/send-webmentions.mjs changed-urls.txt
 
       # IndexNow (Bing, Yandex, Seznam, Naver…). The key is public by protocol: src/public/<key>.txt.
       - name: Submit changed URLs to IndexNow
+        if: github.event_name == 'push'
         continue-on-error: true
         env:
           INDEXNOW_KEY: 1c81fbe4141395b40ccc0e32ff7b5edc
