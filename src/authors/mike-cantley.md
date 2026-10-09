@@ -4,4 +4,4 @@ role: Writer
 email: mcantley01@uls.edu
 profile_image: /assets/images/mike-cantley.webp
 ---
-PhD Student at United Lutheran Seminary, Gettysburg
+Elder in the United Methodist Church, PhD Student at United Lutheran Seminary, Gettysburg
