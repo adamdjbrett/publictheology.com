@@ -8,8 +8,7 @@
             sizes="(max-width: 1200px) 100vw, 1200px"
             loading="eager"
             fetchpriority="high"
-            decoding="async"
-        >
+                    >
         {% if post.data.feature_image_caption %}
             <figcaption>{{ post.data.feature_image_caption | safe }}</figcaption>
         {% endif %}

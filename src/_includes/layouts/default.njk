@@ -70,7 +70,7 @@
 			{%- set subUrl = metadata.subscribe.url or metadata.subscribe_url %}
 			{%- if subUrl %}
 			<section class="gh-subscribe">
-				<h3 class="gh-subscribe-title">Subscribe to {{ metadata.title }}</h3>
+				<h2 class="gh-subscribe-title">Subscribe to {{ metadata.title }}</h2>
 				{%- if theme.email_signup_text %}
 				<div class="gh-subscribe-description">{{ theme.email_signup_text }}</div>
 				{%- endif %}
@@ -96,7 +96,7 @@
 
 			<div class="gh-copyright">
 				{%- if metadata.footer.license_url %}
-					<a rel="license" href="{{ metadata.footer.license_url }}">{% if metadata.footer.license_badge %}<img src="{{ metadata.footer.license_badge }}" alt="" width="88" height="31" style="display:inline-block;vertical-align:middle"> {% endif %}{{ metadata.footer.license }}</a>
+					<a rel="license" href="{{ metadata.footer.license_url }}">{% if metadata.footer.license_badge %}<img src="{{ metadata.footer.license_badge }}" alt="" loading="lazy" width="88" height="31" style="display:inline-block;vertical-align:middle"> {% endif %}{{ metadata.footer.license }}</a>
 				{%- elif theme.footer_text %}
 					{{ theme.footer_text }}
 				{%- else %}

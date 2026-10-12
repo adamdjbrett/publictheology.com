@@ -43,8 +43,10 @@ unqualified `latest` tag.
 - Prefer `postTags` for public tags. Legacy `tags` values remain supported after
   internal collection tags are removed. Taxonomy values may be strings or
   `{name, slug?, url?}` objects.
-- Authors are one Markdown file each in `src/authors/` (`/authors/<slug>/`), exposed
-  as `siteAuthors`; `authors` on a post lists slugs or `src/authors/<slug>.md` paths.
+- Authors are one Markdown file each in `src/authors/<slug>.md` (`/authors/<slug>/`), exposed
+  as `siteAuthors`. Each has a `slug:` field equal to its filename; Pages CMS stores bare slugs in a
+  post's `authors` (`value: "{fields.slug}"`). Old `src/authors/<slug>.md` paths still resolve.
+  Author pages list posts via the `postsByAuthor` filter (exact slug match, co-authors included).
 
 ## Gotchas (Eleventy v4 alpha)
 
@@ -58,7 +60,7 @@ unqualified `latest` tag.
 
 - **Pagefind** search: `head.njk` loads the Component UI; `data-pagefind-body`
   on post/page `<article>` scopes the index.
-- **Light/dark**: no-flash script in `head.njk`, `assets/css/darkmode.css`,
+- **Light/dark**: no-flash script in `head.njk`, the dark-mode section of `assets/css/site.css`,
   `assets/js/theme-toggle.js`, default in `_data/theme.yaml`.
 - **Pages CMS**: `.pages.yml` field paths must track `src/_data/*`, `src/posts`, `src/pages` and `src/authors`.
 
@@ -66,7 +68,11 @@ unqualified `latest` tag.
 
 - Do not commit `node_modules/`, `_site/`, or secrets.
 - Assets under `assets/built/` are the original theme's compiled CSS/JS — treat as
-  vendored; add new styles in `assets/css/darkmode.css` or a new file.
+  vendored; add new styles to `assets/css/site.css` (the only hand-written stylesheet).
+- **CSS**: pages load one file, `/assets/css/style.css`, rendered by `src/css.njk` from
+  `src/_data/css.js` = theme `built/screen.css` (its @font-face rules dropped, since they lack
+  font-display) + `assets/css/site.css`, comment/whitespace-squeezed. Inlining all of it was
+  measured slower; don't. Two fonts (Lora 400, Inter 700) are preloaded in `head.njk`.
 
 ## Webmentions
 

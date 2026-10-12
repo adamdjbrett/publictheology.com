@@ -10,7 +10,7 @@ title: Authors
 		{% for author in siteAuthors %}
 			<section class="author-row h-card">
 				<figure class="gh-author-image">
-					{% if author.profile_image %}<img class="u-photo" src="{{ author.profile_image }}" alt="{{ author.name }}">{% else %}<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>{% endif %}
+					{% if author.profile_image %}<img class="u-photo" src="{{ author.profile_image }}" alt="{{ author.name }}"{% if not loop.first %} loading="lazy" decoding="async"{% endif %}>{% else %}<div class="gh-author-icon">{% include "partials/icons/avatar.njk" %}</div>{% endif %}
 				</figure>
 				<div class="author-row-text">
 					<h2 class="author-row-name p-name"><a class="u-url" href="/authors/{{ author.slug }}/">{{ author.name }}</a></h2>

@@ -39,15 +39,17 @@ const THUMB_SRC = "src/assets/images";
 const THUMB_OUT = ".cache/thumbs";
 const thumbable = (f) => /\.(jpe?g|png|webp)$/i.test(f);
 async function buildThumbs() {
-	for (const w of THUMB_WIDTHS) {
+	const files = readdirSync(THUMB_SRC).filter(thumbable);
+	const jobs = THUMB_WIDTHS.flatMap((w) => {
 		mkdirSync(`${THUMB_OUT}/w${w}`, { recursive: true });
-		for (const f of readdirSync(THUMB_SRC).filter(thumbable)) {
-			const src = `${THUMB_SRC}/${f}`;
-			const out = `${THUMB_OUT}/w${w}/${parse(f).name}.webp`;
-			if (existsSync(out) && statSync(out).mtimeMs >= statSync(src).mtimeMs) continue;
-			await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 72 }).toFile(out);
-		}
-	}
+		return files.map((f) => [w, `${THUMB_SRC}/${f}`, `${THUMB_OUT}/w${w}/${parse(f).name}.webp`]);
+	});
+	// Only missing/stale thumbs are made, all at once (sharp runs them on its own thread pool).
+	await Promise.all(
+		jobs
+			.filter(([, src, out]) => !existsSync(out) || statSync(out).mtimeMs < statSync(src).mtimeMs)
+			.map(([w, src, out]) => sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 72 }).toFile(out)),
+	);
 }
 
 export default async function (buildAwesomeConfig) {
@@ -99,6 +101,12 @@ export default async function (buildAwesomeConfig) {
 	markdown.core.ruler.before("normalize", "pagescms_footnotes", (state) => {
 		state.src = state.src.replace(/\\\[\^([^\]\s\\]+)\\\]/g, "[^$1]");
 	});
+	// Post-body images sit below the hero: lazy-load them.
+	markdown.renderer.rules.image = ((render) => (tokens, i, ...rest) => {
+		tokens[i].attrSet("loading", "lazy");
+		tokens[i].attrSet("decoding", "async");
+		return render(tokens, i, ...rest);
+	})(markdown.renderer.rules.image);
 	buildAwesomeConfig.setLibrary("md", markdown);
 
 	let contentCache;
