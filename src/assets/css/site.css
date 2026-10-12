@@ -84,6 +84,9 @@
 }
 
 /* --- Layout & components ------------------------------------------------- */
+/* WCAG AA: the theme's #999 secondary text is 2.8:1 on white; #6b6b6b is 5.3:1 (dark mode remaps it). */
+:root{--color-secondary-text:#6b6b6b}
+
 .gh-skip-link {
 	position: fixed;
 	top: 0;
@@ -461,3 +464,8 @@ body,
 :root[data-theme="dark"] .gh-theme-toggle .icon-moon {
 	display: block;
 }
+
+/* --- Author profile links (layouts/author.njk) --- */
+.author-links{display:flex;flex-wrap:wrap;gap:.5rem 1.6rem;margin:1.6rem 0 0;padding:0;list-style:none;font-size:1.5rem}
+.author-links a{display:inline-flex;align-items:center;gap:.6rem;min-height:24px;color:var(--color-darker-gray);overflow-wrap:anywhere}
+.author-links svg{width:18px;height:18px;flex:none}

@@ -1,6 +1,7 @@
 ---
+slug: lubna-younas
 name: Lubna Younas
 email: lyounas@uls.edu
-role: "Student "
+role: Author
 ---
 ULS Student

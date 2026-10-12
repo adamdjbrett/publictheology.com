@@ -9,7 +9,7 @@ feature_image_width: 1920
 feature_image_height: 1080
 feature_image_caption: 'Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Steve A Johnson</a> on <a href="https://unsplash.com/photos/a-computer-circuit-board-with-a-brain-on-it-_0iV9LmPDn0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 authors:
-  - src/authors/daryl-washington.md
+  - daryl-washington
 categories:
   - Essays
 postTags:

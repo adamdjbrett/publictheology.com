@@ -1,4 +1,5 @@
 ---
+slug: matsimela-mapfumo
 name: Matsimela Mapfumo (Mark Thompson)
 role: Publisher
 profile_image: /assets/images/authors/mark-thompson.webp

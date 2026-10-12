@@ -6,7 +6,7 @@ feature_image: /assets/images/1791163742671.webp
 feature_image_width: 586
 feature_image_height: 376
 authors:
-  - src/authors/hau-sian-suan.md
+  - hau-sian-suan
 categories:
   - Essays
 toc: false

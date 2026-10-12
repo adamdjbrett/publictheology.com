@@ -89,6 +89,10 @@ export default function (eleventyConfig) {
 			.filter(Boolean);
 	});
 
+	eleventyConfig.addFilter("postsByAuthor", (posts, key, authors) =>
+		(posts || []).filter((p) => eleventyConfig.getFilter("resolveAuthors")(p.data.authors, authors).some((a) => a.key === key)),
+	);
+
 	eleventyConfig.addFilter("resolvedPostTags", (preferred, legacy) =>
 		publicPostTags({ postTags: preferred, tags: legacy }),
 	);

@@ -1,5 +1,7 @@
 ---
+slug: brian-bennett
 name: Brian Bennett
+role: Author
 email: bbennett@uls.edu
 profile_image: /assets/images/20251014135744.jpg
 orcid: https://orcid.org/0009-0004-4553-2868

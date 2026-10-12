@@ -23,38 +23,27 @@ bodyClass: author-template
 				{% if content | trim %}
 					<div class="gh-author-bio gh-pagehead-description p-note">{{ content | safe }}</div>
 				{% endif %}
-				<div class="gh-author-social">
-					{% if author.orcid %}
-						<a class="gh-author-social-link u-url" href="{{ author.orcid }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on ORCID">{% include "partials/icons/orcid.njk" %}</a>
-					{% endif %}
-					{% if author.hcommons %}
-						<a class="gh-author-social-link u-url" href="{{ author.hcommons }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Humanities Commons">{% include "partials/icons/website.njk" %}</a>
-					{% endif %}
-					{% if author.email %}
-						<a class="gh-author-social-link u-email" href="mailto:{{ author.email }}" aria-label="Email {{ author.name }}">{% include "partials/icons/email.njk" %}</a>
-					{% endif %}
-					{% if author.x %}
-						<a class="gh-author-social-link u-url" href="{{ author.x }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on X">{% include "partials/icons/x.njk" %}</a>
-					{% endif %}
-					{% if author.bluesky %}
-						<a class="gh-author-social-link u-url" href="{{ author.bluesky }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Bluesky">{% include "partials/icons/bluesky.njk" %}</a>
-					{% endif %}
-					{% if author.mastodon %}
-						<a class="gh-author-social-link u-url" href="{{ author.mastodon }}" target="_blank" rel="noopener" aria-label="{{ author.name }} on Mastodon">{% include "partials/icons/mastodon.njk" %}</a>
-					{% endif %}
-					{% if author.website %}
-						<a class="gh-author-social-link u-url" href="{{ author.website }}" target="_blank" rel="noopener" aria-label="{{ author.name }}’s website">{% include "partials/icons/website.njk" %}</a>
-					{% endif %}
-				</div>
+				{#- Every profile field, as visible labelled links (not icon-only). -#}
+				<ul class="author-links">
+					{%- for f in [["orcid","ORCID","orcid"],["hcommons","Humanities Commons","website"],["website","Website","website"],["bluesky","Bluesky","bluesky"],["mastodon","Mastodon","mastodon"],["x","X","x"]] %}
+					{%- if author[f[0]] %}
+					<li><a class="u-url" href="{{ author[f[0]] }}" rel="me noopener" target="_blank">{% include "partials/icons/" + f[2] + ".njk" %}<span>{{ f[1] }}</span></a></li>
+					{%- endif %}
+					{%- endfor %}
+					{%- if author.email %}
+					<li><a class="u-email" href="mailto:{{ author.email }}">{% include "partials/icons/email.njk" %}<span>{{ author.email }}</span></a></li>
+					{%- endif %}
+				</ul>
 			</div>
 		</section>
 
 		<div class="gh-topic gh-topic-grid">
 			<div class="gh-topic-content gh-feed">
-				{% for post in collections.posts %}
-					{% if author.key in post.data.authors %}
-						{% include "partials/loop-grid.njk" %}
-					{% endif %}
+				{#- Match on resolved slugs: post authors may be slugs or Pages CMS paths (src/authors/x.md). -#}
+				{% for post in collections.posts | postsByAuthor(author.key, siteAuthors) %}
+					{% include "partials/loop-grid.njk" %}
+				{% else %}
+					<p>No posts yet.</p>
 				{% endfor %}
 			</div>
 		</div>

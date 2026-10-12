@@ -1,4 +1,5 @@
 ---
+slug: ellis-billington
 name: Ellis Billington
 role: Author
 hcommons: ellis.hcommons.org

@@ -36,7 +36,7 @@ content:
         label: Authors
         type: reference
         required: true
-        options: { collection: authors, multiple: true, search: name, value: "{path}", label: "{fields.name}" }
+        options: { collection: authors, multiple: true, search: name, value: "{fields.slug}", label: "{fields.name}" }
       - { name: categories, label: Categories, type: select, required: true, options: { values: [Editorial, Essays, Students], multiple: true } }
       - { name: postTags, label: "Tags (one per entry, lowercase-with-hyphens, e.g. public-theology)", type: string, list: true }
       - { name: toc, label: Table of contents, type: boolean, default: false }
@@ -76,11 +76,12 @@ content:
     label: Authors
     type: collection
     path: src/authors
-    filename: '{fields.name}.md'
+    filename: '{fields.slug}.md'
     exclude: [authors.11tydata.js]
     view: { fields: [name, role], primary: name }
     fields:
       - { name: name, label: Name, type: string, required: true }
+      - { name: slug, label: "Slug (lowercase-with-hyphens, e.g. jane-doe; also the URL /authors/<slug>/)", type: string, required: true, pattern: { regex: "^[a-z0-9]+(-[a-z0-9]+)*$", message: "lowercase letters, digits and hyphens only" } }
       - { name: role, label: Role, type: string }
       - { name: profile_image, label: Profile image, type: image }
       - { name: orcid, label: ORCID URL, type: string }

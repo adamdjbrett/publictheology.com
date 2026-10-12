@@ -1,4 +1,5 @@
 ---
+slug: hau-sian-suan
 name: Hau Sian Suan
 role: Author
 profile_image: /assets/images/img0231.webp

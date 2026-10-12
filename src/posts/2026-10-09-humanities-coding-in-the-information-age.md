@@ -5,7 +5,7 @@ custom_excerpt: A reflection on the nature of coding in science and in the digit
 feature_image: /assets/images/codehelloworldenc11.webp
 feature_image_alt: A screenshot of code from the computer language C++
 authors:
-  - src/authors/brian-bennett.md
+  - brian-bennett
 categories:
   - Essays
 postTags:

@@ -1,7 +1,8 @@
 ---
+slug: daryl-washington
 name: Daryl Washington
 profile_image: /assets/images/darryl-washington.webp
-role: DMin Student Author
+role: Author
 orcid: 0009-0009-2804-8077
 hcommons: https://dwashington62.hcommons.org/
 email: dwashington@uls.edu

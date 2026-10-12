@@ -1,6 +1,7 @@
 ---
+slug: mike-cantley
 name: Mike Cantley
-role: Writer
+role: Author
 email: mcantley01@uls.edu
 profile_image: /assets/images/mike-cantley.webp
 ---

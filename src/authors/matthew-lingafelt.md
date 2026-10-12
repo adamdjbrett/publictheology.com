@@ -1,4 +1,5 @@
 ---
+slug: matthew-lingafelt
 name: Matthew Lingafelt
 role: Author
 profile_image: /assets/images/screenshot-2026-06-22-105148.webp

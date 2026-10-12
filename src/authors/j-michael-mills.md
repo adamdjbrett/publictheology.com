@@ -1,4 +1,5 @@
 ---
+slug: j-michael-mills
 name: J. Michael Mills
 role: Author
 orcid: https://orcid.org/0009-0002-1504-9643

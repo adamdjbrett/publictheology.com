@@ -1,4 +1,5 @@
 ---
+slug: james-e-jones-jr
 name: James E. Jones Jr
 role: Author
 email: jejones@uls.edu
