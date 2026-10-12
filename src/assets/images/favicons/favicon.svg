@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" aria-labelledby="pti-title" height="512" role="img" viewBox="0 0 512 512" width="512">
+<title id="pti-title">Public Theology</title>
+<circle cx="256" cy="256" fill="#F4EFE4" r="256"/>
+<circle cx="256" cy="256" fill="#14213D" r="240"/>
+<circle cx="256" cy="256" fill="none" r="206" stroke="#B8873B" stroke-width="10"/>
+<path d="M112.91 167V345H155.86V167ZM139.88 202.35H174.66Q187.68 202.35 195.09 208.17Q202.5 213.98 202.5 225.14Q202.5 236.2 195.09 242.06Q187.68 247.93 174.66 247.93H139.88V283.28H174.66Q197.48 283.28 212.82 276.24Q228.16 269.21 236.02 256.1Q243.87 242.99 243.87 225.14Q243.87 207.03 236.02 194.05Q228.16 181.07 212.82 174.04Q197.48 167 174.66 167H139.88ZM258.28 205.51H307.21V345H350.16V205.51H399.09V167H258.28Z" fill="#F4EFE4"/>
+</svg>

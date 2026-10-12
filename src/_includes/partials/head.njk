@@ -27,7 +27,12 @@
 <meta name="twitter:card" content="summary">
 {%- endif %}
 
-<link rel="icon" href="{{ metadata.icon or '/favicon.svg' }}"{% if (metadata.icon or '/favicon.svg').endsWith('.svg') %} type="image/svg+xml"{% endif %}>
+{#- Favicons: all generated from src/assets/images/favicons/favicon.svg (see AGENTS.md). -#}
+<link rel="icon" href="/favicon.ico" sizes="48x48">
+<link rel="icon" href="{{ metadata.icon or '/assets/images/favicons/favicon.svg' }}" type="image/svg+xml">
+<link rel="apple-touch-icon" href="/assets/images/favicons/apple-touch-icon.png">
+<link rel="manifest" href="/assets/images/favicons/site.webmanifest">
+<meta name="theme-color" content="#14213D">
 <link rel="alternate" type="application/atom+xml" title="{{ metadata.title }} (Atom)" href="/feed.xml">
 <link rel="alternate" type="application/rss+xml" title="{{ metadata.title }} (RSS)" href="/feed/feed.rss">
 <link rel="alternate" type="application/feed+json" title="{{ metadata.title }} (JSON)" href="/feed/feed.json">

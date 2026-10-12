@@ -62,6 +62,10 @@ unqualified `latest` tag.
   on post/page `<article>` scopes the index.
 - **Light/dark**: no-flash script in `head.njk`, the dark-mode section of `assets/css/site.css`,
   `assets/js/theme-toggle.js`, default in `_data/theme.yaml`.
+- **Favicons**: everything in `src/assets/images/favicons/` (ico 16/32/48, png 16–96, apple-touch 180
+  on #F4EFE4, android-chrome 192/512, maskable 512 on #14213D, `site.webmanifest`) is generated once
+  from `favicons/favicon.svg` with sharp + `magick` and committed. `/favicon.ico` and `/favicon.svg` are
+  root copies (passthrough). Changing the logo: replace the SVG and regenerate the PNG/ICO set.
 - **Pages CMS**: `.pages.yml` field paths must track `src/_data/*`, `src/posts`, `src/pages` and `src/authors`.
 
 ## Boundaries

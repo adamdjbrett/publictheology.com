@@ -36,3 +36,9 @@ on = "\\.(?:webp|avif|png|jpe?g|gif|svg|ico|woff2?)$"
 name = "Cache-Control"
 value = "public, max-age=3600, s-maxage=31536000"
 on = "\\.(?:xml|rss|json|xsl|txt)$"
+
+# Web app manifest (favicons/site.webmanifest).
+[[headers]]
+name = "Content-Type"
+value = "application/manifest+json"
+on = "\\.webmanifest$"

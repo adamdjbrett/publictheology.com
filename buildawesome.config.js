@@ -81,6 +81,11 @@ export default async function (buildAwesomeConfig) {
 
 	buildAwesomeConfig.addPassthroughCopy({ "./src/assets": "/assets" });
 	buildAwesomeConfig.addPassthroughCopy({ "./src/public": "/" });
+	// Browsers and feed readers ask for /favicon.ico and /favicon.svg at the root.
+	buildAwesomeConfig.addPassthroughCopy({
+		"./src/assets/images/favicons/favicon.ico": "/favicon.ico",
+		"./src/assets/images/favicons/favicon.svg": "/favicon.svg",
+	});
 	buildAwesomeConfig.addWatchTarget("src/assets/css/**/*.css");
 	buildAwesomeConfig.addWatchTarget("src/assets/js/**/*.js");
 	buildAwesomeConfig.addPlugin(pluginFilters);
