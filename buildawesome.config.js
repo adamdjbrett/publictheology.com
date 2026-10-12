@@ -1,6 +1,7 @@
 import { execFileSync } from "node:child_process";
-import { readFileSync, readdirSync } from "node:fs";
-import { resolve } from "node:path";
+import { existsSync, mkdirSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { parse, resolve } from "node:path";
+import sharp from "sharp";
 import { load as loadYaml } from "js-yaml";
 import markdownIt from "markdown-it";
 import markdownItAnchor from "markdown-it-anchor";
@@ -31,7 +32,31 @@ function profileUrls(data) {
 	return out;
 }
 
+// Card thumbnails: originals run 1–2K px wide but cards show them at 100–400 px.
+// Resized webp copies go to .cache/thumbs/w<N>/ (kept between CI runs), served at /assets/images/w<N>/.
+const THUMB_WIDTHS = [400, 1000];
+const THUMB_SRC = "src/assets/images";
+const THUMB_OUT = ".cache/thumbs";
+const thumbable = (f) => /\.(jpe?g|png|webp)$/i.test(f);
+async function buildThumbs() {
+	for (const w of THUMB_WIDTHS) {
+		mkdirSync(`${THUMB_OUT}/w${w}`, { recursive: true });
+		for (const f of readdirSync(THUMB_SRC).filter(thumbable)) {
+			const src = `${THUMB_SRC}/${f}`;
+			const out = `${THUMB_OUT}/w${w}/${parse(f).name}.webp`;
+			if (existsSync(out) && statSync(out).mtimeMs >= statSync(src).mtimeMs) continue;
+			await sharp(src).resize({ width: w, withoutEnlargement: true }).webp({ quality: 72 }).toFile(out);
+		}
+	}
+}
+
 export default async function (buildAwesomeConfig) {
+	buildAwesomeConfig.on("eleventy.before", buildThumbs);
+	for (const w of THUMB_WIDTHS) buildAwesomeConfig.addPassthroughCopy({ [`${THUMB_OUT}/w${w}`]: `/assets/images/w${w}` });
+	// thumb(400): "/assets/images/x.jpg" → "/assets/images/w400/x.webp"; anything else (remote, gif, svg, subdirs) unchanged.
+	buildAwesomeConfig.addFilter("thumb", (url = "", w = THUMB_WIDTHS[0]) =>
+		/^\/assets\/images\/[^/]+$/.test(url) && thumbable(url) ? `/assets/images/w${w}/${parse(url).name}.webp` : url,
+	);
 	buildAwesomeConfig.addDataExtension("yaml", loadYaml);
 	buildAwesomeConfig.addGlobalData("siteAuthors", () =>
 		readdirSync("src/authors").filter((f) => f.endsWith(".md")).map((f) => {

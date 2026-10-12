@@ -10,9 +10,7 @@
    script in the <head> before first paint. When no explicit choice is stored,
    the visitor's OS preference wins.
 
-   NOTE: this file is INLINED (minified) into the <style> block in
-   src/_includes/partials/head.njk to save a render-blocking request — it is
-   no longer linked from <head>. If you edit rules here, re-sync that copy.
+   Inlined into <head> at build time by src/_data/inlineCss.js — edit here only.
 --------------------------------------------------------------------------- */
 
 :root {
@@ -119,16 +117,16 @@ body,
 	width: 20px;
 	height: 20px;
 }
-/* Show sun in dark mode, moon in light mode */
+/* Light mode shows the sun; dark mode shows the moon-stars. */
 .gh-theme-toggle .icon-sun {
-	display: none;
+	display: block;
 }
 .gh-theme-toggle .icon-moon {
-	display: block;
+	display: none;
 }
 :root[data-theme="dark"] .gh-theme-toggle .icon-sun {
-	display: block;
+	display: none;
 }
 :root[data-theme="dark"] .gh-theme-toggle .icon-moon {
-	display: none;
+	display: block;
 }

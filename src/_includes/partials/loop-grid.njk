@@ -3,7 +3,9 @@
         {% if post.data.feature_image %}
             <figure class="gh-card-image">
                 <img
-                    src="{{ post.data.feature_image }}"
+                    {%- set thumb = post.data.feature_image | thumb(400) %}
+                    src="{{ thumb }}"
+                    {%- if large and thumb != post.data.feature_image %} srcset="{{ thumb }} 400w, {{ post.data.feature_image | thumb(1000) }} 1000w"{% endif %}
                     alt="{{ post.data.feature_image_alt or post.data.title }}"
 					{% if post.data.feature_image_width %}width="{{ post.data.feature_image_width }}"{% endif %}
 					{% if post.data.feature_image_height %}height="{{ post.data.feature_image_height }}"{% endif %}

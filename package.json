@@ -33,6 +33,7 @@
     "markdown-it": "15.0.2",
     "markdown-it-anchor": "10.0.0",
     "markdown-it-footnote": "4.0.0",
-    "pagefind": "1.5.2"
+    "pagefind": "1.5.2",
+    "sharp": "0.34.5"
   }
 }

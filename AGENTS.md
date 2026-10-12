@@ -35,7 +35,9 @@ unqualified `latest` tag.
   Eleventy collection item). Set it before including in a non-loop context.
 - Custom filters live in `_config/filters.js`: `readableDate`, `htmlDateString`, `readingTime`, `excerpt`,
   `slug`, `resolveAuthors`, `relatedPosts`, taxonomy helpers, TOC backlinks,
-  and `year`. Images are preoptimized and copied without build-time transforms.
+  and `year`. Images are copied as-is; the only transform is card thumbnails: `buildawesome.config.js`
+  writes 400w/1000w webp copies (sharp) to `.cache/thumbs/` → `/assets/images/w400|w1000/`, used via
+  the `thumb` filter in `partials/loop-grid.njk`.
 - Collections are memoized in `buildawesome.config.js`: `posts`, `pages`,
   `tags`, `categories`, and compatibility alias `topics`.
 - Prefer `postTags` for public tags. Legacy `tags` values remain supported after

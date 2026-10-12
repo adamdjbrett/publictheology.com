@@ -215,3 +215,32 @@
 	border: 1px solid var(--color-mid-gray);
 	border-radius: 4px;
 }
+
+/* --- Moved from the inline <style> in head.njk --- */
+.gh-sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* a11y: on full-feature-image posts the theme colours the sidebar Share button white
+   (for the dark cover), but the sidebar sits on the light page body. */
+.gh-article-sidebar .gh-button-share{color:rgba(0,0,0,.85);border-color:rgba(0,0,0,.18)}
+.gh-article-sidebar .gh-button-share:hover{border-color:rgba(0,0,0,.5)}
+:root[data-theme="dark"] .gh-article-sidebar .gh-button-share{color:rgba(255,255,255,.9);border-color:rgba(255,255,255,.22)}
+:root[data-theme="dark"] .gh-article-sidebar .gh-button-share:hover{border-color:rgba(255,255,255,.5)}
+
+/* Byline author links: >=24px touch target (WCAG 2.5.8) even with two authors side by side. */
+.gh-author-name-list .gh-author-name a{display:inline-block;min-height:24px;padding-block:3px}
+
+/* Header action clusters: toggle+search on the left, Subscribe on the right. */
+.gh-head-actions-left{display:flex;align-items:center;gap:2px}
+.gh-head-actions-right{display:flex;align-items:center}
+
+/* Search icon button (Phosphor magnifier), mirrors the theme toggle. A distinct class so the
+   theme's `.gh-head-actions .gh-search{display:none}` rule doesn't hide it. */
+.gh-head-search-btn{display:inline-flex;align-items:center;justify-content:center;width:40px;height:40px;padding:0;background:transparent;border:0;color:inherit;cursor:pointer;border-radius:50%;text-decoration:none}
+.gh-head-search-btn:hover{background:rgba(127,127,127,0.14)}
+.gh-head-search-btn svg{width:20px;height:20px;display:block}
+
+/* Red Subscribe button (editorial.ghost.io style). align-self:center + margin:0 override the
+   theme's actions-bar alignment so it lines up with the site title. */
+.gh-head .gh-subscribe-btn,.gh-head .gh-subscribe-btn:hover{color:#fff}
+.gh-head .gh-subscribe-btn{background-color:#e12026;border-radius:100px;align-self:center;margin:0}
+.gh-head .gh-subscribe-btn:hover{background-color:#c01319;opacity:1}
