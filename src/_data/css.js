@@ -1,5 +1,5 @@
 // The one stylesheet pages load (/assets/css/style.css, rendered by src/css.njk):
-// the vendored theme (assets/built/screen.css) + assets/css/site.css, in that cascade order.
+// the vendored theme (_config/theme/screen.css, not published itself) + assets/css/site.css, in that cascade order.
 // The theme's @font-face rules are dropped: they lack font-display, and site.css redeclares them.
 // The output sits in /assets/css/, so the theme's ../images/ URLs still resolve.
 import { readFileSync } from "node:fs";
@@ -15,4 +15,9 @@ const squeeze = (css) =>
 		.replace(/;}/g, "}")
 		.trim();
 
-export default squeeze(read("built/screen.css").replace(/@font-face\s*\{[^}]*\}/g, "") + "\n" + read("css/site.css"));
+// Theme sprites (lightbox default-skin.png, preloader.gif) exist only as .webp in assets/images.
+const theme = readFileSync("_config/theme/screen.css", "utf8")
+	.replace(/@font-face\s*\{[^}]*\}/g, "")
+	.replace(/(\.\.\/images\/[\w-]+)\.(png|gif)\b/g, "$1.webp");
+
+export default squeeze(theme + "\n" + read("css/site.css"));

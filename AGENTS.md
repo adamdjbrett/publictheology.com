@@ -62,6 +62,9 @@ unqualified `latest` tag.
   on post/page `<article>` scopes the index.
 - **Light/dark**: no-flash script in `head.njk`, the dark-mode section of `assets/css/site.css`,
   `assets/js/theme-toggle.js`, default in `_data/theme.yaml`.
+- **Images**: `src/assets/images/` holds only `.webp` and `.svg` (favicons/ excepted: png/ico by
+  necessity). Convert any jpg/png/gif upload to webp (sharp, `.rotate()` for EXIF orientation) and
+  point the front matter at the `.webp`.
 - **Favicons**: everything in `src/assets/images/favicons/` (ico 16/32/48, png 16–96, apple-touch 180
   on #F4EFE4, android-chrome 192/512, maskable 512 on #14213D, `site.webmanifest`) is generated once
   from `favicons/favicon.svg` with sharp + `magick` and committed. `/favicon.ico` and `/favicon.svg` are
@@ -71,11 +74,13 @@ unqualified `latest` tag.
 ## Boundaries
 
 - Do not commit `node_modules/`, `_site/`, or secrets.
-- Assets under `assets/built/` are the original theme's compiled CSS/JS — treat as
-  vendored; add new styles to `assets/css/site.css` (the only hand-written stylesheet).
+- The original theme's compiled JS (`src/assets/built/main.min.js`) and CSS (`_config/theme/screen.css`,
+  build input only, not published) are vendored; add new styles to `assets/css/site.css`
+  (the only hand-written stylesheet).
 - **CSS**: pages load one file, `/assets/css/style.css`, rendered by `src/css.njk` from
-  `src/_data/css.js` = theme `built/screen.css` (its @font-face rules dropped, since they lack
-  font-display) + `assets/css/site.css`, comment/whitespace-squeezed. Inlining all of it was
+  `src/_data/css.js` = theme `_config/theme/screen.css` (its @font-face rules dropped, since they lack
+  font-display; its png/gif sprite URLs pointed at the .webp copies) + `assets/css/site.css`,
+  comment/whitespace-squeezed. Inlining all of it was
   measured slower; don't. Two fonts (Lora 400, Inter 700) are preloaded in `head.njk`.
 
 ## Webmentions
