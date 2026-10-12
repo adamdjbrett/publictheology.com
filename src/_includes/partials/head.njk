@@ -126,10 +126,9 @@
 	})();
 </script>
 
-{#- All CSS is inlined (no render-blocking requests): src/_data/inlineCss.js joins the theme's
-    screen.css (minus its @font-face rules), fonts.css, site.css and darkmode.css. Edit those files.
-    Pagefind Component UI is lazy-loaded on first search intent by /assets/js/pagefind-loader.js. -#}
-<style>{{ inlineCss | safe }}</style>
+{#- One stylesheet: theme + assets/css/site.css, joined by src/_data/css.js. Inlining it all
+    measured slower (54 KB on every page). Pagefind UI is lazy-loaded by pagefind-loader.js. -#}
+<link rel="stylesheet" href="/assets/css/style.css">
 {#- font-display:optional skips a face that misses first paint; preload the two most visible
     (body text, titles) so they make it. The other weights arrive and are cached for the next page. -#}
 <link rel="preload" href="/assets/fonts/lora-v25-latin-regular.woff2" as="font" type="font/woff2" crossorigin>

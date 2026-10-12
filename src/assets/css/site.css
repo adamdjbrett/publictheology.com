@@ -1,3 +1,89 @@
+/* Site styles on top of the vendored Headline theme (assets/built/screen.css).
+   src/css.njk joins the theme + this file into the one stylesheet pages load: /assets/css/style.css.
+   Font URLs are absolute; the theme's own @font-face rules (no font-display) are dropped there. */
+
+/* --- Fonts ---------------------------------------------------------------- */
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 400;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/inter-v12-latin-regular.woff2") format("woff2"), url("/assets/fonts/inter-v12-latin-regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 500;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/inter-v12-latin-500.woff2") format("woff2"), url("/assets/fonts/inter-v12-latin-500.woff") format("woff");
+}
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 600;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/inter-v12-latin-600.woff2") format("woff2"), url("/assets/fonts/inter-v12-latin-600.woff") format("woff");
+}
+
+@font-face {
+    font-family: Inter;
+    font-style: normal;
+    font-weight: 700;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/inter-v12-latin-700.woff2") format("woff2"), url("/assets/fonts/inter-v12-latin-700.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: normal;
+    font-weight: 400;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-regular.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-regular.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: normal;
+    font-weight: 500;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-500.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-500.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: normal;
+    font-weight: 600;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-600.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-600.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: normal;
+    font-weight: 700;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-700.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-700.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: italic;
+    font-weight: 400;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-italic.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-italic.woff") format("woff");
+}
+
+@font-face {
+    font-family: Lora;
+    font-style: italic;
+    font-weight: 700;
+    font-display: optional;
+    src: local(""), url("/assets/fonts/lora-v25-latin-700italic.woff2") format("woff2"), url("/assets/fonts/lora-v25-latin-700italic.woff") format("woff");
+}
+
+/* --- Layout & components ------------------------------------------------- */
 .gh-skip-link {
 	position: fixed;
 	top: 0;
@@ -244,3 +330,134 @@
 .gh-head .gh-subscribe-btn,.gh-head .gh-subscribe-btn:hover{color:#fff}
 .gh-head .gh-subscribe-btn{background-color:#e12026;border-radius:100px;align-self:center;margin:0}
 .gh-head .gh-subscribe-btn:hover{background-color:#c01319;opacity:1}
+
+/* ---------------------------------------------------------------------------
+   Light / dark mode for the Headline theme.
+
+   The theme's palette lives in :root as raw tokens (--color-white is used for
+   surfaces, --color-darker-gray for near-black text). We remap those tokens
+   under [data-theme="dark"] and add a few explicit fixes where a raw token is
+   used ambiguously (footer/header/images).
+
+   The <html> element gets data-theme="light" | "dark" from the inline no-flash
+   script in the <head> before first paint. When no explicit choice is stored,
+   the visitor's OS preference wins.
+--------------------------------------------------------------------------- */
+
+:root {
+	color-scheme: light;
+	--gh-transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+}
+
+:root[data-theme="dark"] {
+	color-scheme: dark;
+
+	/* Surfaces (was near-white) → dark */
+	--color-white: #16181c;
+	--color-lighter-gray: #1c1f24;
+	--color-light-gray: #2a2e35; /* borders / dividers */
+	--color-mid-gray: #3a3f47;
+
+	/* Text (was near-black) → light */
+	--color-dark-gray: #c3c8d0;
+	--color-darker-gray: #f3f4f6;
+	--color-primary-text: #e6e8eb;
+	--color-secondary-text: #a4abb4;
+	--color-black: #ffffff;
+
+	--background-color: #16181c;
+}
+
+/* Smooth the switch on the big surfaces */
+body,
+.gh-head,
+.gh-foot,
+.gh-card,
+.gh-article,
+.gh-content {
+	transition: var(--gh-transition);
+}
+
+/* --- Explicit fixes: elements whose colours are hard-coded or ambiguous --- */
+
+:root[data-theme="dark"] body {
+	background-color: #16181c;
+}
+
+/* Header sits on the page surface */
+:root[data-theme="dark"] .gh-head {
+	background-color: #16181c;
+	border-color: #2a2e35;
+}
+
+/* Footer keeps a darker slab with light text (it hard-codes white text) */
+:root[data-theme="dark"] .gh-foot {
+	background-color: #0f1113;
+}
+:root[data-theme="dark"] .gh-foot,
+:root[data-theme="dark"] .gh-foot a,
+:root[data-theme="dark"] .gh-foot a:hover {
+	color: #e6e8eb;
+}
+/* Footer subscribe block stays white-on-dark, as in light mode */
+:root[data-theme="dark"] .gh-subscribe-title {
+	color: #fff;
+}
+:root[data-theme="dark"] .gh-foot .gh-subscribe-btn {
+	color: #15171a;
+	background-color: #fff;
+}
+
+/* Card / topic dividers */
+:root[data-theme="dark"] .gh-topic,
+:root[data-theme="dark"] .gh-card-link {
+	border-color: #2a2e35;
+}
+
+/* Slightly calm images in dark mode */
+:root[data-theme="dark"] .gh-card-image img,
+:root[data-theme="dark"] .gh-article-image img,
+:root[data-theme="dark"] .gh-cover-image {
+	filter: brightness(0.88) contrast(1.02);
+}
+
+/* Code blocks */
+:root[data-theme="dark"] .gh-content pre {
+	background-color: #0f1113;
+	border: 1px solid #2a2e35;
+}
+
+/* --- The toggle button ---------------------------------------------------- */
+.gh-theme-toggle {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	width: 40px;
+	height: 40px;
+	padding: 0;
+	background: transparent;
+	border: 0;
+	color: inherit;
+	cursor: pointer;
+	border-radius: 50%;
+}
+.gh-theme-toggle:hover {
+	background: rgba(127, 127, 127, 0.14);
+}
+.gh-theme-toggle svg {
+	width: 20px;
+	height: 20px;
+}
+/* Light mode shows the sun; dark mode shows the moon-stars. */
+.gh-theme-toggle .icon-sun {
+	display: block;
+}
+.gh-theme-toggle .icon-moon {
+	display: none;
+}
+:root[data-theme="dark"] .gh-theme-toggle .icon-sun {
+	display: none;
+}
+:root[data-theme="dark"] .gh-theme-toggle .icon-moon {
+	display: block;
+}
