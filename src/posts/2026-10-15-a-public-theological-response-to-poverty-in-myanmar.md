@@ -16,6 +16,8 @@ categories:
 toc: false
 template: post
 published: true
+postTags:
+  - Public-Theology, Christian-Ethics, Social-Justice
 ---
 ![image.png](/assets/images/image.png)
 
