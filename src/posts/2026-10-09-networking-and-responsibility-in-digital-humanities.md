@@ -1,7 +1,9 @@
 ---
-title: "Networking and Responsibility in Digital Humanities"
+title: Networking and Responsibility in Digital Humanities
 date: 2026-10-09T14:44:00Z
-custom_excerpt: Networks connect people and knowledge, but they also involve power and responsibility. How can digital scholarship practice care, consent, and shared authority?
+custom_excerpt: Networks connect people and knowledge, but they also involve
+  power and responsibility. How can digital scholarship practice care, consent,
+  and shared authority?
 feature_image: /assets/images/1791163742671.webp
 feature_image_width: 586
 feature_image_height: 376
@@ -11,7 +13,7 @@ categories:
   - Essays
 toc: false
 template: post
-published: false
+published: true
 postTags:
   - connection-care-and-common-future
 ---
