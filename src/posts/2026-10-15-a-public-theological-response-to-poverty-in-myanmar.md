@@ -25,9 +25,9 @@ A public theological response begins with the conviction that Christian faith co
 
 *Understanding poverty as structural injustice*
 
-Poverty is sometimes understood as divine punishment, personal failure, or an unavoidable condition of life. Such explanations can hide the political and economic arrangements that keep people poor. Liberation theologians such as Bonino challenge this understanding by drawing attention to human greed, systemic injustice, and social neglect.^1  In this perspective, poverty is not simply a matter of misfortune. It is also produced by structures that protect the interests of the powerful at the expense of vulnerable people.
+Poverty is sometimes understood as divine punishment, personal failure, or an unavoidable condition of life. Such explanations can hide the political and economic arrangements that keep people poor. Liberation theologians such as Bonino challenge this understanding by drawing attention to human greed, systemic injustice, and social neglect.[^1] In this perspective, poverty is not simply a matter of misfortune. It is also produced by structures that protect the interests of the powerful at the expense of vulnerable people.
 
-In Myanmar, material deprivation, limited access to education, and economic displacement reinforce one another. Consider a craft worker whose earnings^2  cannot cover basic needs or a village pastor whose salary^3  cannot sustain a household. Their hardship should not automatically be attributed to laziness or a lack of faith. It must also be examined in relation to the economic and political conditions that shape their opportunities. The late Samuel Ngun Ling, former president and professor at the Myanmar Institute of Theology, one of Myanmar’s leading seminaries, similarly emphasized the responsibility of the rich and powerful in producing poverty and challenged the tendency to blame poor people for their circumstances.^4 
+In Myanmar, material deprivation, limited access to education, and economic displacement reinforce one another. Consider a craft worker whose earnings[^2] cannot cover basic needs or a village pastor whose salary[^3] cannot sustain a household. Their hardship should not automatically be attributed to laziness or a lack of faith. It must also be examined in relation to the economic and political conditions that shape their opportunities. The late Samuel Ngun Ling, former president and professor at the Myanmar Institute of Theology, one of Myanmar’s leading seminaries, similarly emphasized the responsibility of the rich and powerful in producing poverty and challenged the tendency to blame poor people for their circumstances.[^4]
 
 Understanding poverty in this way changes the church’s response. Charity remains necessary because people need immediate support. Yet relief alone cannot address the systems that repeatedly place them in need. A concern for justice asks why people lack adequate livelihoods, whose interests are served by unequal arrangements, and what responsibilities Christians have in changing them.
 
@@ -43,31 +43,26 @@ Fear of political repercussions can also limit the church’s public engagement.
 
 Public theology brings Christian faith into conversation with the concerns of shared social life. In Myanmar, it calls the church to connect prayer and worship with public advocacy, ethical education, and community engagement. The church’s public responsibility grows from its faith and its concern for neighbors whose lives are shaped by injustice.
 
-Clive Pearson describes public theology as a practice that examines the world as it is while imagining a world shaped by reconciliation, peace, and justice.^5  His emphasis on social cohesion and belonging helps explain why poverty is a public theological concern. Poverty affects people’s ability to participate in community life and to experience recognition and dignity. The church’s witness, therefore, includes helping to build communities in which those facing deprivation are heard and valued.
+Clive Pearson describes public theology as a practice that examines the world as it is while imagining a world shaped by reconciliation, peace, and justice.[^5] His emphasis on social cohesion and belonging helps explain why poverty is a public theological concern. Poverty affects people’s ability to participate in community life and to experience recognition and dignity. The church’s witness, therefore, includes helping to build communities in which those facing deprivation are heard and valued.
 
 This work requires Christians to participate in the lives of their neighbors and to listen to people whose experiences are often overlooked. Churches can support immediate needs while also encouraging discussion of the conditions that produce those needs. In this way, pastoral care and a commitment to justice become connected parts of the church’s mission.
 
 *Practicing ethical responsibility*
 
-As Lisa Cahill once notes, “Christian ethics is not just about personal morality but about communal responsibility.”^6  Christian ethics provides a framework for this public engagement. Virtue ethics asks what kind of people Christians are becoming, including whether they practice compassion, generosity, and courage. Duty-based ethics asks what obligations one has toward one’s neighbors and the demands of justice. Attention to consequences asks whether their actions reduce suffering and improve people’s lives. These approaches can help Christians connect moral character with responsible action.
+As Lisa Cahill once notes, “Christian ethics is not just about personal morality but about communal responsibility.”[^6] Christian ethics provides a framework for this public engagement. Virtue ethics asks what kind of people Christians are becoming, including whether they practice compassion, generosity, and courage. Duty-based ethics asks what obligations one has toward one’s neighbors and the demands of justice. Attention to consequences asks whether their actions reduce suffering and improve people’s lives. These approaches can help Christians connect moral character with responsible action.
 
 Such commitments need to be cultivated in congregational life. Sermons, theological education, and shared practices should help believers examine injustice and take responsibility for one another. Churches can encourage critical thinking, support community participation, and assess whether their ministries respond to the needs of people experiencing poverty. Ethical discipleship becomes credible when it is reflected in how congregations use their resources and sustain relationships with their neighbors.
 
-Poverty in Myanmar challenges the church to bring its understanding of salvation into a closer relationship with its public witness. A faithful response joins immediate care with sustained attention to structural injustice. Christians bear witness to the gospel when they stand with people experiencing poverty, question the conditions that deny their dignity, and work toward a common life shaped by justice. Hope in the life to come should give Christians courage to care for life here and now.  
-  
-__________________  
-  ^1 Jose Miguez Bonino, Doing Theology in a Revolutionary Situation (Philadelphia: Fortress Press, 1975), 112.
+Poverty in Myanmar challenges the church to bring its understanding of salvation into a closer relationship with its public witness. A faithful response joins immediate care with sustained attention to structural injustice. Christians bear witness to the gospel when they stand with people experiencing poverty, question the conditions that deny their dignity, and work toward a common life shaped by justice. Hope in the life to come should give Christians courage to care for life here and now.
 
-  ^2 $5 per day as the rate which applies to skillful craftsmen such as carpenters, tailors, and others.
+[^1]: Jose Miguez Bonino, Doing Theology in a Revolutionary Situation (Philadelphia: Fortress Press, 1975), 112.
 
-  ^3 In remote rural areas of Myanmar, pastors were typically paid less than US$50 per month.
+[^2]: $5 per day as the rate which applies to skillful craftsmen such as carpenters, tailors, and others.
 
-  ^4 Samuel Ngun Ling, Communicating Christ in Myanmar: Issues, Interactions and Perspectives, Revised Edition (Yangon: Judson Research Center of Myanmar Institute of Theology, 2010), 98.
+[^3]: In remote rural areas of Myanmar, pastors were typically paid less than US$50 per month.
 
-  ^5 Clive Pearson, The Quest for a Coalitional Praxis: Examining the Attraction of a Public Theology from the Perspective of Minorities, International Journal of Public Theology 12 (2023), 148.
+[^4]: Samuel Ngun Ling, Communicating Christ in Myanmar: Issues, Interactions and Perspectives, Revised Edition (Yangon: Judson Research Center of Myanmar Institute of Theology, 2010), 98.
 
-  ^6 Lisa Sowle Cahill, Love Your Enemies: Discipleship, Pacifism, and Just War Theory (Minneapolis: Fortress Press, 1994), 31.
+[^5]: Clive Pearson, The Quest for a Coalitional Praxis: Examining the Attraction of a Public Theology from the Perspective of Minorities, International Journal of Public Theology 12 (2023), 148.
 
-
-
-&nbsp;
+[^6]: Lisa Sowle Cahill, Love Your Enemies: Discipleship, Pacifism, and Just War Theory (Minneapolis: Fortress Press, 1994), 31.
