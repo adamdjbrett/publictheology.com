@@ -2,7 +2,7 @@
 slug: matthew-lingafelt
 name: Matthew Lingafelt
 role: Author
-profile_image: /assets/images/screenshot-2026-06-22-105148.webp
+profile_image: /assets/images/matthew-lingafelt.webp
 orcid: https://orcid.org/0009-0001-2127-9851
 hcommons: https://profile.hcommons.org/members/mrlingafelt/
 website: https://mrlingafelt.hcommons.org/

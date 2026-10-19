@@ -8,7 +8,7 @@ eleventyExcludeFromCollections: true
 	{%- if item.url and not item.url.endsWith('404.html') %}
 	<url>
 		<loc>{{ metadata.url }}{{ item.url }}</loc>
-		<lastmod>{{ item.date | htmlDateString }}</lastmod>
+		<lastmod>{{ (item.data.modified or item.date) | htmlDateString }}</lastmod>
 	</url>
 	{%- endif %}
 {%- endfor %}

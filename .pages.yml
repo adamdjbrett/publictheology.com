@@ -26,6 +26,7 @@ content:
     fields:
       - { name: title, label: Title, type: string, required: true }
       - { name: date, label: Publish date (Eastern time), type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss" }, required: true }
+      - { name: modified, label: "Modified date (Eastern time). Changing it re-announces the post on Bluesky and Mastodon", type: date, default: "", options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss" } }
       - { name: custom_excerpt, label: Excerpt (160 characters max), type: text, required: true, options: { maxlength: 160 } }
       - { name: feature_image, label: Feature image, type: image }
       - { name: feature_image_alt, label: Feature image alt text, type: string }

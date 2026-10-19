@@ -1,10 +1,11 @@
 ---
 title: Between the parade and the temple
 date: 2026-10-19T09:51:00
+modified: 2026-10-19T19:42:00
 custom_excerpt: Change happens to people without their partnership. Transition
   is something people build together. Most churches right now are living through
   change.
-feature_image: /assets/images/church-network-posture-diagram-1.png
+feature_image: /assets/images/church-network-posture-diagram-1.webp
 authors:
   - j-michael-mills
 categories:

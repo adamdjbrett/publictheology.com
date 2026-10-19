@@ -6,7 +6,7 @@ orcid: https://orcid.org/0009-0002-1504-9643
 hcommons: https://profile.hcommons.org/members/Duntrune_936/
 email: jmills01@uls.edu
 bluesky: "@pastorchief.bsky.social"
-profile_image: /assets/images/profile-pic.jpg
+profile_image: /assets/images/j-michael-mills.webp
 ---
 I am a Lutheran pastor in Michigan’s Upper Peninsula, serving four ELCA congregations in Ishpeming as pastor of Bridge Building Ministry. My work is transition: leaving and arriving, ministries beginning and ending, congregations merging and closing.
 

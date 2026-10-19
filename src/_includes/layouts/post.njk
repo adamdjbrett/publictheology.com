@@ -21,7 +21,8 @@ bodyClass: post-template
 		authors: authors,
 		postTags: resolvedTags,
 		categories: categories,
-		template: template
+		template: template,
+		modified: modified
 	}
 } %}
 {% set primaryTag = (resolvedTags | taxonomyTerms('tag'))[0] %}

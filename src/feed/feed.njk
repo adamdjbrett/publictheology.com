@@ -21,7 +21,8 @@ eleventyExcludeFromCollections: true
 		<title>{{ post.data.title }}</title>
 		<link href="{{ metadata.url }}{{ post.url }}"/>
 		<id>{{ metadata.url }}{{ post.url }}</id>
-		<updated>{{ post.date | rfc3339 }}</updated>
+		<published>{{ post.date | rfc3339 }}</published>
+		<updated>{{ (post.data.modified or post.date) | rfc3339 }}</updated>
 		{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
 		<author><name>{{ a.name }}</name></author>
 		{%- endfor %}

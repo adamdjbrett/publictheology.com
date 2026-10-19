@@ -16,7 +16,10 @@ try {
 
 // Post dates are wall-clock times in SITE_TZ (Pages CMS writes them without an offset;
 // see the date-parsing hook below), so filters just render each instant in the zone.
-const inZone = (dateObj, zone) => DateTime.fromJSDate(dateObj).setZone(zone || SITE_TZ);
+// Strings (e.g. front matter `modified`, which Eleventy does not parse) are read the same way.
+export const parseSiteDate = (value) => DateTime.fromISO(String(value).trim(), { zone: SITE_TZ, setZone: true });
+const inZone = (dateObj, zone) =>
+	(typeof dateObj === "string" ? parseSiteDate(dateObj) : DateTime.fromJSDate(dateObj)).setZone(zone || SITE_TZ);
 
 /**
  * Interpolate {placeholder} tokens in a string from a vars object.
@@ -39,7 +42,7 @@ export default function (eleventyConfig) {
 	eleventyConfig.setFrontMatterParsingOptions({ engines: { yaml: (str) => loadYaml(str, { schema: CORE_SCHEMA }) } });
 	eleventyConfig.addDateParsing((value) => {
 		if (typeof value !== "string") return;
-		const dt = DateTime.fromISO(value.trim(), { zone: SITE_TZ, setZone: true });
+		const dt = parseSiteDate(value);
 		if (!dt.isValid) throw new Error(`Invalid date "${value}": use yyyy-MM-ddTHH:mm:ss (${SITE_TZ})`);
 		return dt;
 	});
@@ -146,7 +149,7 @@ export default function (eleventyConfig) {
 			url: o.url,
 			mainEntityOfPage: o.url,
 			datePublished: o.date,
-			dateModified: o.date,
+			dateModified: o.modified || o.date,
 			inLanguage: o.lang,
 			isPartOf: o.blogId ? { "@id": o.blogId } : { "@type": "Blog", name: o.siteName, url: o.siteUrl + "/" },
 			publisher: o.publisher,

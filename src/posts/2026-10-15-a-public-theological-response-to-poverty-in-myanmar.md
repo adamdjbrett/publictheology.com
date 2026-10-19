@@ -4,7 +4,7 @@ date: 2026-10-15T22:35:00
 custom_excerpt: This article explores poverty in Myanmar through public
   theology, emphasizing structural injustice, Christian responsibility, human
   dignity, and solidarity.
-feature_image: /assets/images/screenshot-2026-10-15-at-105530-pm.png
+feature_image: /assets/images/screenshot-2026-10-15-at-105530-pm.webp
 feature_image_alt: "Layers of Deprivation: multidimensional Poverty in Myanmar
   (UNDP: October 2026)"
 feature_image_width: 800

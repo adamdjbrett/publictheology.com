@@ -25,6 +25,10 @@
     <div class="gh-article-meta">
         <div class="gh-article-meta-inner">
             <time class="gh-article-date dt-published" itemprop="datePublished" datetime="{{ post.date | rfc3339 }}">{{ post.date | readableDate('dd LLL yyyy') }}</time>
+            {% if post.data.modified %}
+                <span class="gh-article-meta-sep"></span>
+                <span class="gh-article-updated">{{ "Updated" | t }} <time class="dt-updated" itemprop="dateModified" datetime="{{ post.data.modified | rfc3339 }}">{{ post.data.modified | readableDate('dd LLL yyyy') }}</time></span>
+            {% endif %}
             {% set readingMinutes = post.content | readingTime %}
             {% if readingMinutes %}
                 <span class="gh-article-meta-sep"></span>
