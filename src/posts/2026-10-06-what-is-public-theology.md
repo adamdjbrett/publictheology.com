@@ -1,6 +1,6 @@
 ---
 title: "Whose Public? Which Theology?: On What We Mean by Public Theology"
-date: 2026-10-06T09:00:00-05:00
+date: 2026-10-06T10:00:00
 custom_excerpt: What public theology is, why it matters now, and why publictheology.com and journal.publictheology.com hold space for a digital public sphere.
 authors: [adam-dj-brett]
 postTags: [public-theology, public-sphere, interreligious]

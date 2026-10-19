@@ -1,6 +1,6 @@
 ---
 title: A Public Theological Response to Poverty in Myanmar
-date: 2026-10-15T22:35:00Z
+date: 2026-10-15T22:35:00
 custom_excerpt: This article explores poverty in Myanmar through public
   theology, emphasizing structural injustice, Christian responsibility, human
   dignity, and solidarity.

@@ -1,7 +1,7 @@
 ---
 title: "Digital Humanities as Public Ministry: Reimagining Formation
   Beyond Christian Hegemony"
-date: 2026-10-09T14:32:00Z
+date: 2026-10-09T14:32:00
 custom_excerpt: Digital Humanities is not simply a set of digital tools; it is a theological method that reveals how power circulates through our digital ecosystems.
 feature_image: /assets/images/steve-a-johnson-_0iV9LmPDn0-unsplash.webp
 feature_image_alt: A computer circuit board with a brain on it

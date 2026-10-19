@@ -1,6 +1,6 @@
 ---
 title: Welcome to Public Theology
-date: 2026-10-05T09:00:00-05:00
+date: 2026-10-05T10:00:00
 custom_excerpt: A new home for public theology, public witness and shared resources.
 authors: [adam-dj-brett]
 postTags: [announcements]

@@ -3,7 +3,7 @@ description: Public theology, public witness and shared resources.
 url: https://publictheology.com
 language: en
 locale: en_US
-timezone: America/Chicago
+timezone: America/New_York
 subscribe_url: /feed.xml
 subscribe:
   text: Subscribe

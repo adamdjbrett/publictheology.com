@@ -1,6 +1,6 @@
 ---
 title: Networking Across the Brokenness
-date: 2026-10-07T15:18:00Z
+date: 2026-10-07T15:18:00
 custom_excerpt: What might a quick sketch of my personal network of
   relationships and connections in the broken global Body of Christ look like?
 feature_image: /assets/images/personal-network-261007b.webp

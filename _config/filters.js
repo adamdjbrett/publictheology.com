@@ -1,7 +1,7 @@
 import { DateTime } from "luxon";
 import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
-import { load as loadYaml } from "js-yaml";
+import { CORE_SCHEMA, load as loadYaml } from "js-yaml";
 import { normalizeTerms, publicPostTags } from "./taxonomy.js";
 
 // Read the site timezone from metadata.yaml so date filters default to it.
@@ -14,14 +14,9 @@ try {
 	SITE_TZ = "UTC";
 }
 
-// Date-only front matter parses as UTC midnight: keep it as a wall-clock date in
-// `zone` so it never drifts. Full timestamps with an offset are real instants.
-// ponytail: a real timestamp at exactly 00:00:00Z reads as date-only; harmless (same day shown).
-function inZone(dateObj, zone) {
-	const dt = DateTime.fromJSDate(dateObj, { zone: "utc" });
-	const dateOnly = dt.hour === 0 && dt.minute === 0 && dt.second === 0 && dt.millisecond === 0;
-	return dt.setZone(zone || SITE_TZ, { keepLocalTime: dateOnly });
-}
+// Post dates are wall-clock times in SITE_TZ (Pages CMS writes them without an offset;
+// see the date-parsing hook below), so filters just render each instant in the zone.
+const inZone = (dateObj, zone) => DateTime.fromJSDate(dateObj).setZone(zone || SITE_TZ);
 
 /**
  * Interpolate {placeholder} tokens in a string from a vars object.
@@ -38,6 +33,17 @@ export default function (eleventyConfig) {
 	eleventyConfig.addFilter("t", (key, vars) => interpolate(key, vars));
 
 	// --- Dates (default to the site timezone from metadata.yaml) --------------
+	// Keep YAML dates as strings (CORE_SCHEMA has no timestamp type, which would read an
+	// offset-less time as UTC), then parse them here: no offset means SITE_TZ wall-clock time;
+	// an explicit offset or Z is kept as written.
+	eleventyConfig.setFrontMatterParsingOptions({ engines: { yaml: (str) => loadYaml(str, { schema: CORE_SCHEMA }) } });
+	eleventyConfig.addDateParsing((value) => {
+		if (typeof value !== "string") return;
+		const dt = DateTime.fromISO(value.trim(), { zone: SITE_TZ, setZone: true });
+		if (!dt.isValid) throw new Error(`Invalid date "${value}": use yyyy-MM-ddTHH:mm:ss (${SITE_TZ})`);
+		return dt;
+	});
+
 	eleventyConfig.addFilter("readableDate", (dateObj, format = "dd LLL yyyy", zone) =>
 		inZone(dateObj, zone).toFormat(format),
 	);
@@ -50,6 +56,9 @@ export default function (eleventyConfig) {
 	eleventyConfig.addFilter("rfc3339", (dateObj, zone) =>
 		inZone(dateObj, zone).toISO({ suppressMilliseconds: true }),
 	);
+
+	// RFC 2822 timestamp in the site timezone (for the RSS feed).
+	eleventyConfig.addFilter("rfc2822", (dateObj, zone) => inZone(dateObj, zone).toRFC2822());
 
 	eleventyConfig.addFilter("year", () => `${new Date().getFullYear()}`);
 

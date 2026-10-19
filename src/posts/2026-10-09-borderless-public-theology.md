@@ -1,6 +1,6 @@
 ---
 title: "Which Passport Do You Travel Under?: Toward a Borderless Public Theology"
-date: 2026-10-06T09:15:00-05:00
+date: 2026-10-06T10:15:00
 custom_excerpt: Revisiting my 2013 WCC Busan paper, I argue public theology must refuse the nation-state as its frame and build solidarity from difference, not unity.
 authors: [adam-dj-brett]
 postTags: [public-theology, ecumenism, borders]

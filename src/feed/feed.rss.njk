@@ -13,14 +13,14 @@ eleventyExcludeFromCollections: true
 		<atom:link href="{{ metadata.url }}/feed/feed.rss" rel="self" type="application/rss+xml"/>
 		{%- set newest = collections.posts | head(1) %}
 		{%- if newest.length %}
-		<lastBuildDate>{{ newest[0].date.toUTCString() }}</lastBuildDate>
+		<lastBuildDate>{{ newest[0].date | rfc2822 }}</lastBuildDate>
 		{%- endif %}
 		{%- for post in collections.posts | head(20) %}
 		<item>
 			<title>{{ post.data.title }}</title>
 			<link>{{ metadata.url }}{{ post.url }}</link>
 			<guid isPermaLink="true">{{ metadata.url }}{{ post.url }}</guid>
-			<pubDate>{{ post.date.toUTCString() }}</pubDate>
+			<pubDate>{{ post.date | rfc2822 }}</pubDate>
 			{%- if post.data.custom_excerpt %}
 			<description>{{ post.data.custom_excerpt }}</description>
 			{%- else %}

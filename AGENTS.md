@@ -25,7 +25,7 @@ unqualified `latest` tag.
   root; `.js` config files must not live inside `src/` or Eleventy renders them.
 - **Drafts**: `published: false` front matter marks a post or page as draft.
   A build-mode preprocessor drops them from production; they render in `--serve`.
-- **Timezone**: `src/_data/metadata.yaml → timezone` (IANA) feeds the date filters
+- **Timezone**: `src/_data/metadata.yaml → timezone` (IANA) feeds the date filters Post `date:` is wall-clock time in that zone with no offset (`2026-10-19T09:51:00`); Pages CMS writes it that way, and `_config/filters.js` parses it as Eastern. Never add `Z`: Pages CMS formats on a UTC server, so `XXX` writes a false `Z`.
   in `_config/filters.js`, which keep date-only values as wall-clock dates in that
   zone; full timestamps with an offset (`2026-10-06T09:00:00-05:00`) are kept as-is.
 - Layout chain: content → `_includes/layouts/{post,page,home}.njk` →

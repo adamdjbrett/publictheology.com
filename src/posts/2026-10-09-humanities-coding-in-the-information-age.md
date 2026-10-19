@@ -1,6 +1,6 @@
 ---
 title: Humanities Coding in the Information Age
-date: 2026-10-09T14:26:00Z
+date: 2026-10-09T14:26:00
 custom_excerpt: A reflection on the nature of coding in science and in the digital humanities
 feature_image: /assets/images/codehelloworldenc11.webp
 feature_image_alt: A screenshot of code from the computer language C++
