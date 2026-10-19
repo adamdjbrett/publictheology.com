@@ -101,6 +101,12 @@ jobs:
                 fi
               done
               git diff --no-renames --name-only --diff-filter=D "$BEFORE" HEAD -- 'src/posts/*.md' | slugs | sed "s#.*#$site/&/#" >> deleted-urls.txt
+              # Existing post whose `modified:` changed: announce its new update note (a new URL, so
+              # Bridgy Fed makes a new Bluesky/Mastodon post; Bluesky can't show edits).
+              git diff --no-renames --name-only --diff-filter=M "$BEFORE" HEAD -- 'src/posts/*.md' | while read -r f; do
+                git diff "$BEFORE" HEAD -- "$f" | grep -q '^+modified:' || continue
+                for d in _site/$(echo "$f" | slugs)/updated-*/; do [ -f "$d/index.html" ] && echo "$site/${d#_site/}"; done
+              done
             fi
           } | sort -u > changed-urls.txt
           sort -u deleted-urls.txt >> changed-urls.txt

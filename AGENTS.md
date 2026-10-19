@@ -25,9 +25,16 @@ unqualified `latest` tag.
   root; `.js` config files must not live inside `src/` or Eleventy renders them.
 - **Drafts**: `published: false` front matter marks a post or page as draft.
   A build-mode preprocessor drops them from production; they render in `--serve`.
-- **Timezone**: `src/_data/metadata.yaml → timezone` (IANA) feeds the date filters Post `date:` is wall-clock time in that zone with no offset (`2026-10-19T09:51:00`); Pages CMS writes it that way, and `_config/filters.js` parses it as Eastern. Never add `Z`: Pages CMS formats on a UTC server, so `XXX` writes a false `Z`.
-  in `_config/filters.js`, which keep date-only values as wall-clock dates in that
-  zone; full timestamps with an offset (`2026-10-06T09:00:00-05:00`) are kept as-is.
+- **Timezone**: `src/_data/metadata.yaml → timezone` (IANA, `America/New_York`) feeds the date
+  filters in `_config/filters.js`. Post `date:` and `modified:` are wall-clock Eastern times with no
+  offset (`2026-10-19T09:51:00`), which is how Pages CMS writes them; an explicit offset is kept as
+  written. Never use `Z`/`XXX` in the CMS format: Pages CMS formats on a UTC server and writes a
+  false `Z`. Front matter YAML uses `CORE_SCHEMA`, so dates stay strings until the date-parsing hook.
+- **Modified / re-announce**: an optional `modified:` shows "Updated …" on the post and feeds
+  `dateModified`, Atom `<updated>`, JSON feed `date_modified` and the sitemap. Bluesky cannot edit
+  posts, so `src/post-updates.11ty.js` builds a note at `/<slug>/updated-<yyyyLLdd-HHmm>/`; the
+  deploy sends it to Bridgy Fed only when a push changes an existing post's `modified:` line, which
+  creates a new Bluesky + Mastodon post linking to the article.
 - Layout chain: content → `_includes/layouts/{post,page,home}.njk` →
   `_includes/layouts/default.njk` (renders `<head>`, header, footer, search modal).
 - Shared partials are included with `{% include "partials/NAME.njk" %}` and
@@ -64,7 +71,7 @@ unqualified `latest` tag.
   `assets/js/theme-toggle.js`, default in `_data/theme.yaml`.
 - **Images**: `src/assets/images/` holds only `.webp` and `.svg` (favicons/ excepted: png/ico by
   necessity). Convert any jpg/png/gif upload to webp (sharp, `.rotate()` for EXIF orientation) and
-  point the front matter at the `.webp`.
+  point the front matter at the `.webp`. Author photos are named `<author-slug>.webp`.
 - **Favicons**: everything in `src/assets/images/favicons/` (ico 16/32/48, png 16–96, apple-touch 180
   on #F4EFE4, android-chrome 192/512, maskable 512 on #14213D, `site.webmanifest`) is generated once
   from `favicons/favicon.svg` with sharp + `magick` and committed. `/favicon.ico` and `/favicon.svg` are
