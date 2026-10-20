@@ -475,3 +475,7 @@ figcaption a,.gh-post-citation a,.gh-post-taxonomy a,.wm-how a,.gh-content p a,.
 
 /* Author pages: bio column as wide as a post body (.gh-canvas main column), not the theme's 560px. */
 .author-template .gh-pagehead{width:100%;max-width:var(--content-width,720px);margin-inline:auto}
+
+/* Article meta: published date, updated date and reading time stacked one per line (the sidebar is too narrow for a row). */
+.gh-article-meta-inner { flex-direction: column; align-items: flex-start; gap: 2px; }
+.gh-article-meta-inner .gh-article-meta-sep { display: none; }
