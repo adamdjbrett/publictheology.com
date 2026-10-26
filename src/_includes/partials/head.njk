@@ -8,7 +8,7 @@
 {%- set pageImage = feature_image or cover_image or metadata.cover_image %}
 <title>{% if title %}{{ title }} — {{ metadata.title }}{% else %}{{ metadata.title }}{% endif %}</title>
 <meta name="description" content="{{ pageDesc }}">
-<link rel="canonical" href="{{ metadata.url }}{{ page.url or '/' }}">
+<link rel="canonical" href="{{ canonical_url or (metadata.url + (page.url or '/')) }}">
 
 {#- Open Graph / Twitter -#}
 <meta property="og:site_name" content="{{ metadata.title }}">
