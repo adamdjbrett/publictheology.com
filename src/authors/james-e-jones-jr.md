@@ -1,6 +1,7 @@
 ---
 slug: james-e-jones-jr
 name: James E. Jones Jr
+profile_image: /assets/images/james-e-jones-jr.webp
 role: Author
 email: jejones@uls.edu
 hcommons: https://jejones.hcommons.org/
