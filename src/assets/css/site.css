@@ -479,3 +479,13 @@ figcaption a,.gh-post-citation a,.gh-post-taxonomy a,.wm-how a,.gh-content p a,.
 /* Article meta: published date, updated date and reading time stacked one per line (the sidebar is too narrow for a row). */
 .gh-article-meta-inner { flex-direction: column; align-items: flex-start; gap: 2px; }
 .gh-article-meta-inner .gh-article-meta-sep { display: none; }
+
+/* --- Buttons inside post content ---
+   `.gh-content a` paints links in --ghost-accent-color, which this site never defines, so a
+   .gh-btn in a post inherited dark body text on its dark pill (~1.6:1). Restore the button's own
+   colours: #fff on #15171a (17.9:1) in light mode, #16181c on #f3f4f6 (16.6:1) in dark. */
+.gh-content a.gh-btn{color:var(--color-white);text-decoration:none}
+.gh-content a.gh-btn:focus-visible{outline:2px solid var(--color-darker-gray);outline-offset:3px}
+
+/* Black-on-transparent logos (the Altoona Mirror nameplate) turn white in dark mode */
+:root[data-theme="dark"] .gh-content img[src$="altoona-mirror.webp"]{filter:invert(1)}

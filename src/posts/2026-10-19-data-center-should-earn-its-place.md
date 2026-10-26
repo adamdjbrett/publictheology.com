@@ -27,7 +27,7 @@ published: true
 
 In an op-ed for the *Altoona Mirror*, Matthew Lingafelt, a PhD student at United Lutheran Seminary researching the ethics and policy of AI and robotics, writes from a packed Taylor Township meeting about the data center Terawatt wants to build there. Residents came to discuss an ordinance amendment meant to protect them, but no one was asking how the community should *benefit*.
 
-> Typically, when an industry moves in, people can see what they gain, which is why the good ones last. … And yet when Terawatt seeks to build a data center, we’re left thinking about how to best protect ourselves.
+> Typically, when an industry moves in, people can see what they gain, which is why the good ones last&hellip; And yet when Terawatt seeks to build a data center, we’re left thinking about how to best protect ourselves.
 
 Lingafelt points to community benefits agreements in Lancaster and Swatara Township. He argues that asking for one “is not a welcome mat”: the ordinance still needs a greater buffer, a guarantee that the data center carries its own electricity load, and stronger protections against noise and air pollution. “High standards protect the community whether the project comes or not.”
 
