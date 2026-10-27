@@ -1,0 +1,8 @@
+{#- Buttondown embed form. After confirming, Buttondown sends subscribers to /newsletter/thank-you/
+    (set under Buttondown → Settings → Subscribing). Used in the footer and on /newsletter/. -#}
+<form action="https://buttondown.com/api/emails/embed-subscribe/publictheology" method="post" class="embeddable-buttondown-form">
+	<label for="bd-email-{{ formId or 'foot' }}">Enter your email</label>
+	<input type="email" name="email" id="bd-email-{{ formId or 'foot' }}" autocomplete="email" required>
+	<input type="submit" value="Subscribe">
+	<p><a href="https://buttondown.com/refer/publictheology" target="_blank" rel="noopener">Powered by Buttondown.</a></p>
+</form>

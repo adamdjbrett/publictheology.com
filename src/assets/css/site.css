@@ -489,3 +489,48 @@ figcaption a,.gh-post-citation a,.gh-post-taxonomy a,.wm-how a,.gh-content p a,.
 
 /* Black-on-transparent logos (the Altoona Mirror nameplate) turn white in dark mode */
 :root[data-theme="dark"] .gh-content img[src$="altoona-mirror.webp"]{filter:invert(1)}
+
+/* Buttondown newsletter form (partials/newsletter-form.njk): footer slab + /newsletter/ page.
+   Uses theme tokens so dark mode follows; button matches the red header Subscribe. */
+.embeddable-buttondown-form {
+	display: flex;
+	flex-direction: column;
+	gap: 8px;
+	box-sizing: border-box;
+	max-width: 384px;
+	margin: 40px auto 0;
+	padding: 16px;
+	border: 1px solid var(--color-light-gray);
+	border-radius: 6px;
+	background: var(--color-white);
+	color: var(--color-darker-gray);
+	font: 1.5rem/1.4 var(--font-sans);
+	text-align: left;
+	white-space: normal;
+}
+.embeddable-buttondown-form label { font-weight: 500; }
+.embeddable-buttondown-form input[type="email"] {
+	box-sizing: border-box;
+	width: 100%;
+	padding: 8px 10px;
+	border: 1px solid var(--color-mid-gray);
+	border-radius: 4px;
+	background: var(--color-white);
+	color: inherit;
+	font: inherit;
+}
+.embeddable-buttondown-form input[type="submit"] {
+	padding: 10px 14px;
+	border: 0;
+	border-radius: 100px;
+	background: #e12026;
+	color: #fff;
+	font: inherit;
+	font-weight: 600;
+	cursor: pointer;
+}
+.embeddable-buttondown-form input[type="submit"]:hover { background: #c01319; }
+.embeddable-buttondown-form p { margin: 0; font-size: 1.2rem; text-align: center; }
+.embeddable-buttondown-form p a { color: var(--color-dark-gray); }
+.gh-content .embeddable-buttondown-form { margin: 0; }
+.gh-foot .embeddable-buttondown-form p a { color: var(--color-dark-gray); }

@@ -4,11 +4,11 @@ url: https://publictheology.com
 language: en
 locale: en_US
 timezone: America/New_York
-subscribe_url: /feed.xml
+subscribe_url: /newsletter/
 subscribe:
   text: Subscribe
   footer_text: Subscribe
-  url: /feed.xml
+  url: /newsletter/
 footer:
   license: CC BY 4.0
   license_url: https://creativecommons.org/licenses/by/4.0/

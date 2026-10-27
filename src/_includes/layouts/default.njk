@@ -67,16 +67,13 @@
 
 	<footer class="gh-foot gh-outer">
 		<div class="gh-foot-inner gh-inner">
-			{%- set subUrl = metadata.subscribe.url or metadata.subscribe_url %}
-			{%- if subUrl %}
 			<section class="gh-subscribe">
 				<h2 class="gh-subscribe-title">Subscribe to {{ metadata.title }}</h2>
 				{%- if theme.email_signup_text %}
 				<div class="gh-subscribe-description">{{ theme.email_signup_text }}</div>
 				{%- endif %}
-				<a class="gh-subscribe-btn gh-btn" href="{{ subUrl }}"{% if subUrl.startsWith('http') %} target="_blank" rel="noopener"{% endif %}>{% include "partials/icons/email.njk" %} {{ metadata.subscribe.footer_text or 'Subscribe now' }}</a>
+				{% include "partials/newsletter-form.njk" %}
 			</section>
-			{%- endif %}
 
 			<nav class="gh-foot-menu">
 				<ul class="nav">

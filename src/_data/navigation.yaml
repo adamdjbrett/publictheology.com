@@ -10,5 +10,7 @@ secondary:
     url: /about/
   - label: Contact
     url: /contact/
+  - label: Newsletter
+    url: /newsletter/
   - label: RSS
     url: /feed.xml
