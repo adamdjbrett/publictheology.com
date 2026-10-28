@@ -10,7 +10,7 @@ eleventyExcludeFromCollections: true
 	"description": {{ metadata.description | dump | safe }},
 	"language": {{ metadata.language | dump | safe }},
 	"items": [
-		{%- for post in collections.posts | head(20) %}
+		{%- for post in collections.posts %}
 		{
 			"id": {{ (metadata.url + post.url) | dump | safe }},
 			"url": {{ (metadata.url + post.url) | dump | safe }},

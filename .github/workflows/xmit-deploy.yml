@@ -44,6 +44,9 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Test Buttondown publishing
+        run: node --test scripts/test-buttondown.mjs
+
       # .cache/ holds the last good webmentions.json and the outbound sent-log. A fresh key per run
       # always saves; restore-keys picks the newest. If webmention.io is down, the restored copy is
       # used, so an outage never blanks the responses on the live site.
@@ -175,6 +178,15 @@ jobs:
           jq -n --arg key "$INDEXNOW_KEY" --argjson urls "$urls" \
             '{host: "publictheology.com", key: $key, keyLocation: "https://publictheology.com/\($key).txt", urlList: $urls}' \
             | curl -sS -w "\nIndexNow HTTP %{http_code}\n" -H "Content-Type: application/json; charset=utf-8" -d @- https://api.indexnow.org/indexnow
+
+      - name: Email newly published posts through Buttondown
+        if: github.event_name == 'push'
+        timeout-minutes: 10
+        env:
+          # Published posts at activation are excluded; later unsent posts catch up on any push.
+          BUTTONDOWN_BASELINE: 17ec9f9a3ba093744d04940174ffc693c0288369
+          BUTTONDOWN_KEY: ${{ secrets.BUTTONDOWN_KEY }}
+        run: node scripts/send-buttondown.mjs
 
       - name: Post-deploy summary
         run: |

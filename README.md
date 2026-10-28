@@ -41,6 +41,28 @@ Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.
 
 ## Content & Editing
 
+### Email new posts with Buttondown
+
+Set the GitHub Actions secret `BUTTONDOWN_KEY` to the newsletter's Buttondown API key.
+After a successful push deployment, the deploy workflow sends each newly published post's
+full rendered article and author byline to the newsletter's subscribers. Drafts, edits to
+published posts, deletions, scheduled builds, and manual deploys do not send emails.
+Publishing a former draft does send it. The JSON feed includes all published posts so a
+large content push cannot lose posts at the feed boundary.
+
+The workflow pins `BUTTONDOWN_BASELINE` to the commit before activation, excluding the
+existing archive. Keep that value unchanged: later unsent posts catch up on the next push,
+even after a failed or replaced deployment. Buttondown's email records, matched by source
+URL, prevent duplicate sends on reruns. Keep those email records to retain this protection.
+If sending fails, rerun the failed workflow; it resumes any draft it already created.
+Delivery status and the archive URL appear in the Actions log and summary. Buttondown may
+continue sending after the workflow's two-minute delivery check ends.
+
+Check locally with `node --test scripts/test-buttondown.mjs` and, after building,
+`BUTTONDOWN_BASELINE=17ec9f9a3ba093744d04940174ffc693c0288369 node scripts/send-buttondown.mjs --dry-run`.
+The dry run needs no API key and sends nothing. A missing/invalid baseline commit fails
+closed rather than emailing the archive.
+
 Posts, pages, and authors live in `src/` as Markdown/YAML. Edit via [Pages CMS](https://app.pagescms.org) or directly in the repo. Drafts are marked `published: false` in front matter and excluded from production builds.
 
 ## Credits
