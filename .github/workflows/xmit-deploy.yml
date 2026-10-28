@@ -180,7 +180,7 @@ jobs:
             | curl -sS -w "\nIndexNow HTTP %{http_code}\n" -H "Content-Type: application/json; charset=utf-8" -d @- https://api.indexnow.org/indexnow
 
       - name: Email newly published posts through Buttondown
-        if: github.event_name == 'push'
+        if: ${{ false }} # Disabled at the owner's request.
         timeout-minutes: 10
         env:
           # Published posts at activation are excluded; later unsent posts catch up on any push.

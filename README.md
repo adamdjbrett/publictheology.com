@@ -43,8 +43,11 @@ Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.
 
 ### Email new posts with Buttondown
 
+**Automatic sending is disabled** in the deploy workflow. The script and configuration
+are retained; re-enabling the step will send posts since activation that have not been emailed.
+
 Set the GitHub Actions secret `BUTTONDOWN_KEY` to the newsletter's Buttondown API key.
-After a successful push deployment, the deploy workflow sends each newly published post's
+When enabled, after a successful push deployment, the workflow sends each newly published post's
 full rendered article and author byline to the newsletter's subscribers. Drafts, edits to
 published posts, deletions, scheduled builds, and manual deploys do not send emails.
 Publishing a former draft does send it. The JSON feed includes all published posts so a
