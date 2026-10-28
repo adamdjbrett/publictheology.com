@@ -3,6 +3,11 @@ title: "October Roundup: Care, Community, and Digital Public Life"
 date: 2026-10-28T12:00:00
 custom_excerpt: Recent writing on networks of care, the human labor of digitization, church transition, and what communities should ask of data centers.
 authors: [adam-dj-brett]
+feature_image: /assets/images/mohammadreza-charkhgard-Ry0RB7XUj3Q-unsplash.webp
+feature_image_alt: Blurred black-and-white photograph of people sitting on steps outside a building
+feature_image_width: 2000
+feature_image_height: 3000
+feature_image_caption: 'Photo by <a href="https://unsplash.com/@mrcharkhgard?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Mohammadreza Charkhgard</a> on <a href="https://unsplash.com/photos/blurred-figures-sitting-on-steps-outside-a-building-Ry0RB7XUj3Q?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 categories: [Editorial]
 postTags: [roundup, public-theology, digital-humanities]
 toc: false
