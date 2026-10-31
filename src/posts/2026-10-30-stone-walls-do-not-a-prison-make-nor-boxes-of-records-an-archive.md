@@ -7,7 +7,7 @@ custom_excerpt: Silence keeps stories from being told. The cost of creating and
 feature_image: /assets/images/330px-victorkugler-zaznamonarozeni.jpg
 feature_image_alt: "Ledger from an old congregation with rows and columns that
   show names and dates "
-feature_image_caption: A page from an old congregation's parish registry  [via
+feature_image_caption: A page from an old congregation's parish registry [via
   Wikimedia Commons, CC BY-SA
   4.0](https://commons.wikimedia.org/wiki/File:Victor_Kugler_-_z%C3%A1znam_o_narozen%C3%AD.jpg)
 authors:
