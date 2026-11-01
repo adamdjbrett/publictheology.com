@@ -33,8 +33,8 @@ Much of the important work of preserving and archiving porn has been done by ind
 
 In my PhD coursework these past couple weeks, I have been developing an Omeka site curating a small exhibit from the works of Studio Biederer. As Smits also explains on one of her sites, verifiable by other historical records, ++[Studio Biederer was a French BDSM photography/film studio run by Jewish brothers Jacques and Charles Biederer in the 1920s and ‘30s, before the brothers were killed in the Holocaust in the 1940s.](https://studiobiederer.wordpress.com/biederer-studio/)++ As of this post’s publication, ++[my Omeka site](https://artofkink.omeka.net/)++ is still a work in progress, but from it I hope to inspire the viewer to consider the joy and mutuality of erotic connection that often goes overlooked by anti-pornography sentiments, evidence of which is easily lost if pornography is kept out of the archive.
 
-[^1] Mary C. Foltz, “Collaborative LGBTQ+ Public Humanities Scholarship: Expanding Educational Access Through Community Archives and Public History Exhibitions,” in *The Routledge Companion to Public Humanities Scholarship,* ed. Daniel Fisher-Livne and Michelle May-Curry (Routledge, 2024), 179.
+[^1]: Mary C. Foltz, “Collaborative LGBTQ+ Public Humanities Scholarship: Expanding Educational Access Through Community Archives and Public History Exhibitions,” in *The Routledge Companion to Public Humanities Scholarship,* ed. Daniel Fisher-Livne and Michelle May-Curry (Routledge, 2024), 179.
 
-[^2] Tim Dean, “Introduction: Pornography, Technology, Archive,” in *Porn Archives,* ed. Tim Dean, Steven Ruszczycky, and David Squires (Duke University Press), 2014, 2-3.
+[^2]: Tim Dean, “Introduction: Pornography, Technology, Archive,” in *Porn Archives,* ed. Tim Dean, Steven Ruszczycky, and David Squires (Duke University Press), 2014, 2-3.
 
-[^3] Dean, “Introduction,” 5.
+[^3]: Dean, “Introduction,” 5.
