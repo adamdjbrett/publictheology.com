@@ -22,7 +22,7 @@ All Saints Sunday helps us stop and name the many who have gone before us, some 
 
 
 
-++[The Lemon Project](https://www.wm.edu/sites/lemonproject/)++ is named for Lemon, a man once enslaved by William & Mary. The project’s “unearthing authentic narratives of slavery and its legacies at William and Mary is vital to community healing.”[^3] By “sharing authority,” the project provides “a platform for descendent groups to share their community histories to broad audiences.”[^4] Similarly, All Saints is an ongoing commemorative ritual, where churches join in faith with descendant voices to name our ancestors, our uses and misuses of one another, and especially to tell “[t]heir stories… and give breadth to rightly interpreting the past in a way that offers insight for building more equitable futures.”[^5]
+[The Lemon Project](https://www.wm.edu/sites/lemonproject/) is named for Lemon, a man once enslaved by William & Mary. The project’s “unearthing authentic narratives of slavery and its legacies at William and Mary is vital to community healing.”[^3] By “sharing authority,” the project provides “a platform for descendent groups to share their community histories to broad audiences.”[^4] Similarly, All Saints is an ongoing commemorative ritual, where churches join in faith with descendant voices to name our ancestors, our uses and misuses of one another, and especially to tell “[t]heir stories… and give breadth to rightly interpreting the past in a way that offers insight for building more equitable futures.”[^5]
 
 
 
