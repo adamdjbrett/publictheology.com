@@ -28,7 +28,7 @@ All Saints Sunday helps us stop and name the many who have gone before us, some 
 
 ## **Learn from them**
 
-> <em>Africana DH claims African and ancestral communicative technology as it's true early beginnings, where healing, recovery, and fulfillment of purpose was its primary role as opposed to industrial, commercial, and military technology uses as found in the west (Somé, 61). African and central communicative technology recognizes the role of spirit as a technological concept while also informing technology.[^6]</em>
+> *Africana DH claims African and ancestral communicative technology as it's true early beginnings, where healing, recovery, and fulfillment of purpose was its primary role as opposed to industrial, commercial, and military technology uses as found in the west (Somé, 61). African and central communicative technology recognizes the role of spirit as a technological concept while also informing technology.[^6]*
 
 Making a place for voices from different communities in my research has me reconsidering my habits and perspective about the broken Body of Christ. I have grown accustomed to naming the splits, the exponential divisions and separations across history where communities of Christians leave other Christians to begin their own churches or denominations. It’s become easy to pontificate about the splintering and caricature “them” and them and them.
 
@@ -36,7 +36,7 @@ It is relatively easy to find archival materials and statements about why and wh
 
 ## **Trust the Spirit**
 
-Descendants of these saints are sharing their story and helping us all live a better story together. On All Saints Sunday, from our cities and towns to our sciences and traditions of faith, we can name that, name *them*—those who have taught us about ourselves and, in turn, keep us living into a better story together.
+Descendants of these saints are sharing their story and helping us all live a better story together. On All Saints Sunday, from our cities and towns to our sciences and traditions of faith, we can name that, name *them*—those who have taught us about ourselves and, in turn, keep us living into a better story <em>together.</em>
 
 
 
