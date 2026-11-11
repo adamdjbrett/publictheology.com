@@ -1,26 +1,25 @@
 ---
 title: Finding the Sacred in Sexuality, Pornography, and the Archive
 date: 2026-11-01T15:06:00
-custom_excerpt: The sacred work of archiving and what is lost when materials are
+description: The sacred work of archiving and what is lost when materials are
   left out of the archive
-feature_image: /assets/images/img8083.jpg
-feature_image_alt: In a cropped black-and-white image, a woman with a dark bob
+image: /assets/images/img8083.jpg
+image_alt: In a cropped black-and-white image, a woman with a dark bob
   wearing a white slip with her breasts visible performs a sexual act on another
   woman, whose feet are seen kicking up on the right side of the picture. The
   woman with the black bob is smiling.
-feature_image_caption: Image from Studio Biederer was originally digitized by
+image_caption: Image from Studio Biederer was originally digitized by
   Karen Smits on https://studiobiederer.wordpress.com/2024/03/23/how-to-use/ and
   cropped by me for the purposes of this post.
 authors:
   - ellis-billington
 categories:
   - Essays
-postTags:
+tags:
   - Archiving
   - Queer Theology
   - Religion and Sexuality
 toc: false
-template: post
 published: true
 ---
 The summer after I completed my undergraduate degree, when it was becoming clear that graduate school was where God was urging me to go, there were two different types of programs I was considering. Seminary was the one that won out, as I went on to get an MDiv and then an MTS at Garrett-Evangelical Theological Seminary, before beginning the PhD program at United Lutheran Seminary this academic year. However, a masters in library science with a focus in archival studies was my very close second choice, and where I likely would have wound up if God hadn't called me to the seminary. 

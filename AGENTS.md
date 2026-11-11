@@ -47,9 +47,12 @@ unqualified `latest` tag.
   the `thumb` filter in `partials/loop-grid.njk`.
 - Collections are memoized in `buildawesome.config.js`: `posts`, `pages`,
   `tags`, `categories`, and compatibility alias `topics`.
-- Prefer `postTags` for public tags. Legacy `tags` values remain supported after
-  internal collection tags are removed. Taxonomy values may be strings or
-  `{name, slug?, url?}` objects.
+- Use `tags` for public tags; internal collection tags are filtered from public output.
+  Taxonomy values may be strings or `{name, slug?, url?}` objects.
+- Post/page front matter uses `description`, `image`, `image_alt`, `image_caption`,
+  `image_width`, and `image_height`. Pages use `show_header` to show/hide the title and image.
+  Posts inherit `template: post` from
+  `src/posts/posts.11tydata.js`; only set `template` for an optional image layout.
 - Authors are one Markdown file each in `src/authors/<slug>.md` (`/authors/<slug>/`), exposed
   as `siteAuthors`. Each has a `slug:` field equal to its filename; Pages CMS stores bare slugs in a
   post's `authors` (`value: "{fields.slug}"`). Old `src/authors/<slug>.md` paths still resolve.

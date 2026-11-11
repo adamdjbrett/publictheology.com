@@ -1,11 +1,11 @@
 ---
 title: All the Body on All Saints Sunday
 date: 2026-11-01T16:09:00
-custom_excerpt: All Saints Sunday helps us stop and name the many who have gone
+description: All Saints Sunday helps us stop and name the many who have gone
   before us, some working in faith despite their station and situation. Not just
   famous martyrs...
-feature_image: /assets/images/pexels-hellojoshwithers-16300652.jpg
-feature_image_alt: Photo by Josh Withers of a Beautiful view of Todos Santos,
+image: /assets/images/pexels-hellojoshwithers-16300652.jpg
+image_alt: Photo by Josh Withers of a Beautiful view of Todos Santos,
   Baja California Sur, Mexico with iconic colorful town sign and palm trees.
   (From Pexels)
 authors:
@@ -13,7 +13,6 @@ authors:
 categories:
   - Essays
 toc: false
-template: post
 published: true
 ---
 ## **Name them**

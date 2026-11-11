@@ -1,16 +1,16 @@
 ---
 title: "Theologians Without Passports: Towards a Cosmopolitan Public Theology"
 date: 2026-10-06T10:05:00
-custom_excerpt: Namsoon Kang's cosmopolitan theology, read with Appiah and Derrida, as a public theology that crosses borders without erasing them.
+description: Namsoon Kang's cosmopolitan theology, read with Appiah and Derrida, as a public theology that crosses borders without erasing them.
 authors: [adam-dj-brett]
-postTags: [public-theology, cosmopolitanism, interreligious]
+tags: [public-theology, cosmopolitanism, interreligious]
 categories: [Essays]
-template: post
-feature_image: /assets/images/kit-formerly-convertkit-QMU1z6ReS5A-unsplash.webp
-feature_image_alt: White and blue identification card
-feature_image_width: 1920
-feature_image_height: 1280
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@kit?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kit (formerly ConvertKit)</a> on <a href="https://unsplash.com/photos/white-and-blue-identification-card-QMU1z6ReS5A?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/kit-formerly-convertkit-QMU1z6ReS5A-unsplash.webp
+image_alt: White and blue identification card
+image_width: 1920
+image_height: 1280
+image_caption: 'Photo by <a href="https://unsplash.com/@kit?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Kit (formerly ConvertKit)</a> on <a href="https://unsplash.com/photos/white-and-blue-identification-card-QMU1z6ReS5A?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+toc: true
 ---
 Whose land do you live on, and whose neighbor are you? I will argue that public theology, if it is to be inclusive and interreligious rather than merely tolerant, needs a cosmopolitan grammar, and that Namsoon Kang supplies the best one we have. I will make the case by reading Kang's "Toward a Cosmopolitan Theology: Constructing Public Theology from the Future" (in *Planetary Loves*, 2011) through two fellow travelers she names, Kwame Anthony Appiah and Jacques Derrida, and by showing where each adds something to her account.
 

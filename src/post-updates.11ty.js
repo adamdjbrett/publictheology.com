@@ -36,7 +36,7 @@ export function render({ post, metadata, page }) {
 <article class="h-entry">
 	<a class="u-bridgy-fed" href="https://fed.brid.gy/" hidden="from-humans"></a>
 	<a class="u-url" href="${esc(metadata.url + page.url)}" hidden></a>
-	<div class="e-content"><p>Updated: ${esc(title)}${post.data.custom_excerpt ? ` — ${esc(String(post.data.custom_excerpt).trim())}` : ""}</p>
+	<div class="e-content"><p>Updated: ${esc(title)}${post.data.description ? ` — ${esc(String(post.data.description).trim())}` : ""}</p>
 	<p><a href="${esc(url)}">${esc(url)}</a></p></div>
 	<p><time class="dt-published" datetime="${modified.toISO({ suppressMilliseconds: true })}">${modified.toFormat("dd LLL yyyy")}</time></p>
 </article>

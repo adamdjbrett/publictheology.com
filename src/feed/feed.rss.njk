@@ -21,8 +21,8 @@ eleventyExcludeFromCollections: true
 			<link>{{ metadata.url }}{{ post.url }}</link>
 			<guid isPermaLink="true">{{ metadata.url }}{{ post.url }}</guid>
 			<pubDate>{{ post.date | rfc2822 }}</pubDate>
-			{%- if post.data.custom_excerpt %}
-			<description>{{ post.data.custom_excerpt }}</description>
+			{%- if post.data.description %}
+			<description>{{ post.data.description }}</description>
 			{%- else %}
 			<description>{{ post.content | excerpt(40) }}</description>
 			{%- endif %}

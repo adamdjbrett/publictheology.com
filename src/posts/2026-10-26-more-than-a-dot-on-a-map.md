@@ -1,21 +1,20 @@
 ---
 title: "More than a Dot on a Map: Network, Care, and Public Theology"
 date: 2026-10-26T10:00:00
-custom_excerpt: A network sketch can help identify gaps in care, but it cannot
+description: A network sketch can help identify gaps in care, but it cannot
   measure anyone’s worth. Behind every node is a neighbor.
-feature_image: /assets/images/illuminated-network-lights.webp
-feature_image_alt: Lit bulbs joined by a lattice of metal rods against a dark blue ceiling, like nodes and edges in a network
-feature_image_width: 2000
-feature_image_height: 1333
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@justmejuliee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Julia Taubitz</a> on <a href="https://unsplash.com/photos/abstract-geometric-pattern-of-illuminated-lights-fYOCiHbHLQ8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/illuminated-network-lights.webp
+image_alt: Lit bulbs joined by a lattice of metal rods against a dark blue ceiling, like nodes and edges in a network
+image_width: 2000
+image_height: 1333
+image_caption: 'Photo by <a href="https://unsplash.com/@justmejuliee?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Julia Taubitz</a> on <a href="https://unsplash.com/photos/abstract-geometric-pattern-of-illuminated-lights-fYOCiHbHLQ8?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 authors:
   - james-e-jones-jr
 categories:
   - Essays
 toc: false
-template: post
 published: true
-postTags:
+tags:
   - network-diagramming
   - digital-humanities
   - public-theology

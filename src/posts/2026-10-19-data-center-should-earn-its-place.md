@@ -2,25 +2,24 @@
 title: Data center should earn its place
 date: 2026-10-19T09:00:00
 canonical_url: https://www.altoonamirror.com/opinion/2026/10/data-center-should-earn-its-place/
-custom_excerpt: At a Taylor Township hearing on a proposed data center, Matthew
+description: At a Taylor Township hearing on a proposed data center, Matthew
   Lingafelt asks what Blair County gains, and argues for a community benefits
   agreement in the Altoona Mirror.
-feature_image: /assets/images/data-center-aerial.webp
-feature_image_alt: Aerial view of a large data center building beside a road, surrounded by fields and trees
-feature_image_width: 2000
-feature_image_height: 1125
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@geoffreymoffett?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Geoffrey Moffett</a> on <a href="https://unsplash.com/photos/an-aerial-view-of-a-large-industrial-building-N9pLLb_M8DQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/data-center-aerial.webp
+image_alt: Aerial view of a large data center building beside a road, surrounded by fields and trees
+image_width: 2000
+image_height: 1125
+image_caption: 'Photo by <a href="https://unsplash.com/@geoffreymoffett?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Geoffrey Moffett</a> on <a href="https://unsplash.com/photos/an-aerial-view-of-a-large-industrial-building-N9pLLb_M8DQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 authors:
   - matthew-lingafelt
 categories:
   - oped
-postTags:
+tags:
   - data-centers
   - artificial-intelligence
   - community-benefits-agreements
   - public-theology
 toc: false
-template: post
 published: true
 ---
 ![Altoona Mirror](/assets/images/altoona-mirror.webp)

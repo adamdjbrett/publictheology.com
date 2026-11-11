@@ -1,7 +1,7 @@
 ---
 title: Newsletter
-custom_excerpt: New writing from Public Theology, delivered to your inbox once a week.
-show_title_and_feature_image: true
+description: New writing from Public Theology, delivered to your inbox once a week.
+show_header: true
 ---
 The Public Theology newsletter gathers the week's new essays, responses and resources into a single email. It arrives once a week, never more, and it is free.
 

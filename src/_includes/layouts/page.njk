@@ -2,7 +2,7 @@
 layout: layouts/default.njk
 bodyClass: page-template
 ---
-{#- Static page layout (was page.hbs). `show_title_and_feature_image`
+{#- Static page layout (was page.hbs). `show_header`
     defaults to true when not set in front matter. -#}
 {% set post = {
 	url: page.url,
@@ -10,12 +10,12 @@ bodyClass: page-template
 	content: content,
 	data: {
 		title: title,
-		custom_excerpt: custom_excerpt,
-		feature_image: feature_image,
-		feature_image_alt: feature_image_alt,
-		feature_image_caption: feature_image_caption,
-		feature_image_width: feature_image_width,
-		feature_image_height: feature_image_height,
+		description: description,
+		image: image,
+		image_alt: image_alt,
+		image_caption: image_caption,
+		image_width: image_width,
+		image_height: image_height,
 		authors: authors,
 		tags: tags,
 		template: template
@@ -26,12 +26,12 @@ bodyClass: page-template
 	{% include "partials/breadcrumbs.njk" %}
 	<article class="gh-article page" data-pagefind-body>
 
-		{% if show_title_and_feature_image != false %}
+		{% if show_header != false %}
 			<header class="gh-article-header gh-canvas">
 				<h1 class="gh-article-title">{{ title }}</h1>
 
-				{% if custom_excerpt %}
-					<p class="gh-article-excerpt">{{ custom_excerpt }}</p>
+				{% if description %}
+					<p class="gh-article-excerpt">{{ description }}</p>
 				{% endif %}
 
 				{% include "partials/feature-image.njk" %}

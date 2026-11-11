@@ -1,16 +1,16 @@
 ---
 title: "Which Passport Do You Travel Under?: Toward a Borderless Public Theology"
 date: 2026-10-06T10:15:00
-custom_excerpt: Revisiting my 2013 WCC Busan paper, I argue public theology must refuse the nation-state as its frame and build solidarity from difference, not unity.
+description: Revisiting my 2013 WCC Busan paper, I argue public theology must refuse the nation-state as its frame and build solidarity from difference, not unity.
 authors: [adam-dj-brett]
-postTags: [public-theology, ecumenism, borders]
+tags: [public-theology, ecumenism, borders]
 categories: [Essays]
-template: post
-feature_image: /assets/images/junseo-jang-q8OeB33Q5UQ-unsplash.webp
-feature_image_alt: A large bridge spanning a wide body of water
-feature_image_width: 1920
-feature_image_height: 1440
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@wnstj329?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Junseo Jang</a> on <a href="https://unsplash.com/photos/a-large-bridge-spanning-over-a-large-body-of-water-q8OeB33Q5UQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/junseo-jang-q8OeB33Q5UQ-unsplash.webp
+image_alt: A large bridge spanning a wide body of water
+image_width: 1920
+image_height: 1440
+image_caption: 'Photo by <a href="https://unsplash.com/@wnstj329?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Junseo Jang</a> on <a href="https://unsplash.com/photos/a-large-bridge-spanning-over-a-large-body-of-water-q8OeB33Q5UQ?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+toc: true
 ---
 In November 2013 I sat in a convention center in Busan, South Korea, at the Tenth Assembly of the World Council of Churches (WCC), praying for the "visible unity" of the church while my own country built a wall along its southern border and kept Indigenous nations on reservations. Which side was I on? To whom did I pledge allegiance? Which passport did I travel under? Those questions became a paper for the Global Ecumenical Theological Institute, "Theologians Without Borders," and they are the questions I want to bring to public theology here. I will argue that a public theology worth the name must be borderless: it must refuse the nation-state as its organizing frame, start from difference rather than unity, and treat the border itself as a theological problem. I make the case through my experience in Busan, Namsoon Kang's "ecumenical taboo," and Gayatri Chakravorty Spivak's "new culturalist alibi."
 

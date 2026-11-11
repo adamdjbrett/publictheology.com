@@ -1,5 +1,5 @@
 import { execFileSync } from "node:child_process";
-import { existsSync, mkdirSync, readFileSync, readdirSync, statSync } from "node:fs";
+import { existsSync, globSync, mkdirSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { parse, resolve } from "node:path";
 import sharp from "sharp";
 import { load as loadYaml } from "js-yaml";
@@ -92,7 +92,7 @@ export default async function (buildAwesomeConfig) {
 	buildAwesomeConfig.addPlugin(pluginTOC, {
 		tags: ["h2", "h3", "h4"],
 		wrapper: (items) =>
-			`<nav id="toc" class="post-toc" aria-labelledby="toc-title"><h2 id="toc-title">Contents</h2>${items}</nav>`,
+			`<nav aria-labelledby="toc-title">${items}</nav>`,
 	});
 
 	const markdown = markdownIt({ html: true, linkify: true, typographer: true })
@@ -148,7 +148,9 @@ export default async function (buildAwesomeConfig) {
 	buildAwesomeConfig.on("eleventy.after", ({ dir }) => {
 		if (process.env.ELEVENTY_RUN_MODE !== "build") return;
 		const executable = resolve("node_modules", ".bin", process.platform === "win32" ? "pagefind.cmd" : "pagefind");
-		execFileSync(executable, ["--site", dir.output, "--glob", "**/*.html"], { stdio: "inherit" });
+		// Exclude the external CMS redirect before Pagefind parses HTML.
+		const files = globSync("**/*.html", { cwd: dir.output, exclude: ["admin/**"] });
+		execFileSync(executable, ["--site", dir.output, "--glob", `{${files.join(",")}}`], { stdio: "inherit" });
 	});
 }
 

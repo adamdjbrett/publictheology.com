@@ -1,16 +1,15 @@
 ---
 title: Welcome to Public Theology
 date: 2026-10-05T10:00:00
-custom_excerpt: A new home for public theology, public witness and shared resources.
+description: A new home for public theology, public witness and shared resources.
 authors: [adam-dj-brett]
-postTags: [announcements]
+tags: [announcements]
 categories: [Editorial]
-template: post
-feature_image: /assets/images/salonagility-com-daniel-yElP7IU8ttg-unsplash.webp
-feature_image_alt: Red freestanding letters spelling LOVE on a city street
-feature_image_width: 1920
-feature_image_height: 1280
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@salon_agility?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Salonagility.com Daniel</a> on <a href="https://unsplash.com/photos/red-love-freestanding-letter-in-the-street-yElP7IU8ttg?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/salonagility-com-daniel-yElP7IU8ttg-unsplash.webp
+image_alt: Red freestanding letters spelling LOVE on a city street
+image_width: 1920
+image_height: 1280
+image_caption: 'Photo by <a href="https://unsplash.com/@salon_agility?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Salonagility.com Daniel</a> on <a href="https://unsplash.com/photos/red-love-freestanding-letter-in-the-street-yElP7IU8ttg?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 ---
 Public Theology opens today. Martin Marty coined the term in 1974 to mark the difference between theology done in public and the "civil religion" that borrows religious symbols while belonging to no tradition; David Tracy later named the three publics every theologian addresses: the academy, the church, and the wider society. Most theology speaks to the first two and forgets the third. This publication exists for the third.
 

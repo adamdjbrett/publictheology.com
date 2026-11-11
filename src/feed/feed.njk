@@ -26,8 +26,8 @@ eleventyExcludeFromCollections: true
 		{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
 		<author><name>{{ a.name }}</name></author>
 		{%- endfor %}
-		{%- if post.data.custom_excerpt %}
-		<summary>{{ post.data.custom_excerpt }}</summary>
+		{%- if post.data.description %}
+		<summary>{{ post.data.description }}</summary>
 		{%- endif %}
 		<content type="html">{{ post.content | e }}</content>
 	</entry>

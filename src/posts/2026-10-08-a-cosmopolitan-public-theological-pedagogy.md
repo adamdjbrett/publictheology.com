@@ -1,16 +1,16 @@
 ---
 title: "Professors Without Passports: A Cosmopolitan Public Theological Pedagogy"
 date: 2026-10-06T10:09:00
-custom_excerpt: If public theology is cosmopolitan, so must be the classroom where it is taught. Kang, Appiah, and Derrida on a pedagogy of dis-location.
+description: If public theology is cosmopolitan, so must be the classroom where it is taught. Kang, Appiah, and Derrida on a pedagogy of dis-location.
 authors: [adam-dj-brett]
-postTags: [public-theology, cosmopolitanism, pedagogy]
+tags: [public-theology, cosmopolitanism, pedagogy]
 categories: [Essays]
-template: post
-feature_image: /assets/images/curated-lifestyle-Z8Os-ox8Gwc-unsplash.webp
-feature_image_alt: Large group of people, a diversity and community concept
-feature_image_width: 1920
-feature_image_height: 1920
-feature_image_caption: 'Photo by Curated Lifestyle on <a href="https://unsplash.com/photos/large-group-of-people-communication-diversity-community-concept-Z8Os-ox8Gwc">Unsplash+</a>'
+image: /assets/images/curated-lifestyle-Z8Os-ox8Gwc-unsplash.webp
+image_alt: Large group of people, a diversity and community concept
+image_width: 1920
+image_height: 1920
+image_caption: 'Photo by Curated Lifestyle on <a href="https://unsplash.com/photos/large-group-of-people-communication-diversity-community-concept-Z8Os-ox8Gwc">Unsplash+</a>'
+toc: true
 ---
 In the last post I argued, following Namsoon Kang, that public theology needs a cosmopolitan grammar. Here I take the argument into the classroom. I will argue that a cosmopolitan public theology requires a cosmopolitan pedagogy, and that such a pedagogy proceeds by dis-location: it unsettles the vertical classroom, it makes the professor a theologian without a passport, and it treats student knowledge as a public rather than an audience. I make the case with Kang again at the center, with Kwame Anthony Appiah and Jacques Derrida alongside, and with Paulo Freire and Denise Taliaferro Baszile as the pedagogical interlocutors they need.
 

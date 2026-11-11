@@ -5,21 +5,21 @@ bodyClass: post-template
 {#- Post layout (was post.hbs / custom-full-feature-image.hbs /
     custom-wide-feature-image.hbs). Branches on the `template` front
     matter field. Shared partials receive a uniform `post` object. -#}
-{% set resolvedTags = postTags | resolvedPostTags(tags) %}
+{% set resolvedTags = tags | publicTags %}
 {% set post = {
 	url: page.url,
 	date: page.date,
 	content: content,
 	data: {
 		title: title,
-		custom_excerpt: custom_excerpt,
-		feature_image: feature_image,
-		feature_image_alt: feature_image_alt,
-		feature_image_caption: feature_image_caption,
-		feature_image_width: feature_image_width,
-		feature_image_height: feature_image_height,
+		description: description,
+		image: image,
+		image_alt: image_alt,
+		image_caption: image_caption,
+		image_width: image_width,
+		image_height: image_height,
 		authors: authors,
-		postTags: resolvedTags,
+		tags: resolvedTags,
 		categories: categories,
 		template: template,
 		modified: modified
@@ -29,14 +29,14 @@ bodyClass: post-template
 
 {% if template == "full-feature-image" %}
 {#- custom-full-feature-image.hbs: full-bleed cover, then article -#}
-{% if feature_image %}
+{% if image %}
 	<section class="gh-cover loading gh-outer">
 		<img
 			class="gh-cover-image u-featured"
-			src="{{ feature_image }}"
-			alt="{{ feature_image_alt or title }}"
-			{% if feature_image_width %}width="{{ feature_image_width }}"{% endif %}
-			{% if feature_image_height %}height="{{ feature_image_height }}"{% endif %}
+			src="{{ image }}"
+			alt="{{ image_alt or title }}"
+			{% if image_width %}width="{{ image_width }}"{% endif %}
+			{% if image_height %}height="{{ image_height }}"{% endif %}
 			sizes="100vw"
 			loading="eager"
 			fetchpriority="high"
@@ -61,13 +61,13 @@ bodyClass: post-template
 		<header class="gh-article-header gh-canvas">
 			{% include "partials/post-meta.njk" %}
 
-			{% if custom_excerpt %}
-				<p class="gh-article-excerpt p-summary">{{ custom_excerpt }}</p>
+			{% if description %}
+				<p class="gh-article-excerpt p-summary">{{ description }}</p>
 			{% endif %}
 		</header>
 
-		<section class="gh-content gh-canvas e-content" itemprop="articleBody">
-			{% if toc %}{{ content | toc | safe }}{% endif %}
+		<section class="gh-content gh-canvas e-content{% if toc %} has-toc{% endif %}" itemprop="articleBody">
+			{% if toc %}{% include "partials/toc.njk" %}{% endif %}
 			{{ ((content | tocBacklinks) if toc else content) | safe }}
 		</section>
 	</article>
@@ -95,8 +95,8 @@ bodyClass: post-template
 
 			<h1 class="gh-article-title p-name" itemprop="headline name">{{ title }}</h1>
 
-			{% if custom_excerpt %}
-				<p class="gh-article-excerpt p-summary">{{ custom_excerpt }}</p>
+			{% if description %}
+				<p class="gh-article-excerpt p-summary">{{ description }}</p>
 			{% endif %}
 
 			{% include "partials/post-meta.njk" %}
@@ -104,8 +104,8 @@ bodyClass: post-template
 			{% include "partials/feature-image.njk" %}
 		</header>
 
-		<section class="gh-content gh-canvas e-content" itemprop="articleBody">
-			{% if toc %}{{ content | toc | safe }}{% endif %}
+		<section class="gh-content gh-canvas e-content{% if toc %} has-toc{% endif %}" itemprop="articleBody">
+			{% if toc %}{% include "partials/toc.njk" %}{% endif %}
 			{{ ((content | tocBacklinks) if toc else content) | safe }}
 		</section>
 

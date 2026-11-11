@@ -1,20 +1,19 @@
 ---
 title: Humanities Coding in the Information Age
 date: 2026-10-09T14:26:00
-custom_excerpt: A reflection on the nature of coding in science and in the digital humanities
-feature_image: /assets/images/codehelloworldenc11.webp
-feature_image_alt: A screenshot of code from the computer language C++
+description: A reflection on the nature of coding in science and in the digital humanities
+image: /assets/images/codehelloworldenc11.webp
+image_alt: A screenshot of code from the computer language C++
 authors:
   - brian-bennett
 categories:
   - Essays
-postTags:
+tags:
   - coding
   - digital-humanities
 toc: false
-template: post
 published: true
-feature_image_caption: '"Hello, World !" code in C++ '
+image_caption: '"Hello, World !" code in C++ '
 ---
 Coding has been consistently present in my life, particularly early on. In elementary school, my classmates and I programmed LOGOS turtles to move around a screen. I have written the traditional “Hello World!” introduction code in multiple computer languages. I copied video game code out of magazines to build fighting games or create programs to play music that I keyed in. In my junior year of college, I wrote a program to simulate the chaotic system of the driven, damped, pendulum, cranking through numerical solutions of differential equations. In graduate school, I routinely used Matlab code to analyze audio signals. As my kids grew up, I introduced them to platforms like Scratch where they could begin their own projects. One of those kids is now a software engineer.
 

@@ -105,9 +105,6 @@ export default function (eleventyConfig) {
 		(posts || []).filter((p) => eleventyConfig.getFilter("resolveAuthors")(p.data.authors, authors).some((a) => a.key === key)),
 	);
 
-	eleventyConfig.addFilter("resolvedPostTags", (preferred, legacy) =>
-		publicPostTags({ postTags: preferred, tags: legacy }),
-	);
 	eleventyConfig.addFilter("taxonomyTerms", (values, type) =>
 		normalizeTerms(values, type, (value) => eleventyConfig.getFilter("slugify")(value)),
 	);

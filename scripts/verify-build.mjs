@@ -1,5 +1,11 @@
 import { existsSync, readFileSync, readdirSync, statSync } from "node:fs";
 import { basename, dirname, join, normalize } from "node:path";
+import assert from "node:assert/strict";
+import { CORE_SCHEMA, load as loadYaml } from "js-yaml";
+import { publicPostTags } from "../_config/taxonomy.js";
+
+assert.deepEqual(publicPostTags({ tags: ["posts", "public-theology", { name: "pages" }, { name: "faith" }] }), ["public-theology", { name: "faith" }]);
+assert.deepEqual(publicPostTags({ tags: "faith" }), ["faith"]);
 
 const output = "_site";
 const files = (root) => readdirSync(root, { recursive: true })
@@ -17,6 +23,25 @@ for (const name of readdirSync("src/posts").filter((name) => name.endsWith(".md"
 	const slug = basename(name, ".md").replace(/^\d{4}-\d{2}-\d{2}-/, "");
 	const draft = /^published:\s*false\b/m.test(readFileSync(join("src/posts", name), "utf8"));
 	if (draft === existsSync(join(output, slug, "index.html"))) throw new Error(draft ? `Draft was published: /${slug}/` : `Missing post route: /${slug}/`);
+	if (!draft) {
+		const data = loadYaml(readFileSync(join("src/posts", name), "utf8").split(/^---$/m)[1], { schema: CORE_SCHEMA });
+		const html = readFileSync(join(output, slug, "index.html"), "utf8");
+		const posting = [...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)]
+			.map((match) => JSON.parse(match[1])).find((value) => value["@type"] === "BlogPosting");
+		assert.ok(posting, `${name}: missing BlogPosting metadata`);
+		if (data.description) assert.equal(posting.description, data.description, `${name}: description lost`);
+		if (data.image) assert.equal(new URL(posting.image[0]).pathname, new URL(data.image, "https://publictheology.com").pathname, `${name}: image lost`);
+		const toc = html.match(/<details id="toc" class="post-toc" open>([\s\S]*?)<\/details>/);
+		if (data.toc) {
+			assert.ok(toc, `${name}: TOC must start open`);
+			assert.ok(toc[1].includes('<summary id="toc-title">☞ Table of Contents</summary>'), `${name}: incorrect TOC title`);
+			for (const [, id] of toc[1].matchAll(/href="#([^"]+)"/g)) {
+				assert.ok(html.includes(`id="${id}"`), `${name}: missing TOC target ${id}`);
+			}
+		} else {
+			assert.equal(toc, null, `${name}: TOC rendered when disabled`);
+		}
+	}
 }
 for (const name of readdirSync("src/pages").filter((name) => name.endsWith(".md"))) {
 	const slug = basename(name, ".md");

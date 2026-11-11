@@ -2,22 +2,21 @@
 title: "Digital Humanities as Public Ministry: Reimagining Formation
   Beyond Christian Hegemony"
 date: 2026-10-09T14:32:00
-custom_excerpt: Digital Humanities is not simply a set of digital tools; it is a theological method that reveals how power circulates through our digital ecosystems.
-feature_image: /assets/images/steve-a-johnson-_0iV9LmPDn0-unsplash.webp
-feature_image_alt: A computer circuit board with a brain on it
-feature_image_width: 1920
-feature_image_height: 1080
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Steve A Johnson</a> on <a href="https://unsplash.com/photos/a-computer-circuit-board-with-a-brain-on-it-_0iV9LmPDn0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+description: Digital Humanities is not simply a set of digital tools; it is a theological method that reveals how power circulates through our digital ecosystems.
+image: /assets/images/steve-a-johnson-_0iV9LmPDn0-unsplash.webp
+image_alt: A computer circuit board with a brain on it
+image_width: 1920
+image_height: 1080
+image_caption: 'Photo by <a href="https://unsplash.com/@steve_j?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Steve A Johnson</a> on <a href="https://unsplash.com/photos/a-computer-circuit-board-with-a-brain-on-it-_0iV9LmPDn0?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
 authors:
   - daryl-washington
 categories:
   - Essays
-postTags:
+tags:
   - decolonial-dh-project
   - theological-struggle-with-nationalist-hegemony
   - public-theology
 toc: false
-template: post
 published: true
 ---
 Digital Humanities (DH) is often framed as a technical field — data, metadata, platforms, tools. But for those of us doing public ministry, DH is not simply a method. It is a **site of theological struggle**, a place where power, narrative, and community collide. When we bring DH into the DMin classroom, we are not teaching pastors how to “use technology.” We are teaching them how to **see the digital as a contested theological landscape**.

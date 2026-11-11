@@ -1,6 +1,6 @@
 // Verify the built site is wired for webmentions and Bridgy Fed:
 //   node scripts/check-webmention-setup.mjs [siteDir=_site]
-// Every page advertises the webmention.io endpoint; every post is an h-entry with e-content,
+// Content pages advertise the webmention.io endpoint; every post is an h-entry with e-content,
 // the hidden u-bridgy-fed link, the Bridgy Fed AP alternate and the responses section;
 // no test-fixture mention (scripts/fixtures/webmentions.json) leaked into the build.
 import { readFileSync, readdirSync } from "node:fs";
@@ -32,4 +32,4 @@ if (failures.length) {
 	console.error(failures.join("\n"));
 	process.exit(1);
 }
-console.log(`Webmention setup OK: ${pages.length} HTML files advertise the endpoint, ${posts} posts are bridgeable h-entries.`);
+console.log(`Webmention setup OK: ${pages.length} HTML files checked, ${posts} posts are bridgeable h-entries.`);

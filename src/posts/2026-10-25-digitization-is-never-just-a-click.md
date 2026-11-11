@@ -1,22 +1,21 @@
 ---
 title: Digitization Is Never Just a Click
 date: 2026-10-25T10:00:00
-custom_excerpt: What appears effortless on a screen may represent hours of
+description: What appears effortless on a screen may represent hours of
   intellectual, emotional, and technical work. If digitization is human labor,
   accessibility expresses care for the humans who encounter that labor.
-feature_image: /assets/images/internet-cursors.webp
-feature_image_alt: 3D render of various internet cursors
-feature_image_width: 2000
-feature_image_height: 1125
-feature_image_caption: 'Photo by Alex Shuper on <a href="https://unsplash.com/photos/a-large-group-of-different-shapes-and-sizes-of-arrows-nACMb7M2RHI">Unsplash+</a>. Licensed under the Unsplash+ License.'
+image: /assets/images/internet-cursors.webp
+image_alt: 3D render of various internet cursors
+image_width: 2000
+image_height: 1125
+image_caption: 'Photo by Alex Shuper on <a href="https://unsplash.com/photos/a-large-group-of-different-shapes-and-sizes-of-arrows-nACMb7M2RHI">Unsplash+</a>. Licensed under the Unsplash+ License.'
 authors:
   - james-e-jones-jr
 categories:
   - Essays
 toc: false
-template: post
 published: true
-postTags:
+tags:
   - digital-humanities
   - accessibility
   - public-theology

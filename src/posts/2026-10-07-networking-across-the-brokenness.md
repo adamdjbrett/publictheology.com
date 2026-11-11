@@ -1,24 +1,23 @@
 ---
 title: Networking Across the Brokenness
 date: 2026-10-07T15:18:00
-custom_excerpt: What might a quick sketch of my personal network of
+description: What might a quick sketch of my personal network of
   relationships and connections in the broken global Body of Christ look like?
-feature_image: /assets/images/personal-network-261007b.webp
-feature_image_alt: network diagram of author's personal connections with people
+image: /assets/images/personal-network-261007b.webp
+image_alt: network diagram of author's personal connections with people
   of different faith traditions
-feature_image_width: 1440
-feature_image_height: 380
-feature_image_caption: diagram sketched with SmartDraw
+image_width: 1440
+image_height: 380
+image_caption: diagram sketched with SmartDraw
 authors:
   - mike-cantley
 categories:
   - Essays
-postTags:
+tags:
   - public-theology
   - network-diagramming
   - body-of-christ
-toc: false
-template: post
+toc: true
 published: true
 ---
 **What might a quick sketch of my personal network of relationships and connections in the broken global Body of Christ look like?** While my extended family represents many denominations, I pastor in a local United Methodist Church in the USA while serving with neighbors in our town’s ecumenical council of churches. I also presently study in a Lutheran Seminary. When I start sketching the relationships and nodes, I quickly see the mounting complexities and crisscrossing of our historical and theological connections.

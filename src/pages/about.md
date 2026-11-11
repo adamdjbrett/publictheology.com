@@ -1,7 +1,7 @@
 ---
 title: About
-custom_excerpt: A new publication of public theology, public witness and shared resources.
-show_title_and_feature_image: true
+description: A new publication of public theology, public witness and shared resources.
+show_header: true
 eleventyNavigation:
   key: About
 ---

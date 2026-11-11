@@ -1,20 +1,19 @@
 ---
 title: Networking and Responsibility in Digital Humanities
 date: 2026-10-09T14:44:00
-custom_excerpt: Networks connect people and knowledge, but they also involve
+description: Networks connect people and knowledge, but they also involve
   power and responsibility. How can digital scholarship practice care, consent,
   and shared authority?
-feature_image: /assets/images/1791163742671.webp
-feature_image_width: 586
-feature_image_height: 376
+image: /assets/images/1791163742671.webp
+image_width: 586
+image_height: 376
 authors:
   - hau-sian-suan
 categories:
   - Essays
 toc: false
-template: post
 published: true
-postTags:
+tags:
   - connection-care-and-common-future
 ---
 First, it is important to understand what a network is. A network consists of people or other entities and the relationships connecting them. Digital technologies help us explore these relationships and share knowledge. However, participation in a network also requires us to consider power and responsibility. Digital scholarship should therefore give careful attention to how we connect with others and represent their experiences.   

@@ -1,22 +1,21 @@
 ---
 title: A Public Theological Response to Poverty in Myanmar
 date: 2026-10-15T22:35:00
-custom_excerpt: This article explores poverty in Myanmar through public
+description: This article explores poverty in Myanmar through public
   theology, emphasizing structural injustice, Christian responsibility, human
   dignity, and solidarity.
-feature_image: /assets/images/screenshot-2026-10-15-at-105530-pm.webp
-feature_image_alt: "Layers of Deprivation: multidimensional Poverty in Myanmar
+image: /assets/images/screenshot-2026-10-15-at-105530-pm.webp
+image_alt: "Layers of Deprivation: multidimensional Poverty in Myanmar
   (UNDP: October 2026)"
-feature_image_width: 800
-feature_image_height: 500
+image_width: 800
+image_height: 500
 authors:
   - hau-sian-suan
 categories:
   - Essays
 toc: false
-template: post
 published: true
-postTags:
+tags:
   - Public-Theology, Christian-Ethics, Social-Justice
 ---
 Poverty in Myanmar is an economic, ethical, and theological crisis rooted in long-standing political turmoil and structural injustice. Military domination and unequal access to resources have deprived people of material security and threatened their dignity and hope. Poverty can push people into dangerous migration and exploitative labor, leaving them with few choices for survival. These conditions call Christians to examine both the structures that produce poverty and the ways the church responds to human suffering.

@@ -17,7 +17,7 @@ content:
     filename: '{year}-{month}-{day}-{primary}.md'
     exclude: [posts.11tydata.js]
     view:
-      fields: [title, date, authors, categories, postTags]
+      fields: [title, date, authors, categories, tags]
       primary: title
       sort: [date, title]
       default:
@@ -27,26 +27,25 @@ content:
       - { name: title, label: Title, type: string, required: true }
       - { name: date, label: Publish date (Eastern time), type: date, options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss" }, required: true }
       - { name: modified, label: "Modified date (Eastern time). Changing it re-announces the post on Bluesky and Mastodon", type: date, default: "", options: { time: true, format: "yyyy-MM-dd'T'HH:mm:ss" } }
-      - { name: custom_excerpt, label: Excerpt (160 characters max), type: text, required: true, options: { maxlength: 160 } }
-      - { name: feature_image, label: Feature image, type: image }
-      - { name: feature_image_alt, label: Feature image alt text, type: string }
-      - { name: feature_image_width, label: Feature image width, type: number }
-      - { name: feature_image_height, label: Feature image height, type: number }
-      - { name: feature_image_caption, label: Feature image caption, type: string }
+      - { name: description, label: Description (160 characters max), type: text, required: true, options: { maxlength: 160 } }
+      - { name: image, label: Image, type: image }
+      - { name: image_alt, label: Image alt text, type: string }
+      - { name: image_width, label: Image width, type: number }
+      - { name: image_height, label: Image height, type: number }
+      - { name: image_caption, label: Image caption, type: string }
       - name: authors
         label: Authors
         type: reference
         required: true
         options: { collection: authors, multiple: true, search: name, value: "{fields.slug}", label: "{fields.name}" }
       - { name: categories, label: Categories, type: select, required: true, options: { values: [Editorial, Essays, Students], multiple: true } }
-      - { name: postTags, label: "Tags (one per entry, lowercase-with-hyphens, e.g. public-theology)", type: string, list: true }
+      - { name: tags, label: "Tags (one per entry, lowercase-with-hyphens, e.g. public-theology)", type: string, list: true }
       - { name: toc, label: Table of contents, type: boolean, default: false }
       - name: template
-        label: Post layout
+        label: Post layout (optional)
         type: select
         options:
           values: [post, wide-feature-image, full-feature-image]
-        default: post
       - { name: published, label: Published (uncheck = draft), type: boolean, default: true }
       - name: body
         label: Body
@@ -62,13 +61,13 @@ content:
     filename: '{fields.title}.md'
     fields:
       - { name: title, label: Title, type: string, required: true }
-      - { name: custom_excerpt, label: Excerpt (160 characters max), type: text, options: { maxlength: 160 } }
-      - { name: feature_image, label: Feature image, type: image }
-      - { name: feature_image_alt, label: Feature image alt text, type: string }
-      - { name: feature_image_width, label: Feature image width, type: number }
-      - { name: feature_image_height, label: Feature image height, type: number }
-      - { name: feature_image_caption, label: Feature image caption, type: string }
-      - { name: show_title_and_feature_image, label: Show title & feature image, type: boolean, default: true }
+      - { name: description, label: Description (160 characters max), type: text, options: { maxlength: 160 } }
+      - { name: image, label: Image, type: image }
+      - { name: image_alt, label: Image alt text, type: string }
+      - { name: image_width, label: Image width, type: number }
+      - { name: image_height, label: Image height, type: number }
+      - { name: image_caption, label: Image caption, type: string }
+      - { name: show_header, label: Show title & feature image, type: boolean, default: true }
       - { name: eleventyNavigation, label: Nav (advanced), type: object, fields: [ { name: key, type: string }, { name: order, type: number } ] }
       - { name: body, label: Body, type: rich-text }
 

@@ -2,21 +2,20 @@
 title: Between the parade and the temple
 date: 2026-10-19T09:51:00
 modified: 2026-10-19T19:42:00
-custom_excerpt: Change happens to people without their partnership. Transition
+description: Change happens to people without their partnership. Transition
   is something people build together. Most churches right now are living through
   change.
-feature_image: /assets/images/church-network-posture-diagram-1.webp
+image: /assets/images/church-network-posture-diagram-1.webp
 authors:
   - j-michael-mills
 categories:
   - Editorial
-postTags:
+tags:
   - church-transition
   - public-theology
   - all-are-welcome
   - inclusion
 toc: false
-template: post
 published: true
 ---
 The moments standing in the middle of Palm Sunday's parade and the overturned tables in the temple are moments our church calendar never names. The crowd has shouted hosanna; the reckoning has not yet come. I've spent my ministry standing in that moment: at bedsides as a death doula, on a crisis line with [the Trevor project](https://www.thetrevorproject.org/), in coaching conversations about vocation, and through 21 years in the Navy. I have returned to [United Lutheran Seminary](https://www.uls.edu/) to give it a name.

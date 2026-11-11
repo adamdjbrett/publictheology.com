@@ -43,11 +43,11 @@ eleventyExcludeFromCollections: true
 					{%- for a in (post.data.authors | resolveAuthors(siteAuthors)) %}
 					<dc:creator>{{ a.name }}</dc:creator>
 					{%- endfor %}
-					{%- for s in (post.data.categories | taxonomyTerms('category')).concat((post.data.postTags | resolvedPostTags(post.data.tags)) | taxonomyTerms('tag')) %}
+					{%- for s in (post.data.categories | taxonomyTerms('category')).concat((post.data.tags | publicTags) | taxonomyTerms('tag')) %}
 					<dc:subject>{{ s.name }}</dc:subject>
 					{%- endfor %}
-					{%- if post.data.custom_excerpt %}
-					<dc:description>{{ post.data.custom_excerpt }}</dc:description>
+					{%- if post.data.description %}
+					<dc:description>{{ post.data.description }}</dc:description>
 					{%- endif %}
 					<dc:publisher>{{ metadata.title }}</dc:publisher>
 					<dc:date>{{ post.date | htmlDateString }}</dc:date>

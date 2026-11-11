@@ -1,23 +1,22 @@
 ---
 title: Stone Walls Do Not A Prison Make, Nor Boxes of Records An Archive
 date: 2026-10-30T21:53:00
-custom_excerpt: Silence keeps stories from being told. The cost of creating and
+description: Silence keeps stories from being told. The cost of creating and
   maintaining such an archive seems expensive, but the impermeable silence is
   more costly.
-feature_image: /assets/images/330px-victorkugler-zaznamonarozeni.jpg
-feature_image_alt: "Ledger from an old congregation with rows and columns that
+image: /assets/images/330px-victorkugler-zaznamonarozeni.jpg
+image_alt: "Ledger from an old congregation with rows and columns that
   show names and dates "
-feature_image_caption: A page from an old congregation's parish registry [via
+image_caption: A page from an old congregation's parish registry [via
   Wikimedia Commons, CC BY-SA
   4.0](https://commons.wikimedia.org/wiki/File:Victor_Kugler_-_z%C3%A1znam_o_narozen%C3%AD.jpg)
 authors:
   - brian-bennett
 categories:
   - Essays
-postTags:
+tags:
   - Archives
 toc: false
-template: post
 published: true
 ---
 Every pastor in the Evangelical Lutheran Church in America has the responsibility to maintain the parish register. That record contains all of the pastoral acts that happen within a congregation. This record is a legal document and there are stories of people using the parish register to prove their existence, or at least some detail like their birth date or their family connection. Theoretically, the entire voting membership could be reconstructed using the parish register. For many Lutheran congregations this book is identical, a reddish-brown ledger broken into sections listing every baptism, confirmation, wedding, funeral and transfers in and out. To be honest, more and more congregations, despite their denominational affiliation are moving to a digital system of record keeping. In my first call, I would occasionally receive a phone call asking about a baptismal or confirmation date. I would open those large ledger pages and comb through entries to find the requested date.

@@ -129,6 +129,47 @@
 	margin-block: 0.5rem;
 }
 
+.gh-content > .post-toc {
+	font-family: var(--font-sans);
+	font-size: 1.5rem;
+	line-height: 1.5;
+	letter-spacing: normal;
+}
+
+.post-toc summary {
+	cursor: pointer;
+	font-weight: 700;
+}
+
+.post-toc summary:focus-visible {
+	outline: 2px solid currentColor;
+	outline-offset: 4px;
+}
+
+.post-toc :is(ol, ul) {
+	margin: 1rem 0 0;
+	padding-left: 1.8rem;
+}
+
+@media (min-width: 1200px) {
+	.gh-content.has-toc {
+		position: relative;
+	}
+
+	.gh-content > .post-toc {
+		position: absolute;
+		grid-column: full;
+		top: 0;
+		left: calc(50% + 360px + 2.4rem);
+		width: min(24rem, calc((100% - 720px) / 2 - 4.8rem));
+		overflow-wrap: anywhere;
+	}
+
+	.gh-content > .post-toc + * {
+		margin-top: 0;
+	}
+}
+
 .toc-back {
 	float: right;
 	font-size: 0.75em;

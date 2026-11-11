@@ -13,7 +13,7 @@ try {
 const titleCase = (slug) => slug.split("-").map((w) => w.charAt(0).toUpperCase() + w.slice(1)).join(" ");
 
 export function publicPostTags(data = {}) {
-	const values = data.postTags ?? data.tags ?? [];
+	const values = data.tags ?? [];
 	return (Array.isArray(values) ? values : [values]).filter((value) => {
 		const name = typeof value === "object" ? value?.name : value;
 		return name && !INTERNAL_TAGS.has(String(name));

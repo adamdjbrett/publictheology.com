@@ -1,16 +1,16 @@
 ---
 title: "Whose Public? Which Theology?: On What We Mean by Public Theology"
 date: 2026-10-06T10:00:00
-custom_excerpt: What public theology is, why it matters now, and why publictheology.com and journal.publictheology.com hold space for a digital public sphere.
+description: What public theology is, why it matters now, and why publictheology.com and journal.publictheology.com hold space for a digital public sphere.
 authors: [adam-dj-brett]
-postTags: [public-theology, public-sphere, interreligious]
+tags: [public-theology, public-sphere, interreligious]
 categories: [Editorial]
-template: post
-feature_image: /assets/images/nolan-issac-It0DCaCBr40-unsplash.webp
-feature_image_alt: Caffe latte in a white ceramic cup beside a laptop
-feature_image_width: 1920
-feature_image_height: 1280
-feature_image_caption: 'Photo by <a href="https://unsplash.com/@nolanissac?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Nolan Issac</a> on <a href="https://unsplash.com/photos/caffe-latte-on-white-ceramic-cup-beside-silver-and-black-laptop-computer-It0DCaCBr40?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+image: /assets/images/nolan-issac-It0DCaCBr40-unsplash.webp
+image_alt: Caffe latte in a white ceramic cup beside a laptop
+image_width: 1920
+image_height: 1280
+image_caption: 'Photo by <a href="https://unsplash.com/@nolanissac?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Nolan Issac</a> on <a href="https://unsplash.com/photos/caffe-latte-on-white-ceramic-cup-beside-silver-and-black-laptop-computer-It0DCaCBr40?utm_source=unsplash&amp;utm_medium=referral&amp;utm_content=creditCopyText">Unsplash</a>'
+toc: true
 ---
 Whose public do we mean when we say public theology? Which theology? I will argue that public theology is theology done in public, for the public, and answerable to the public; that it matters now because the public itself is in trouble; and that it is at its best when it is inclusive, interreligious, and ecumenical. We can either lament what lacks or we can create what we wish to see in the world. Therefore, I will also make the case for [publictheology.com](https://publictheology.com) and [Ebenezer: A Journal of Public Theology](https://journal.publictheology.com) as a digital public spheres.
 

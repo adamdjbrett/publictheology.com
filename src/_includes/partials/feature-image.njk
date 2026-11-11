@@ -1,16 +1,16 @@
-{% if post.data.feature_image %}
+{% if post.data.image %}
     <figure class="gh-article-image">
         <img class="u-featured"
-            src="{{ post.data.feature_image }}"
-            alt="{{ post.data.feature_image_alt or post.data.title }}"
-			{% if post.data.feature_image_width %}width="{{ post.data.feature_image_width }}"{% endif %}
-			{% if post.data.feature_image_height %}height="{{ post.data.feature_image_height }}"{% endif %}
+            src="{{ post.data.image }}"
+            alt="{{ post.data.image_alt or post.data.title }}"
+			{% if post.data.image_width %}width="{{ post.data.image_width }}"{% endif %}
+			{% if post.data.image_height %}height="{{ post.data.image_height }}"{% endif %}
             sizes="(max-width: 1200px) 100vw, 1200px"
             loading="eager"
             fetchpriority="high"
                     >
-        {% if post.data.feature_image_caption %}
-            <figcaption>{{ post.data.feature_image_caption | safe }}</figcaption>
+        {% if post.data.image_caption %}
+            <figcaption>{{ post.data.image_caption | safe }}</figcaption>
         {% endif %}
     </figure>
 {% endif %}

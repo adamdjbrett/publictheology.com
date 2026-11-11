@@ -1,7 +1,7 @@
 ---
 title: Thank You for Subscribing
-custom_excerpt: You're on the list for the Public Theology newsletter.
-show_title_and_feature_image: true
+description: You're on the list for the Public Theology newsletter.
+show_header: true
 permalink: /newsletter/thank-you/
 eleventyExcludeFromCollections: true
 ---
