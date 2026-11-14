@@ -5,8 +5,8 @@ description: Smartphones scattered us into our own screens. Drawing on
   incarnation and the Trinity, this piece asks whether embodied AI could help
   gather us again.
 image_alt: A family gathered together in their living room watching television, c. 1958
-image_width: 1600
-image_height: 1568
+image_width: 1920
+image_height: 1882
 image_caption: 'A family watching television together, c. 1958. Photo: Evert F.
   Baumgardner, <a
   href="https://commons.wikimedia.org/wiki/File:Family_watching_television_1958.jpg">National
@@ -22,6 +22,7 @@ tags:
   - public-theology
 toc: false
 published: true
+image: /assets/images/family-watching-television-1958.jpg
 ---
 AI has inundated our news feeds and social posts. Around every corner in the digital world, we find AI ads, website designs, software, blogs, and anywhere else content is produced. For a tool that draws us further into digital spaces, there’s much to wonder about concerning its value for human flourishing. Since the introduction of the iPhone in 2007,[^1] we’ve been living in a technological world that’s more “you”-shaped than “us”-shaped. With the advent of consumer AI worldwide, we’ve been increasingly pulled into social interaction with machines, sometimes preferring them over our human counterparts. With no slowdown in sight, I’d like to suggest that a potential reversal of personalized technology back toward communal technology lies on the horizon. I believe that introducing AI into physical tech (physical AI), and specifically embodied AI, can lead back toward a communal and thereby healthier relationship with technology.
 
@@ -39,20 +40,20 @@ And so what does an incarnational, communal technology look like? I believe the 
 
 More studies like this should be done to find out whether this effect is as prominent as this study or our own intuition might have us think. Regardless of such work, Christian theology prompts us to think in the categories of community, incarnation, and the creator-creature distinction. AI robot companions are the kinds of devices that lend themselves naturally to such categories. Much like pets, which is how many AI robot companions are marketed (for example, Sony’s aibo, KEYi Tech’s Loona, and Casio’s Moflin),[^9] the communal element can be baked in and the AI has become embodied. As its creators, how will we now govern and be good stewards of this technology that has the ability to recalibrate our relationship with AI?
 
-[^1]: Apple, “Apple Reinvents the Phone with iPhone,” press release, January 9, 2007, https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/.
+[^1]: Apple, “Apple Reinvents the Phone with iPhone,” press release, January 9, 2007, [https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/](https://www.apple.com/newsroom/2007/01/09Apple-Reinvents-the-Phone-with-iPhone/).
 
 [^2]: Albert Borgmann, *Technology and the Character of Contemporary Life: A Philosophical Inquiry* (Chicago: University of Chicago Press, 1984), 41–42.
 
-[^3]: Jean M. Twenge et al., “Increases in Depressive Symptoms, Suicide-Related Outcomes, and Suicide Rates Among U.S. Adolescents After 2010 and Links to Increased New Media Screen Time,” *Clinical Psychological Science* 6, no. 1 (2018): 3–17, https://doi.org/10.1177/2167702617723376; Jonathan Haidt, *The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness* (New York: Penguin Press, 2024).
+[^3]: Jean M. Twenge et al., “Increases in Depressive Symptoms, Suicide-Related Outcomes, and Suicide Rates Among U.S. Adolescents After 2010 and Links to Increased New Media Screen Time,” *Clinical Psychological Science* 6, no. 1 (2018): 3–17, [https://doi.org/10.1177/2167702617723376](https://doi.org/10.1177/2167702617723376); Jonathan Haidt, *The Anxious Generation: How the Great Rewiring of Childhood Is Causing an Epidemic of Mental Illness* (New York: Penguin Press, 2024).
 
-[^4]: OpenAI, “Introducing ChatGPT,” November 30, 2022, https://openai.com/index/chatgpt/.
+[^4]: OpenAI, “Introducing ChatGPT,” November 30, 2022, [https://openai.com/index/chatgpt/](https://openai.com/index/chatgpt/).
 
-[^5]: Marc Zao-Sanders, “How People Are Really Using Gen AI in 2025,” *Harvard Business Review*, April 9, 2025, https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025; Tony Rousmaniere et al., “Large Language Models as Mental Health Resources: Patterns of Use in the United States,” *Practice Innovations* 11, no. 2 (2026): 139–55, https://doi.org/10.1037/pri0000292.
+[^5]: Marc Zao-Sanders, “How People Are Really Using Gen AI in 2025,” *Harvard Business Review*, April 9, 2025, [https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025](https://hbr.org/2025/04/how-people-are-really-using-gen-ai-in-2025); Tony Rousmaniere et al., “Large Language Models as Mental Health Resources: Patterns of Use in the United States,” *Practice Innovations* 11, no. 2 (2026): 139–55, [https://doi.org/10.1037/pri0000292](https://doi.org/10.1037/pri0000292).
 
 [^6]: Scripture quotations taken from the (NASB®) New American Standard Bible®, Copyright © 1960, 1971, 1977, 1995 by The Lockman Foundation. Used by permission. All rights reserved. [www.lockman.org](https://www.lockman.org).
 
 [^7]: N. T. Wright, *Surprised by Hope: Rethinking Heaven, the Resurrection, and the Mission of the Church* (New York: HarperOne, 2008), 193.
 
-[^8]: Margaret L. Traeger et al., “Vulnerable Robots Positively Shape Human Conversational Dynamics in a Human–Robot Team,” *Proceedings of the National Academy of Sciences* 117, no. 12 (2020): 6370–75, https://doi.org/10.1073/pnas.1910402117.
+[^8]: Margaret L. Traeger et al., “Vulnerable Robots Positively Shape Human Conversational Dynamics in a Human–Robot Team,” *Proceedings of the National Academy of Sciences* 117, no. 12 (2020): 6370–75, [https://doi.org/10.1073/pnas.1910402117](https://doi.org/10.1073/pnas.1910402117).
 
-[^9]: Sony, “Entertainment Robot ‘aibo’ Announced,” press release, November 1, 2017, https://www.sony.net/SonyInfo/News/Press/201711/17-105E/index.html; KEYi Tech, “Loona Petbot,” accessed November 14, 2026, https://keyirobot.com/products/petbot; “After Selling Out in Japan, Casio’s $429 Moflin AI Pet Launches in US and UK,” *BetaNews*, September 17, 2025, https://betanews.com/2025/09/17/after-selling-out-in-japan-casios-429-moflin-ai-pet-launches-in-us-and-uk/.
+[^9]: Sony, “Entertainment Robot ‘aibo’ Announced,” press release, November 1, 2017, [https://www.sony.net/SonyInfo/News/Press/201711/17-105E/index.html](https://www.sony.net/SonyInfo/News/Press/201711/17-105E/index.html); KEYi Tech, “Loona Petbot,” accessed November 14, 2026, [https://keyirobot.com/products/petbot](https://keyirobot.com/products/petbot); “After Selling Out in Japan, Casio’s $429 Moflin AI Pet Launches in US and UK,” *BetaNews*, September 17, 2025, [https://betanews.com/2025/09/17/after-selling-out-in-japan-casios-429-moflin-ai-pet-launches-in-us-and-uk/](https://betanews.com/2025/09/17/after-selling-out-in-japan-casios-429-moflin-ai-pet-launches-in-us-and-uk/).
