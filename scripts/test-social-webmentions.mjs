@@ -43,12 +43,12 @@ test("discovers public posts, skips cached mentions and waits for verification",
 			}
 			if (url.startsWith("https://webmention.io/publictheology.com/webmention/")) {
 				checked++;
-				return Response.json({ status: "success" });
+				return Response.json({ status: checked <= 2 ? "pending" : "success" });
 			}
 			throw new Error(`Unexpected request: ${url}`);
 		};
 		assert.equal(await checkSocialWebmentions({ fetchImpl: fakeFetch, cacheFile, now, sleep: async () => {} }), 2);
-		assert.equal(checked, 2);
+		assert.equal(checked, 4);
 		assert.deepEqual(submissions.map((s) => s.source), [
 			`https://bsky.brid.gy/convert/web/at://${did}/app.bsky.feed.post/new`,
 			"https://ap.brid.gy/convert/web/https://hcommons.social/users/adjb/statuses/123",

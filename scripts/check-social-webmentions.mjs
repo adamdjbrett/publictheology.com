@@ -125,7 +125,7 @@ export async function checkSocialWebmentions({ fetchImpl = fetch, cacheFile = ".
 			await sleep(1000);
 			const status = await json(fetchImpl, location);
 			if (status.status === "success") return;
-			if (status.status !== "queued" && status.status !== "processing") {
+			if (status.status !== "queued" && status.status !== "pending" && status.status !== "processing") {
 				throw new Error(`Webmention ${mention.source} failed: ${status.status || "unknown status"}`);
 			}
 		}
