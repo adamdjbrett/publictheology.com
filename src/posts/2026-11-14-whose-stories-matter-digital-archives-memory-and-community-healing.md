@@ -15,6 +15,8 @@ categories:
   - Essays
 toc: false
 published: true
+tags:
+  - Community, Memory, Healing, Digital Archive
 ---
 When you look at a map of your hometown, what do you see? Roads, rivers, and familiar names may appear. But whose stories are missing? A map rarely tells us everything about the people who have lived there, cared for the land, or been forced to leave. Similar questions arise when we build digital archives—online collections of photographs, documents, recordings, and other historical materials. Choosing what to preserve shapes how people understand the past. These decisions also affect communities whose histories have been ignored or misrepresented. Preserving their stories carries a responsibility to consider how these communities understand their own experiences.
 
