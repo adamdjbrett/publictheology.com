@@ -5,8 +5,8 @@ description: Exploring how digital archives and maps can honor marginalized
   voices, preserve community memory, and promote dignity through shared
   responsibility.
 image: /assets/images/screenshot-2026-11-01-at-92406-pm.png
-image_width: 500
-image_height: 800
+image_width: 350
+image_height: 650
 image_caption: "Christ crowned with thorns: an image of suffering and dignity at
   Brossman Center, United Lutheran Seminary, Philadelphia."
 authors:
