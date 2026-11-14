@@ -3,7 +3,7 @@ name: Deploy Eleventy to XMIT
 on:
   push:
   # Rebuild with fresh webmentions (likes/replies/reposts) without a content push.
-  # Scheduled and manual runs never send webmentions or IndexNow pings; only pushes do.
+  # Outbound post announcements and IndexNow pings happen only on pushes.
   schedule:
     - cron: "17 */6 * * *"
   workflow_dispatch:
@@ -45,6 +45,10 @@ jobs:
           key: webmentions-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: webmentions-
 
+      - name: Check social posts for webmentions
+        timeout-minutes: 10
+        run: node scripts/check-social-webmentions.mjs
+
       - name: Fetch webmentions
         env:
           WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
@@ -78,6 +82,9 @@ jobs:
       - name: Test Buttondown publishing
         run: node --test scripts/test-buttondown.mjs
 
+      - name: Test social webmentions
+        run: node --test scripts/test-social-webmentions.mjs
+
       # .cache/ holds the last good webmentions.json and the outbound sent-log. A fresh key per run
       # always saves; restore-keys picks the newest. If webmention.io is down, the restored copy is
       # used, so an outage never blanks the responses on the live site.
@@ -87,6 +94,12 @@ jobs:
           path: .cache
           key: webmentions-${{ github.run_id }}-${{ github.run_attempt }}
           restore-keys: webmentions-
+
+      - name: Check social posts for webmentions
+        id: social
+        continue-on-error: true
+        timeout-minutes: 10
+        run: node scripts/check-social-webmentions.mjs
 
       - name: Fetch webmentions
         id: wm
@@ -229,7 +242,7 @@ jobs:
           echo "Visit: https://$XMIT_SITE";
 
       - name: Report webmention fetch failure
-        if: always() && steps.wm.outcome == 'failure'
+        if: always() && (steps.wm.outcome == 'failure' || steps.social.outcome == 'failure')
         run: |
-          echo "::error::Webmention fetch failed; the previous cache was retained. See the fetch step."
+          echo "::error::Webmention check or fetch failed; see the earlier steps."
           exit 1

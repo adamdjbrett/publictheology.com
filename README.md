@@ -35,10 +35,11 @@ Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.
 
 - **Setup (once)**: sign in at webmention.io as `publictheology.com`, copy the API key from Settings, and add it as the repo secret `WEBMENTION_IO_TOKEN`.
 - **Display**: each main/master push and a check every 6 hours fetches mentions into `.cache/webmentions.json`; scheduled runs rebuild only when mentions change. Other branch and tag pushes fetch using the default branch's script without deploying or updating the production cache. The pushed ref must contain this workflow for GitHub to run it.
+- **Social links**: each push, scheduled check, and manual run scans the last 30 days of public posts by `adjb.co` on Bluesky and `@adjb@hcommons.social` on Mastodon. Missing links to this site are submitted to webmention.io using Bridgy Fed's representations; processing is verified before fetching. Up to 20 pages per account are scanned, with an explicit failure if that limit is reached within the 30-day window.
 - **Failures**: a missing token, network error, or suspicious drop in mentions fails the Actions run. Push deployments still use the last cached mentions; scheduled runs skip deployment on a failed fetch. Local builds without a token use the cache or no mentions. GitHub queues up to 100 pending runs per ref.
 - **Sending**: each main/master push sends webmentions for new, edited and deleted posts to Bridgy Fed (required for bridging; for a deleted post it removes the bridged copy) and to linked sites that accept them. Failures show as warnings in the Actions run summary.
 - **Backfill**: all past mentions webmention.io holds are fetched every time. To notify sites linked from older posts without re-bridging them: list their URLs in a file, `npm run build`, then `node scripts/send-webmentions.mjs urls.txt --skip-bridgy --dry-run` (drop `--dry-run` to send).
-- **Test**: `npm run test:webmentions`.
+- **Test**: `npm run test:webmentions` and `node --test scripts/test-social-webmentions.mjs`.
 
 ## Content & Editing
 

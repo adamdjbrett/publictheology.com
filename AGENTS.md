@@ -105,19 +105,24 @@ unqualified `latest` tag.
   A cron run every 6 h rebuilds and redeploys only if the mentions changed. Pushes to other branches
   and tags check the default branch's fetch script without deploying or saving the cache.
   `.cache/` persists between deploy runs via `actions/cache`.
+- **Social links**: `scripts/check-social-webmentions.mjs` scans 30 days of public posts by
+  `adjb.co` and `@adjb@hcommons.social` on each push and scheduled/manual deploy. It submits missing
+  mentions through Bridgy Fed's web representations and waits for webmention.io verification before
+  fetching; the restored mention cache deduplicates sends. A feed exceeding 20 pages fails visibly.
 - **Send**: push runs only. `scripts/send-webmentions.mjs changed-urls.txt` mentions
   `https://fed.brid.gy/` for every new/edited/deleted post (Bridgy Fed is webmention-only: no
   webmention, no bridging; a webmention for a 404 URL deletes the bridged copy) and any linked site
   that advertises an endpoint; sent-log `.cache/webmention-sent.json`. A post missing from `_site/`
   is treated as deleted. Fetches/POSTs refuse private, loopback, link-local and CGNAT addresses and
   re-check every redirect hop. Failures print `::warning::` and go to the job summary.
-  Use `--dry-run` locally. Scheduled/manual runs never send webmentions or IndexNow pings.
+  Use `--dry-run` locally. Scheduled/manual runs do not send these outbound announcements or IndexNow pings.
 - **Fetch guard**: if webmention.io returns 0 mentions (or loses >50%) while the cache has some,
   the fetch keeps the old cache and exits 1 (a wrong token/domain returns 200 + `[]`).
   `WEBMENTION_ALLOW_SHRINK=1` accepts a deliberate big drop.
 - **Avatars** are shown only from `AVATAR_HOSTS` in `src/_data/webmentions.js` (https only).
 - **Checks**: `npm run build` ends with `scripts/check-webmention-setup.mjs`;
-  `npm run test:webmentions` renders a hostile fixture (`scripts/fixtures/`) into `.cache/wm-test`.
+  `npm run test:webmentions` renders a hostile fixture (`scripts/fixtures/`) into `.cache/wm-test`;
+  `node --test scripts/test-social-webmentions.mjs` exercises social discovery and submission.
 - Mention content is untrusted: never render it with `| safe`.
 - **Known limits**: GitHub queues at most 100 pending runs per ref; additional runs are cancelled.
   The Bridgy Fed POST does not first check the deployed page is live (xmit propagation).
