@@ -100,8 +100,11 @@ unqualified `latest` tag.
 - **Display**: the deploy workflow runs `npm run webmentions:fetch` (needs repo secret
   `WEBMENTION_IO_TOKEN`) → gitignored `.cache/webmentions.json` → `src/_data/webmentions.js`
   (sanitises to plain text + http(s) URLs) → `partials/webmentions.njk` under each post.
-  No token / no network = no mentions, build still passes. A cron run every 6 h rebuilds and
-  redeploys only if the mentions changed. `.cache/` persists between runs via `actions/cache`.
+  Local builds without a token use the cache or no mentions. A failed CI fetch retains the previous
+  cache and fails the run after any push deployment; scheduled runs skip deployment on failure.
+  A cron run every 6 h rebuilds and redeploys only if the mentions changed. Pushes to other branches
+  and tags check the default branch's fetch script without deploying or saving the cache.
+  `.cache/` persists between deploy runs via `actions/cache`.
 - **Send**: push runs only. `scripts/send-webmentions.mjs changed-urls.txt` mentions
   `https://fed.brid.gy/` for every new/edited/deleted post (Bridgy Fed is webmention-only: no
   webmention, no bridging; a webmention for a 404 URL deletes the bridged copy) and any linked site
@@ -116,9 +119,8 @@ unqualified `latest` tag.
 - **Checks**: `npm run build` ends with `scripts/check-webmention-setup.mjs`;
   `npm run test:webmentions` renders a hostile fixture (`scripts/fixtures/`) into `.cache/wm-test`.
 - Mention content is untrusted: never render it with `| safe`.
-- **Known limits**: two quick pushes can queue, and the newer pending run replaces the older one,
-  so edits made only in the replaced push are not re-sent (new posts are still caught by the feed
-  diff). The Bridgy Fed POST does not first check the deployed page is live (xmit propagation).
+- **Known limits**: GitHub queues at most 100 pending runs per ref; additional runs are cancelled.
+  The Bridgy Fed POST does not first check the deployed page is live (xmit propagation).
   The SSRF check and the request resolve DNS separately (rebinding window; CI-only, accepted).
 
 ## Caching

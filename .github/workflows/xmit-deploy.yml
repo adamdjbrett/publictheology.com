@@ -2,7 +2,6 @@ name: Deploy Eleventy to XMIT
 
 on:
   push:
-    branches: ["main", "master"]
   # Rebuild with fresh webmentions (likes/replies/reposts) without a content push.
   # Scheduled and manual runs never send webmentions or IndexNow pings; only pushes do.
   schedule:
@@ -17,15 +16,47 @@ on:
 
 concurrency:
   group: deploy-xmit-${{ github.ref }}
-  # Queue instead of cancel: a cancelled push run could die after deploy but before sending its
-  # webmentions, and the next run would see those posts as already live and never announce them.
-  cancel-in-progress: false
+  # Keep up to 100 pending runs instead of replacing the previous pending push.
+  queue: max
 
 permissions:
   contents: read
 
 jobs:
+  check-webmentions:
+    # Other refs are checked without deploying their content to the production site.
+    if: github.event_name == 'push' && github.ref != 'refs/heads/main' && github.ref != 'refs/heads/master'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout default branch
+        uses: actions/checkout@v6
+        with:
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v6
+        with:
+          node-version-file: .nvmrc
+
+      - name: Restore webmention cache
+        uses: actions/cache/restore@v6
+        with:
+          path: .cache
+          key: webmentions-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: webmentions-
+
+      - name: Fetch webmentions
+        env:
+          WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
+        run: |
+          if [ -z "$WEBMENTION_IO_TOKEN" ]; then
+            echo "::error::WEBMENTION_IO_TOKEN is not set; cannot check webmentions."
+            exit 1
+          fi
+          node scripts/fetch-webmentions.mjs
+
   deploy:
+    if: github.event_name != 'push' || github.ref == 'refs/heads/main' || github.ref == 'refs/heads/master'
     runs-on: ubuntu-latest
     env:
       XMIT_SITE: publictheology.com@402
@@ -63,6 +94,10 @@ jobs:
         env:
           WEBMENTION_IO_TOKEN: ${{ secrets.WEBMENTION_IO_TOKEN }}
         run: |
+          if [ -z "$WEBMENTION_IO_TOKEN" ]; then
+            echo "::warning::WEBMENTION_IO_TOKEN is not set; using cached webmentions."
+            exit 1
+          fi
           # The file carries a fetch timestamp, so compare only the mentions themselves.
           digest() { jq -cS .children .cache/webmentions.json 2>/dev/null | sha256sum || true; }
           before=$(digest)
@@ -192,3 +227,9 @@ jobs:
         run: |
           echo "Deployment attempt finished for $XMIT_SITE";
           echo "Visit: https://$XMIT_SITE";
+
+      - name: Report webmention fetch failure
+        if: always() && steps.wm.outcome == 'failure'
+        run: |
+          echo "::error::Webmention fetch failed; the previous cache was retained. See the fetch step."
+          exit 1
