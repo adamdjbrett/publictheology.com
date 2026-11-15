@@ -7,7 +7,7 @@ import { publicPostTags } from "../_config/taxonomy.js";
 assert.deepEqual(publicPostTags({ tags: ["posts", "public-theology", { name: "pages" }, { name: "faith" }] }), ["public-theology", { name: "faith" }]);
 assert.deepEqual(publicPostTags({ tags: "faith" }), ["faith"]);
 
-const output = "_site";
+const output = process.argv[2] || "_site";
 const files = (root) => readdirSync(root, { recursive: true })
 	.filter((name) => statSync(join(root, name)).isFile());
 const htmlFiles = files(output).filter((name) => name.endsWith(".html"));
@@ -19,6 +19,10 @@ const required = [
 for (const name of required) {
 	if (!existsSync(join(output, name))) throw new Error(`Missing required output: /${name}`);
 }
+for (const name of ["feed.xml", "feed/feed.rss"]) {
+	assert.doesNotMatch(readFileSync(join(output, name), "utf8"), /<\?xml-stylesheet\b/i, `${name}: unexpected XML stylesheet`);
+}
+assert.deepEqual(files(output).filter((name) => /\.xslt?$/i.test(name)), [], "XSLT files must not be published");
 for (const name of readdirSync("src/posts").filter((name) => name.endsWith(".md"))) {
 	const slug = basename(name, ".md").replace(/^\d{4}-\d{2}-\d{2}-/, "");
 	const draft = /^published:\s*false\b/m.test(readFileSync(join("src/posts", name), "utf8"));

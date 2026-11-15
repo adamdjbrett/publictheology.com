@@ -5,11 +5,19 @@ primary:
     url: /latest/
   - label: About
     url: /about/
+  - label: Authors
+    url: /authors/ 
 secondary:
   - label: About
     url: /about/
+  - label: Authors
+    url: /authors/
   - label: Contact
     url: /contact/
+  - label: Latest
+    url: /latest/
+  - label: About
+    url: /about/
   - label: Newsletter
     url: /newsletter/
   - label: RSS

@@ -28,6 +28,7 @@ npm run build
 ```
 
 The build runs Pagefind indexing and verifies the output. Commits to `main` deploy via GitHub Actions to xmit.co.
+The Atom and RSS feeds are served as plain XML without XSLT styling.
 
 ## Webmentions
 

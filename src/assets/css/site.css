@@ -87,6 +87,24 @@
 /* WCAG AA: the theme's #999 secondary text is 2.8:1 on white; #6b6b6b is 5.3:1 (dark mode remaps it). */
 :root{--color-secondary-text:#6b6b6b}
 
+@media (max-width: 767px) {
+	.home-template .gh-topic-grid .gh-card:not(.large) .gh-card-footer {
+		display: flex;
+		align-items: baseline;
+	}
+
+	.home-template .gh-topic-grid .gh-card:not(.large) .gh-card-author {
+		display: inline-block;
+		min-width: 0;
+		overflow-wrap: anywhere;
+	}
+
+	.home-template .gh-topic-grid .gh-card:not(.large) .gh-card-date {
+		flex-shrink: 0;
+		white-space: nowrap;
+	}
+}
+
 .gh-skip-link {
 	position: fixed;
 	top: 0;
