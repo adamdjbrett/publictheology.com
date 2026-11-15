@@ -181,8 +181,20 @@ jobs:
             echo "XMIT site/domain not provided. Set repo Variable 'XMIT_SITE' or pass 'site' input." >&2
             exit 1
           fi
-          echo "Deploying _site to $XMIT_SITE via XMIT CLI";
-          npx -y @xmit.co/xmit "$XMIT_SITE" _site || { echo 'XMIT deploy failed' >&2; exit 1; }
+          echo "Deploying _site to $XMIT_SITE via XMIT CLI"
+          deploy_log=$(mktemp)
+          trap 'rm -f "$deploy_log"' EXIT
+          for attempt in 1 2 3; do
+            if npx -y @xmit.co/xmit "$XMIT_SITE" _site 2>&1 | tee "$deploy_log"; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ] || ! grep -Fq 'tls: bad record MAC' "$deploy_log"; then
+              echo 'XMIT deploy failed' >&2
+              exit 1
+            fi
+            echo "::warning::XMIT TLS connection failed; retrying deployment (attempt $((attempt + 1))/3)."
+            sleep "$((attempt * 15))"
+          done
 
       # Cloudflare edge-caches everything (src/public/xmit.toml sets s-maxage=1y), so purge it
       # right after every deploy — before the Bridgy Fed/webmention sends below, which make
