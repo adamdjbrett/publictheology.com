@@ -31,6 +31,23 @@ The build runs Pagefind indexing and verifies the output. Commits to `main` depl
 An XMIT TLS `bad record MAC` error is retried up to twice; if deployment still fails, rerun the failed workflow.
 The Atom and RSS feeds are served as plain XML without XSLT styling.
 
+## Cross-origin access (CORS)
+
+The XMIT deployment adds `Access-Control-Allow-Origin: *` to all public responses via
+`src/public/xmit.toml`. Third-party websites can read the site's HTML, feeds,
+Pagefind search files, and static assets using non-credentialed browser requests.
+Wildcard CORS does not permit requests carrying credentials and does not
+automatically enable preflighted requests that require `OPTIONS`.
+
+After deployment (and the Cloudflare cache purge), confirm the live headers:
+
+```bash
+curl -sSI -H 'Origin: https://example.org' https://publictheology.com/ | grep -i '^access-control-allow-origin:'
+curl -sSI -H 'Origin: https://example.org' https://publictheology.com/feed.xml | grep -i '^access-control-allow-origin:'
+```
+
+Both should report `access-control-allow-origin: *`.
+
 ## Webmentions
 
 Replies, likes and reposts from Mastodon, Bluesky (via [Bridgy Fed](https://fed.brid.gy/docs)) and other sites arrive at [webmention.io](https://webmention.io) and are shown under each post.

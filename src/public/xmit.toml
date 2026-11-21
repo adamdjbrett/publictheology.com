@@ -1,3 +1,10 @@
+# Allow any third-party website to fetch public pages, feeds, and assets.
+# No "on" restriction: XMIT applies this header to every response path.
+# Wildcard CORS supports non-credentialed requests only.
+[[headers]]
+name = "Access-Control-Allow-Origin"
+value = "*"
+
 # Bluesky handle verification for the Bridgy Fed account (@publictheology.com).
 [[headers]]
 name = "Content-Type"
