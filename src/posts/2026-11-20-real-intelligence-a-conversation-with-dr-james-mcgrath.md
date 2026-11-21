@@ -6,8 +6,7 @@ description: "Conversation with Dr James McGrath about his book Real
 image: /assets/images/real-intelligence-book-cover-with-corrected-name-1-768x768.png
 image_alt: Book cover. Left half of the image shows a microchip in blue. The
   right half of the image shows a neuron in orange
-image_caption: Book Cover from [<i>Real
-  Intelligence</i>](https://pressbooks.palni.org/realintelligence/)
+image_caption: 'Book Cover from <a href="https://pressbooks.palni.org/realintelligence/"><em>Real Intelligence</em></a>'
 authors:
   - brian-bennett
 categories:
