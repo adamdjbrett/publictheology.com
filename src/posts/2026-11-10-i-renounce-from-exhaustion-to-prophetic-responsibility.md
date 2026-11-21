@@ -19,7 +19,7 @@ published: true
 
 Sermon prompting this reflection: [Watch the "I Renounce" sermon by Rev. Dr. Jamal H. Bryant on YouTube](https://www.youtube.com/watch?v=nvCDAOZsTA8).[^1]
 
-<iframe src="https://www.youtube-nocookie.com/embed/nvCDAOZsTA8" title="Dr. Jamal Harrison Bryant’s sermon prompting this reflection" width="560" height="315" style="width: 100%; height: auto; aspect-ratio: 16 / 9; border: 0;" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+<div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/nvCDAOZsTA8" title="Dr. Jamal Harrison Bryant’s sermon prompting this reflection" width="560" height="315" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe></div>
 
 ## Sleep cannot resolve this weariness.
 
