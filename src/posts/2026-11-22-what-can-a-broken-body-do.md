@@ -40,7 +40,7 @@ My classmates and instructors are pushing me to be a better pastor and student t
 
 We’re far from the generative unity in our diversity that Jesus prayed for us, “that they may all be one” (John 17:21). But [Willie James Jennings](https://divinity.yale.edu/profile/willie-james-jennings)' significant portfolio consistently demonstrates there’s a most important place to begin. Jennings had a student ask, “How can we acknowledge and celebrate race beyond skin color, that is, how can we celebrate ethnic diversity without focusing on race as color?” Jennings replied,
 
-> [C]elebration begins by learning histories and knowing stories … to live with those who tell them and to be a part of their lives… The goal is that you know my story. Learn my story. Cherish my story. Remember my story. Never take it from me. Never steal it from me, but learn to live in it with me and together be schooled by it. And I will do the same for you (Jennings,  2019, 44:41-46:21).
+> *[C]elebration begins by learning histories and knowing stories … to live with those who tell them and to be a part of their lives… The goal is that you know my story. Learn my story. Cherish my story. Remember my story. Never take it from me. Never steal it from me, but learn to live in it with me and together be schooled by it. And I will do the same for you* (Jennings,  2019, 44:41-46:21).
 
 
 
