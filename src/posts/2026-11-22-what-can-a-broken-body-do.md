@@ -58,7 +58,7 @@ Jennings’ guidance gives us more healing art. That’s the way I want my ecume
 
 References
 
-Cook, James W., and Rita Chin. 2024. “history labs: building a more effective case for the power and efficacy of humanistic training.” In *The Routledge Companion to Public Humanities Scholarship,* edited by Daniel Fisher-Livne and Michelle May-Curry. Abingdon.
+Cook, James W., and Rita Chin. 2024. “History Labs: Building a More Effective Case for the Power and Efficacy of Humanistic Training.” In *The Routledge Companion to Public Humanities Scholarship,* edited by Daniel Fisher-Livne and Michelle May-Curry. Abingdon.
 
 
 
